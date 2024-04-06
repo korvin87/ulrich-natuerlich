@@ -1,0 +1,14 @@
+html, body { height: 95% }
+.clear{clear:both; line-height:0px; height:0px;}
+
+.docheader-funcmenu select{ color: #000;}
+
+.tx-abavo-module .control #updateindex.inactive{display:none;}
+.tx-abavo-module .control #animation{display:none;}
+.tx-abavo-module .control #animation.active{display:block;}
+
+.tx-abavo-module .hidden{display:none;}
+.tx-abavo-module fieldset legend{ font-size:120%; }
+.tx-abavo-module .filter-option{ float:left; margin: 5px 10px;}
+.tx-abavo-module .filter-option label{ font-weight: bold;}
+.tx-abavo-module table {font-size:100%;}

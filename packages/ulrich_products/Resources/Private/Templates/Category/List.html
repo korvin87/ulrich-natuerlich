@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-namespace-typo3-fluid="true"
+      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+      f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+    <f:if condition="{categories}">
+        <f:form pageUid="{settings.productPiPid}" controller="Product" action="list" arguments="{category:categories.0.uid}" class="arrow-list arrow-list--light-style arrow-list--big">
+            <f:form.hidden name="branch" value="{settings.pageData.uid}" />
+            <ul role="menu">
+                <f:for each="{categories}" as="category">
+                    <li role="menuitem">
+                        <button type="submit" formaction="{f:uri.action(pageUid:settings.productPiPid, controller:'Product', action:'list', arguments:'{category:category}')}">{category.title}</button>
+                    </li>
+                </f:for>
+            </ul>
+        </f:form>
+    </f:if>
+</html>

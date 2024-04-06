@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default"/>
+
+    <f:section name="main">
+        <f:if condition="{isCustomerEmail}">
+            <!-- CUSTOMER-EMAIL -->
+        </f:if>
+        
+        <f:alias map="{langFile: 'LLL:EXT:abavo_form/Resources/Private/Language/locallang.xlf:'}">
+
+            <f:format.htmlentitiesDecode><f:translate key="{langFile}Form.intro.text"/></f:format.htmlentitiesDecode>
+            <f:format.htmlentitiesDecode><f:translate key="{langFile}Form.data.label"/></f:format.htmlentitiesDecode>
+
+            <table>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.salutation"/></td>
+                    <td class="value"><f:translate key="{langFile}{form.salutation}"/></td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.firstname"/></td>
+                    <td class="value">{form.firstname}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.lastname"/></td>
+                    <td class="value">{form.lastname}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.company"/></td>
+                    <td class="value">{form.company}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.phone"/></td>
+                    <td class="value">{form.phone}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.email"/></td>
+                    <td class="value">{form.email}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.address"/></td>
+                    <td class="value">{form.address}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.zip"/>, <f:translate key="{langFile}Form.city"/></td>
+                    <td class="value">{form.zip}, {form.city}</td>
+                </tr>
+                <f:if condition="{form.countryZone}">
+                    <tr>
+                        <td class="label"><f:translate key="{langFile}Form.countryZone"/></td>
+                        <td class="value">{form.countryZone.localName}</td>
+                    </tr>
+                </f:if>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.country"/></td>
+                    <td class="value">{form.country.officialNameLocal}</td>
+                </tr>
+                <f:if condition="{form.description}">
+                    <tr>
+                        <td class="label" colspan="2"><f:translate key="{langFile}Form.description.email"/></td>
+                    </tr>
+                    <tr>
+                        <td class="value" colspan="2">{form.description}</td>
+                    </tr>
+                </f:if>
+                <f:if condition="{form.media.identifier}">
+                    <tr>
+                        <td class="label" colspan="2"><f:translate key="{langFile}Form.media"/></td>
+                    </tr>
+                    <tr>
+                        <td class="value" colspan="2">
+                            
+                            <f:link.typolink parameter="{f:cObject(typoscriptObjectPath:'lib.siteUrl')}uploads/tx_abavoform/{form.media.identifier}.{form.media.extension}">
+                                {form.media.name} ({form.media.size -> f:format.bytes()})
+                            </f:link.typolink>
+                        </td>
+                    </tr>
+                </f:if>
+            </table>
+
+            <!-- FOOTER -->
+            <f:render partial="Footer" />
+        </f:alias>
+    </f:section>
+</html>

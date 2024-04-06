@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd" xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+	<f:layout name="Backend"/>
+
+	<f:section name="main">
+
+		<f:be.container
+			includeCssFiles="{0:'{f:uri.resource(path:\'Css/Backend.css\')}'}"
+            includeJsFiles="{
+                0:'https://code.jquery.com/jquery-3.3.1.min.js',
+                1:'{f:uri.resource(path:\'Js/Backend.js\')}'
+            }"
+			/>
+
+		<h1><f:translate key="module.header"/></h1>
+		<h2><f:translate key="module.action.index"/></h2>
+		<hr>
+		<f:flashMessages />
+
+		<f:if condition="{pageInfo.uid}">
+			<h3>
+                <f:translate key="module.overview.index"/>
+                <f:if condition="{searchStoragesLinks}">
+                    <select onchange="window.location = this.value;">
+                        <option value="{f:uri.action(action:'overview')}">&ndash;</option>
+                    <f:for each="{searchStoragesLinks}" as="link">
+                        <option value="{link.uri}" {f:if(condition:link.isCurrentPage, then:'selected="selected"')}>{link.title} [PID: {link.uid}]</option>
+                    </f:for>
+                    </select>
+                </f:if>
+            </h3>
+
+			<table border="0" cellpadding="0" cellspacing="0" class="table typo3-dblist" style="width:800px; border-collapse:separate;">
+				<thead>
+					<tr class="t3-row-header">
+						<th nowrap="nowrap" class="col-icon"></th>
+						<th nowrap="nowrap" class="" colspan="5">
+							<span class="c-table">Indexer</span>
+							<f:if condition="{indexingProgress.youngestIndex}">
+								<span style="float:right"><f:translate key="module.index.lastupdate"/>: <f:format.date format="d.m.Y - H:i:s">{indexingProgress.youngestIndex.tstamp}</f:format.date></span>
+							</f:if>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="c-headLine"><td></td>
+						<td nowrap="nowrap" class="col-icon"></td>
+						<td nowrap="nowrap" class="col-title"><f:translate key="tx_abavosearch_domain_model_indexer.title"/></td>
+					<td nowrap="nowrap" class="">&nbsp;</td>
+					<td nowrap="nowrap" class=""><f:translate key="tx_abavosearch_domain_model_indexer.type"/></td>
+					<td nowrap="nowrap" class=""><f:translate key="tx_abavosearch_domain_model_indexer.count"/></td>
+					</tr>
+
+					<f:for each="{indexers}" as="indexer">
+						<tr class="db_list_normal lastcol"><td></td>
+							<td nowrap="nowrap" class="col-icon">
+								<core:icon identifier="indexer-abavo_search" />
+							</td>
+
+							<td nowrap="nowrap" class="col-title">{indexer.obj.title}</td>
+							<td nowrap="nowrap" class="">&nbsp;</td>
+							<td nowrap="nowrap" class="">{indexer.obj.type}</td>
+							<td nowrap="nowrap" class="">{indexer.count}</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+
+			<f:if condition="{beUser.admin}">
+				<f:if condition="{indexers}">
+					<div class="control">
+
+						<f:link.action action="updateindex" controller="Backend" id="updateindex" class="{f:if(condition:'{indexingProgress.active}', then:'inactive')}"
+									   additionalAttributes="{data-refreshurl:'{f:uri.action(action:\"indexingstate\",noCacheHash:\"1\")}'}">
+							<button><core:icon identifier="update-abavo_search" /> <f:translate key="module.action.updateindex"/></button>
+						</f:link.action>
+
+						<div id="animation" class="{f:if(condition:'{indexingProgress.active}', then:'active')}">
+							<img src="{f:uri.resource(path:'Icons/spinner.gif')}" />&nbsp;<span><f:translate key="module.index.progressmessage"/> </span>
+							<f:if condition="{indexingProgress.timestamp}">
+								<span> (Start: <f:format.date format="d.m.Y - H:i:s">{indexingProgress.timestamp}</f:format.date>)</span>
+							</f:if>
+						</div>
+					</div>
+
+					<f:if condition="{indexingProgress.active}">
+						<script>getIndexingProgressState('<f:uri.action action="indexingstate" />', false);</script>
+					</f:if>
+				</f:if>
+			</f:if>
+		</f:if>
+
+	</f:section>
+</div>

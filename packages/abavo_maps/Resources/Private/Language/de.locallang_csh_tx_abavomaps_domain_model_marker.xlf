@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-07-22T06:57:56Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="description.description" approved="yes" xml:space="preserve">
+			<source>Description</source>
+			<target>Beschreibung</target>
+		</trans-unit>
+		<trans-unit id="fulladdress.description" approved="yes" xml:space="preserve">
+			<source>Fulladress</source>
+			<target>Vollständige Adresse</target>
+		</trans-unit>
+		<trans-unit id="latitude.description" approved="yes" xml:space="preserve">
+			<source>Latitude</source>
+			<target>Breitengrad</target>
+		</trans-unit>
+		<trans-unit id="longitude.description" approved="yes" xml:space="preserve">
+			<source>Longitude</source>
+			<target>Längengrad</target>
+		</trans-unit>
+		<trans-unit id="pinicon.description" approved="yes" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+			<target>Marker Symbol (optional)</target>
+		</trans-unit>
+		<trans-unit id="title.description" approved="yes" xml:space="preserve">
+			<source>Titel</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="url.description" approved="yes" xml:space="preserve">
+			<source>Marker Link (optional: If set, don´t show description on clicking marker and refer to link source)</source>
+			<target>Marker Link (optional: Wenn gesetzt, zeigt nicht die Beschreibung beim klicken des Markers an, sondern leitet auf den Ziel-Link weiter.)</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

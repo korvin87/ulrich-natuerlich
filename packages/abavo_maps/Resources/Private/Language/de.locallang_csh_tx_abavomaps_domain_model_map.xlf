@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-07-22T06:59:29Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="height.description" approved="yes" xml:space="preserve">
+			<source>Height</source>
+			<target>Höhe</target>
+		</trans-unit>
+		<trans-unit id="markers.description" approved="yes" xml:space="preserve">
+			<source>Marker (current PID)</source>
+			<target>Marker (aktuelle PID)</target>
+		</trans-unit>
+		<trans-unit id="pancontrol.description" approved="yes" xml:space="preserve">
+			<source>Controls</source>
+			<target>Steuerelemente</target>
+		</trans-unit>
+		<trans-unit id="pinicon.description" approved="yes" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+			<target>Marker Symbol (optional)</target>
+		</trans-unit>
+		<trans-unit id="scalecontrol.description" approved="yes" xml:space="preserve">
+			<source>Scaling control</source>
+			<target>Skalierungskontrolle</target>
+		</trans-unit>
+		<trans-unit id="title.description" approved="yes" xml:space="preserve">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="width.description" approved="yes" xml:space="preserve">
+			<source>Width</source>
+			<target>Breite</target>
+		</trans-unit>
+		<trans-unit id="zoom.description" approved="yes" xml:space="preserve">
+			<source>Zoom</source>
+			<target>Zoom</target>
+		</trans-unit>
+		<trans-unit id="zoomcontrol.description" approved="yes" xml:space="preserve">
+			<source>Zoom control</source>
+			<target>Zoom Kontrolle</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

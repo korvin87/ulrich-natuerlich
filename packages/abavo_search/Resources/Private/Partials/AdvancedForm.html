@@ -1,0 +1,111 @@
+{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+<fieldset class="advanced-form">
+	<legend><i class="fa fa-filter"></i> <f:translate key="advancedForm.header"/></legend>
+	
+	<!-- CHECK-ALL -->
+	<div class="righttop-wrap">
+		<input type="checkbox" id="checkall">
+		<i class="fa fa-check-square-o"></i> <label for="checkall" id="checkall-label"><f:translate key="advancedForm.checkall"/></label>
+	</div>
+    
+	<!-- SEARCHSERVICES -->
+    <f:if condition="{settings.advancedFormFacetSearchService}">
+        <div class="facte-group">
+            <f:if condition="{facets.searchService.multiServiceSearch}">
+                <h3 class="facet-group-title"><f:translate key="advancedForm.searchService"/></h3>
+                <ul class="facet-group-items searchservice">
+                    <f:for each="{facets.searchService.items}" key="searchServiceHash" as="searchService" iteration="i">
+                        <li class="facet-item">
+                        <input class="facet-check" id="facet-{searchServiceHash}" type="checkbox" name="tx_abavosearch_piresults[facets][searchServices][]" value="{searchServiceHash}"
+                            <f:if condition="{search}">
+                                <f:then><f:if condition="{vh:InList(needle:searchServiceHash, haystack:formFacets.searchServices)}">checked="checked"</f:if></f:then>
+                                <f:else>checked="checked"</f:else>
+                            </f:if>>
+                        <label for="facet-{searchServiceHash}">{searchService}</label>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </div>
+    </f:if>
+	
+	<!-- INDEXTYPES -->
+    <f:if condition="{settings.advancedFormFacetIndexer}">
+        <div class="facte-group">
+            <h3 class="facet-group-title"><f:translate key="advancedForm.indexerType"/></h3>
+            <f:groupedFor each="{facets.indexers}" as="indexerGroup" groupBy="type" groupKey="indexerType">
+                <ul class="facet-group-items {indexerType}">
+                    <f:for each="{indexerGroup}" as="indexer">
+                        <li class="facet-item">
+                        <input class="facet-check" id="facet-{indexer.type}" type="checkbox" name="tx_abavosearch_piresults[facets][indexers][]" value="{indexer.uid}"
+                            <f:if condition="{search}">
+                                <f:then><f:if condition="{vh:InList(needle:indexer.uid, haystack:formFacets.indexers)}">checked="checked"</f:if></f:then>
+                                <f:else>checked="checked"</f:else>
+                            </f:if>>
+                        <label for="facet-{indexer.type}">{indexer.locale}</label>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:groupedFor>
+        </div>
+    </f:if>
+
+	<!-- CATEGORIES -->
+    <f:if condition="{settings.advancedFormFacetCategory}">
+        <f:for each="{facets.categories}" as="categories" key="parent">
+            <div class="facte-group">
+                <h3 class="facet-group-title">{parent}</h3>
+                <ul class="facet-group-items">
+                    <f:for each="{categories}" as="category">
+                        <li class="facet-item">
+                        <input class="facet-check" id="facet-{category.uid}" type="checkbox" name="tx_abavosearch_piresults[facets][categories][]" value="{category.uid}"
+                            <f:if condition="{vh:InList(needle:category.uid, haystack:formFacets.categories)}">checked="checked"</f:if>>
+                        <label for="facet-{category.uid}">{category.title}</label>
+                        </li>
+                    </f:for>
+                </ul>
+            </div>
+        </f:for>
+    </f:if>
+    
+    <hr class="clear">
+	
+	<!-- length -->
+    <f:if condition="{settings.advancedFormOptionsPerPage}">
+        <div class="left-wrap">
+            <select id="select-length" class="submitOnChange" {f:if(condition:'{search}',else:'disabled="disabled"')} name="tx_abavosearch_piresults[length]">
+                <f:for each="{length.options}" as="option">
+                    <option value="{option}" <f:if condition="{length.selected} == {option}">selected="selected"</f:if>>{option}</option>
+                </f:for>
+            </select>
+            <label for="select-orderby"><f:translate key="advancedForm.length.label"/></label>
+        </div>
+    </f:if>
+	
+	<!-- SORTING -->
+    <f:if condition="{settings.advancedFormSortingDirection}">
+        <div class="right-wrap">
+            <select id="select-sorting" class="submitOnChange" {f:if(condition:'{search}',else:'disabled="disabled"')} name="tx_abavosearch_piresults[sorting]">
+                <f:for each="{sorting.options}" as="option" key="optionValue">
+                    <option value="{optionValue}" <f:if condition="{sorting.selected} == {optionValue}">selected="selected"</f:if>>{option}</option>
+                </f:for>
+            </select>
+        </div>
+    </f:if>
+
+
+	<!-- ORDER BY -->
+    <f:if condition="{settings.advancedFormOrderBy}">
+        <div class="right-wrap">
+            <i class="fa fa-sort"></i>
+            <label for="select-orderby"><f:translate key="advancedForm.orderby.label"/></label>
+            <select id="select-orderby" class="submitOnChange" {f:if(condition:'{search}',else:'disabled="disabled"')} name="tx_abavosearch_piresults[orderby]">
+                <f:for each="{orderby.options}" as="option" key="optionValue">
+                    <option value="{optionValue}" <f:if condition="{orderby.selected} == {optionValue}">selected="selected"</f:if>>{option}</option>
+                </f:for>
+            </select>
+        </div>
+    </f:if>
+		
+	<div class="clear"></div>
+</fieldset>

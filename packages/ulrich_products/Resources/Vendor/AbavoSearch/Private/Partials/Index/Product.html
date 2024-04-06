@@ -1,0 +1,25 @@
+{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+<f:if condition="{vh:Typolink(parameter:result.target, additionalParams: '{0:result.params}', highlightParam: search, forceAbsoluteUrl: 1, useCacheHash: 1, returnLast: 'url')}">
+	<div id="result-{iterator.cycle}" data-uid="{result.uid}" class="result product{f:if(condition: iterator.isEven, then: ' even')}{f:if(condition: iterator.isOdd, then: ' odd')}{f:if(condition: iterator.isFirst, then: ' first')}{f:if(condition: iterator.isLast, then: ' last')} fontello-icon fontello-pos-before-absolute fontello-icon-file">
+		
+		<div class="result-title h-style h-style-30">
+			<span class="result-nr">{resultCount}.</span>
+			<vh:Typolink parameter="{result.target}" additionalParams="{0:result.params}" highlightParam="{search}" forceAbsoluteUrl="true">
+                <f:format.htmlentitiesDecode><f:format.html parseFuncTSPath="lib.parseFunc_Title">{result.title}</f:format.html></f:format.htmlentitiesDecode>
+            </vh:Typolink>
+		</div>
+		
+		<f:render partial="ScoreBar" arguments="{result:result, search:search}" />
+
+		<div class="result-content">
+			<vh:Teaser content="{result.content} {result.abstract}" maxResultChars="600" arrSWords="{0:search}" synonyms="{synonyms}" />
+		</div>
+
+		<div class="result-url">
+			<f:translate key="search.url" />
+			<vh:Typolink parameter="{result.target}" additionalParams="{0:result.params}" highlightParam="{search}" forceAbsoluteUrl="true">
+				<vh:UrlDecode><vh:Typolink parameter="{result.target}" additionalParams="{0:result.params}" forceAbsoluteUrl="true" returnLast="url" /></vh:UrlDecode>
+			</vh:Typolink>
+		</div>
+	</div>
+</f:if>

@@ -1,0 +1,37 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace vh=TYPO3\AbavoMaps\ViewHelpers}
+<v:asset.script group="osmmap" dependencies="" name="osm_shape_inline" fluid="TRUE" standalone="TRUE">
+	<f:for each="{shapes}" as="shape">
+	
+		<f:if condition="{shape.body} == 'circle'">
+			<f:if condition="{shape.uid} > 0">
+				<f:then>
+					<f:alias map="<vh:JsonDecode data='{shape.config}' />">
+						addCircle2Map(osm_leaflet_map_{parent}, {latitude}, {longitude}, {radius}*1000, "{shape.color}");
+					</f:alias>				
+				</f:then>
+				<f:else>addCircle2Map(osm_leaflet_map_{parent}, {shape.latitude}, {shape.longitude}, {shape.radius}*1000, "{shape.color}");</f:else>
+			</f:if>
+		</f:if>
+		
+		<f:if condition="{shape.body} == 'rectangle'">
+			<f:if condition="{shape.uid} > 0">
+				<f:then>
+					<f:alias map="<vh:JsonDecode data='{shape.config}' />">
+						addRectangle2Map(osm_leaflet_map_{parent}, {latitude}, {longitude}, {latitude_sw}, {longitude_sw}, "{shape.color}");
+					</f:alias>				
+				</f:then>
+				<f:else>addRectangle2Map(osm_leaflet_map_{parent}, {shape.latitude}, {shape.longitude}, {shape.latitudesw}, {shape.longitudesw}, "{shape.color}");</f:else>
+			</f:if>
+		</f:if>
+
+		<f:if condition="{shape.body} == 'polygon'">
+			<f:if condition="{shape.uid} > 0">
+				<f:then>
+					addPolygon2Map(osm_leaflet_map_{parent}, [<f:for each="<vh:JsonDecode data='{shape.config}' />" as="bound" iteration="i">"{bound}"<f:if condition="{i.isLast}"><f:else>,</f:else></f:if></f:for>], "{shape.color}");
+				</f:then>
+				<f:else>addPolygon2Map(osm_leaflet_map_{parent}, [<f:for each="{shape.bounds}" as="bound" iteration="i">"{bound}"<f:if condition="{i.isLast}"><f:else>,</f:else></f:if></f:for>], "{shape.color}");</f:else>
+			</f:if>
+		</f:if>
+	</f:for>
+</v:asset.script>

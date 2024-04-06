@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+	{namespace vh=Abavo\AbavoSearch\ViewHelpers\Be}
+	<f:layout name="Backend"/>
+
+	<f:section name="main">
+
+        <f:be.container
+            includeCssFiles="{0:'{f:uri.resource(path:\'Css/Backend.css\')}', 1:'{f:uri.resource(path:\'Vendor/DataTables-1.10.7/media/css/jquery.dataTables.min.css\')}'}"
+            includeJsFiles="{
+                0:'https://code.jquery.com/jquery-3.3.1.min.js',
+                1:'{f:uri.resource(path:\'Js/Backend.js\')}'
+            }"
+            />
+
+		<h1><f:translate key="module.header"/></h1>
+		<h2><f:translate key="module.action.stats"/> (<f:be.pageInfo />)</h2>
+		<hr>
+		<f:flashMessages />
+
+		<fieldset>
+			<legend>Filter-Options</legend>
+
+			<!-- LANGUAGES FILTER-->
+			<div class="filter-option">
+				<label for="column0_search">Language</label>
+				<select id="column0_search">
+					<option value="">Choose Language</option>
+					<option value="0">Default (0)</option>
+					<f:for each="{languages}" as="lang">
+						<option value="{lang.uid}" data-class="t3-icon t3-icon-flags t3-icon-flags-{lang.flag} t3-icon-{lang.flag}">{lang.title} ({lang.uid})</option>
+					</f:for>
+				</select>
+				<script>
+					var LANGUAGES = [];
+					LANGUAGES[0] = {title:"Default", flag:""};
+					<f:for each="{languages}" as="lang">LANGUAGES[{lang.uid}] = {title:"<f:format.raw>{lang.title}</f:format.raw>", flag:"<f:format.raw>{lang.flag}</f:format.raw>"};</f:for>
+				</script>
+			</div>
+
+			<!-- TYPES FILTER-->
+			<div class="filter-option">
+				<label for="column1_search">Statistic-Type</label>
+				<select id="column1_search">
+					<option value="">Choose Type</option>
+					<option value="expression">Expressions</option>
+					<option value="term">Terms</option>
+					<option value="record">Result Clicks</option>
+				</select>
+			</div>
+			<div class="clear"></div>
+		</fieldset><br>
+
+		<table id="statstable" data-dataurl="{f:uri.action(pageUid:'{pid}',action:'datatable',controller:'Backend')}" class="table dataTable display" cellspacing="0" width="100%" />
+		<thead>
+			<tr>
+				<th>Language</th>
+				<th>Type</th>
+				<th>Value</th>
+				<th>Refid</th>
+				<th>Hits</th>
+				<th>UTC Time</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Language</th>
+				<th>Type</th>
+				<th>Value</th>
+				<th>Refid</th>
+				<th>Hits</th>
+				<th>UTC Time</th>
+			</tr>
+		</tfoot>
+		</table>
+
+	</f:section>
+</div>

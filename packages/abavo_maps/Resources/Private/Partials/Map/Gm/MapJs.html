@@ -1,0 +1,81 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace vh=TYPO3\AbavoMaps\ViewHelpers}
+
+var abavogmapurlPrefix = '{settings.urlPrefix}';
+var clusterImagesPath = '{settings.gmClusterImagesPath}';
+<f:if condition='{settings.mapProperties.styleConfig}'>
+    <f:then>var mapStyles =<f:format.raw>{settings.mapProperties.styleConfig}</f:format.raw></f:then>
+    <f:else>var mapStyles =[];</f:else>
+</f:if>
+
+arrMapConfig[{googlemap.uid}] = new Object();
+arrMapConfig[{googlemap.uid}]['zoom'] = {googlemap.zoom};
+arrMapConfig[{googlemap.uid}]['mapTypeId'] = google.maps.MapTypeId.ROADMAP;
+arrMapConfig[{googlemap.uid}]['panControl'] = {googlemap.pancontrol};
+arrMapConfig[{googlemap.uid}]['zoomControl'] = {googlemap.zoomcontrol};
+arrMapConfig[{googlemap.uid}]['scalecontrol'] = {googlemap.scalecontrol};
+arrMapConfig[{googlemap.uid}]['markerCount'] = 0;
+
+//DEFINE MARKERS
+arrMarkers[{googlemap.uid}] = new Array();
+<f:for each="{googlemap.markers}" as="marker">
+	arrMarkers[{googlemap.uid}][{marker.uid}] = new Object();
+	arrMarkers[{googlemap.uid}][{marker.uid}]['latLng'] = new google.maps.LatLng(<f:if condition="{0:marker.latitude} == {0:''}">0</f:if>{marker.latitude},<f:if condition="{0:marker.longitude} == {0:''}">0</f:if>{marker.longitude});
+	arrMarkers[{googlemap.uid}][{marker.uid}]['location'] = '<f:if condition="{marker.fulladdress}"><f:then>{marker.fulladdress}</f:then><f:else><vh:Addcslashes data="{marker.address} {marker.zip} {marker.city} {marker.country}" /></f:else></f:if>';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['html'] = '<div class="map_content"><b><vh:Addcslashes data="{marker.title}" /></b><br>{marker.fulladdress}<br><vh:Addcslashes data="<f:format.nl2br>{marker.description}</f:format.nl2br>" />';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['title'] = '<f:if condition="{marker.name}"><f:then><vh:Addcslashes data="{marker.name}" /></f:then><f:else><vh:Addcslashes data="{marker.title} {marker.firstName} {marker.lastName}" /></f:else></f:if>';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['url'] = '<f:if condition="{settings.redirectToMarkerURL}"><f:if condition="{marker.url}"><f:then><f:cObject typoscriptObjectPath='lib.tx_abavomaps_link' data="{url: '{marker.url}', uid:'{marker.uid}'}" currentValueKey='url' /></f:then><f:else><f:cObject typoscriptObjectPath='lib.tx_abavomaps_link' data="{url: '{marker.www}', uid:'{marker.uid}'}" currentValueKey='url' /></f:else></f:if></f:if>';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['ukey'] = '<vh:Ukey data="{marker.uid}" />';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['repo'] = '{marker.repo}';
+	arrMarkers[{googlemap.uid}][{marker.uid}]['clickFunction'] = '<f:if condition="{settings.markerClickFunction}">{settings.markerClickFunction}</f:if>';
+	<f:if condition="{googlemap.pinicon}">
+		<f:then>arrMarkers[{googlemap.uid}][{marker.uid}]['pinicon'] = '{pinicon.originalResource.publicUrl -> f:for(each:googlemap.pinicon, as:\'pinicon\')}';</f:then>
+		<f:else>
+			<f:if condition="{marker.pinicon}">
+				<f:then>arrMarkers[{googlemap.uid}][{marker.uid}]['pinicon'] = '{pinicon.originalResource.publicUrl -> f:for(each:marker.pinicon, as:'pinicon')}';</f:then>
+				<f:else>
+					arrMarkers[{googlemap.uid}][{marker.uid}]['pinicon'] = '{settings.markerDefaultIcon}';
+				</f:else>
+			</f:if>
+		</f:else>
+	</f:if>
+</f:for>
+
+// MAKE INFOBUBBLEs
+for (var i in arrMarkers[{googlemap.uid}])
+{
+	<f:if condition='{settings.routing}'>
+        var startAddress = (arrMarkers[{googlemap.uid}][i]['latLng']) ? arrMarkers[{googlemap.uid}][i]['latLng'].lat() +','+ arrMarkers[{googlemap.uid}][i]['latLng'].lng() : arrMarkers[{googlemap.uid}][i]['location'].trim();
+		if (startAddress != ''){
+            arrMarkers[{googlemap.uid}][i]['html'] += '<p><form action="#" onsubmit="calcRoute(this.StartAdresse.value, \''+ startAddress + '\', {googlemap.uid}); return false;">'
+                + '<label for="start_' + {googlemap.uid} + '_'+i+'"><f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelrouting"/> <f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelstart"/>:</label>'
+                + '<input id="start_' + {googlemap.uid} + '_'+i+'" type="text" size="25" placeholder="Bitte einen Ort eingeben" name="StartAdresse" value=""/>'
+                + "<input value='<f:translate key='LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelgo'/>' type='submit'></form></p>";
+		}
+	</f:if>
+	arrMarkers[{googlemap.uid}][i]['html'] += '</div>';
+	arrMarkers[{googlemap.uid}][i]['infowindow_map_{googlemap.uid}'] = new google.maps.InfoWindow({content: arrMarkers[{googlemap.uid}][i]['html'], maxWidth: 250});
+	arrMapConfig[{googlemap.uid}]['markerCount']++;
+}
+
+// CALLBACK (Example)
+/*
+function foo(gmuid, map){
+	console.log('foo',gmuid, map);
+}
+arrInitMapCallbacks[{googlemap.uid}] = new Array('foo');
+*/
+
+// INITIALIZE MAP BASE
+var mapOptions = {
+    zoom: arrMapConfig[{googlemap.uid}]['zoom'],
+    mapTypeId: arrMapConfig[{googlemap.uid}]['mapTypeId'],
+    panControl: arrMapConfig[{googlemap.uid}]['panControl'],
+    zoomControl: arrMapConfig[{googlemap.uid}]['zoomControl'],
+    <f:if condition='{settings.mouseWheelZoom}'><f:else>scrollwheel: false,</f:else></f:if>
+    scaleControl: arrMapConfig[{googlemap.uid}]['scalecontrol'],
+    styles: mapStyles
+};
+
+map_{googlemap.uid} = new google.maps.Map(document.getElementById('abavo-maps-{googlemap.uid}'), mapOptions);
+initMap(map_{googlemap.uid}, mapOptions, {googlemap.uid});

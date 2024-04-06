@@ -1,0 +1,3 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/constants/constants.ts">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/constants/context_development.ts" condition="applicationContext = *Development*">

@@ -1,0 +1,60 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Product Indexer Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.class>
+						<TCEforms>
+							<label>Indexer Class</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getParamsAsFieldList</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="ProductIndexer">Abavo\UlrichProducts\Domain\Model\Product\SearchIndexer</numIndex>
+								</parameters>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.class>
+					<settings.language>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_tca.xlf:sys_language</label>
+							<config>
+								<type>select</type>
+								<renderType>selectCheckBox</renderType>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getSysLanguages</itemsProcFunc>
+								<renderMode>checkbox</renderMode>
+								<maxitems>100</maxitems>
+							</config>
+						</TCEforms>
+					</settings.language>
+					<settings.pages>
+						<TCEforms>
+							<label>Datensätze</label>
+							<!--<displayCond>FIELD:settings.class:=:Abavo\AbavoSearch\Indexers\ExampleIndexer</displayCond>-->
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<show_thumbs>1</show_thumbs>
+								<size>5</size>
+								<maxitems>100</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.pages>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-07-22T07:03:22Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="CType_pimain" approved="yes" xml:space="preserve">
+			<source>abavo Maps</source>
+			<target>abavo Maps</target>
+		</trans-unit>
+		<trans-unit id="pimain_plus_wiz_description" approved="yes" xml:space="preserve">
+			<source>Add a abavo Map-Plugin.</source>
+			<target>Fügen Sie ein abavo Maps-Plugin hinzu.</target>
+		</trans-unit>
+		<trans-unit id="pimain_title" approved="yes" xml:space="preserve">
+			<source>abavo Maps</source>
+			<target>abavo Maps</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map" approved="yes" xml:space="preserve">
+			<source>Map</source>
+			<target>Karte</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.flextitle" approved="yes" xml:space="preserve">
+			<source>Flexform Options</source>
+			<target>Flexform-Optionen</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.height" approved="yes" xml:space="preserve">
+			<source>Height</source>
+			<target>Höhe</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.markers" approved="yes" xml:space="preserve">
+			<source>Markers</source>
+			<target>Marker</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pancontrol" approved="yes" xml:space="preserve">
+			<source>Pan control</source>
+			<target>Steuerelement</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.percent" approved="yes" xml:space="preserve">
+			<source>Percent</source>
+			<target>Prozent</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pinicon" approved="yes" xml:space="preserve">
+			<source>Marker Icon</source>
+			<target>Marker Symbol</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.rendermode" approved="yes" xml:space="preserve">
+			<source>Render mode</source>
+			<target>Anzeigemodus</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.scalecontrol" approved="yes" xml:space="preserve">
+			<source>Scale control</source>
+			<target>Skalierungskontrolle</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.shapes" approved="yes" xml:space="preserve">
+			<source>Shapes</source>
+			<target>Form Objekte</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.storage" approved="yes" xml:space="preserve">
+			<source>abavo Maps Storage</source>
+			<target>abavo Karten Datensatzsammlung</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.title" approved="yes" xml:space="preserve">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.width" approved="yes" xml:space="preserve">
+			<source>Width</source>
+			<target>Breite</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoom" approved="yes" xml:space="preserve">
+			<source>Zoom factor</source>
+			<target>Zoomfaktor</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoomcontrol" approved="yes" xml:space="preserve">
+			<source>Zoom control</source>
+			<target>Zoomkontrolle</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker" approved="yes" xml:space="preserve">
+			<source>Marker</source>
+			<target>Marker</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.description" approved="yes" xml:space="preserve">
+			<source>Description</source>
+			<target>Beschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.fulladdress" approved="yes" xml:space="preserve">
+			<source>Fulladdress</source>
+			<target>Vollständige Adresse</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.geodatatitle" approved="yes" xml:space="preserve">
+			<source>GEOdata</source>
+			<target>GEO Daten</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.latitude" approved="yes" xml:space="preserve">
+			<source>Latitude</source>
+			<target>Breitengrad</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.longitude" approved="yes" xml:space="preserve">
+			<source>Longitude</source>
+			<target>Längengrad</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.pinicon" approved="yes" xml:space="preserve">
+			<source>Marker Icon</source>
+			<target>Marker Symbol</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.title" approved="yes" xml:space="preserve">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.url" approved="yes" xml:space="preserve">
+			<source>URL</source>
+			<target>URL</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape" approved="yes" xml:space="preserve">
+			<source>Shape</source>
+			<target>Form</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.body" approved="yes" xml:space="preserve">
+			<source>Body</source>
+			<target>Typ</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.color" approved="yes" xml:space="preserve">
+			<source>Color</source>
+			<target>Farbe</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.config" approved="yes" xml:space="preserve">
+			<source>Config</source>
+			<target>Konfiguration</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.title" approved="yes" xml:space="preserve">
+			<source>Title</source>
+			<target>Titel</target>
+		</trans-unit>
+		
+		<trans-unit id="ff.mode" xml:space="preserve">
+			<source>PlugIn-Mode</source>
+			<target>PlugIn-Rendering-Modus</target>
+		</trans-unit>
+		<trans-unit id="ff.latitude" xml:space="preserve">
+			<source>Latitude</source>
+			<target>Breitengrad (Optional, wenn keine Marker gesetzt)</target>
+		</trans-unit>
+		<trans-unit id="ff.longitude" xml:space="preserve">
+			<source>Longitude</source>
+			<target>Längengrad (Optional, wenn keine Marker gesetzt)</target>
+		</trans-unit>
+		<trans-unit id="ff.description" xml:space="preserve">
+			<source>Description (Optional)</source>
+			<target>Beschreitung (Optional, wenn keine Marker gesetzt)</target>
+		</trans-unit>
+		<trans-unit id="ff.mapStyleConfig" xml:space="preserve">
+			<source>GoogleMaps Style Config (JSON; optional)</source>
+			<target>GoogleMaps Style Config (JSON; optional) https://mapstyle.withgoogle.com/</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

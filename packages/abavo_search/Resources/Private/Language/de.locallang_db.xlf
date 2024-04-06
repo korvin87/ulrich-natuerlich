@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="tx_abavosearch_domain_model_indexer" approved="yes">
+				<source>Indexer</source> 
+				<target state="translated">Indexer</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.title" approved="yes">
+				<source>Title</source> 
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.target" approved="yes">
+				<source>Target-PID</source> 
+				<target state="translated">Target-PID</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.type" approved="yes">
+				<source>Type</source> 
+				<target state="translated">Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.config" approved="yes">
+				<source>Configuration</source> 
+				<target state="translated">Konfiguration</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_index" approved="yes">
+				<source>Index Record</source> 
+				<target state="translated">Index Datensatz</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_abavosearch_domain_model_synonym" approved="yes">
+				<source>Synonym</source> 
+				<target state="translated">Synonym</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.title" approved="yes">
+				<source>Title</source> 
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.alt">
+				<source>Alternative-Title</source>
+				<target>Ersatz-Alias</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.synonym" approved="yes">
+				<source>Synonyms</source> 
+				<target state="translated">Synonyme (Zeilengetrennt)</target>
+			</trans-unit>
+			
+			<trans-unit id="mod.wizards.newContentElement.pisearch">
+				<source>abavo Search</source>
+				<target>abavo Suche - Suchbox</target>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.pisearch.description">
+				<source>Showing searchbox and filter options.</source>
+				<target>Suchbox und Filter-Optionen</target>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.piresults">
+				<source>abavo Search</source>
+				<target>abavo Suche - Suchergebnisse</target>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.piresults.description">
+				<source>Showing search results.</source>
+				<target>Anzeige der Suchergebnisse</target>
+			</trans-unit>
+			
+			<trans-unit id="ff.pisearch.sheet.settings">
+				<source>Settings</source>
+				<target>Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch">
+				<source>Advanced Search Form</source>
+				<target>Erweiterte Suche</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.settings.targetpid">
+				<source>Target Page Search Results</source>
+				<target>Zielseite der Suchergebnisse</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.settings.advancedForm">
+				<source>Advanced Search Form (Based on storage PID)</source>
+				<target>Erweiterte Suche</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetSearchService">
+				<source>Facet Option Group: SearchServices</source>
+				<target>Facetten-Option: SearchServices</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetIndexer">
+				<source>Facet Option Group: Indexers</source>
+				<target>Facetten-Option: Indexer</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetCategory">
+				<source>Facet Option Group: Categories</source>
+				<target>Facetten-Option: Kategorien</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.rootFacetCategory">
+				<source>Root Facet Category (Used by Facet Option Group)</source>
+				<target>Facetten-Root-Kategorie:</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults">
+				<source>Display Results</source>
+				<target>Darstellung Suchergebnisse</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOptionsPerPage">
+				<source>Option: Items per page</source>
+				<target>Option: Treffer pro Seite</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormSortingDirection">
+				<source>Option: Sorting Direction</source>
+				<target>Option: Sortierungs-Richtung</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOrderBy">
+				<source>Option: Order By</source>
+				<target>Option: Sortierung-Auswahl</target>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOrderByFields">
+				<source>Option: Order By Fields</source>
+				<target>Option: Sortierung-Auswahl Felder</target>
+			</trans-unit>
+
+            <trans-unit id="system.hidden">
+                <source>Hide element</source>
+                <target>Element verbergen</target>
+            </trans-unit>
+            <trans-unit id="system.language">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="system.starttime">
+                <source>Release</source>
+                <target>Veröffentlichung</target>
+            </trans-unit>
+            <trans-unit id="system.endtime">
+                <source>Expiration</source>
+                <target>Ablauf</target>
+            </trans-unit>
+
+		</body>
+	</file>
+</xliff>

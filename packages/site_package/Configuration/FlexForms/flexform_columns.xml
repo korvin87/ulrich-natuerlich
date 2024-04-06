@@ -1,0 +1,76 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <main>
+            <ROOT>
+                <type>array</type>
+                <el>
+                    <gridpadding type="array">
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.gridpadding.label
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.gridpadding.0
+                                        </numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.gridpadding.1
+                                        </numIndex>
+                                        <numIndex index="1">gridpadding-40</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </gridpadding>
+                    <verticalalign type="array">
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.verticalalign.label
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.verticalalign.top
+                                        </numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.verticalalign.middle
+                                        </numIndex>
+                                        <numIndex index="1">middle</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.verticalalign.bottom
+                                        </numIndex>
+                                        <numIndex index="1">bottom</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">
+                                            LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.columns.verticalalign.stretch
+                                        </numIndex>
+                                        <numIndex index="1">stretch</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </verticalalign>
+                </el>
+            </ROOT>
+        </main>
+    </sheets>
+</T3DataStructure>

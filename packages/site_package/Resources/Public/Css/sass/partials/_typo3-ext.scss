@@ -1,0 +1,171 @@
+.tx-powermail {
+    .powermail_create {
+        display: inline-block;
+        width: 100%;
+        max-width: 500px;
+        text-align: left;
+    }
+}
+
+.powermail_progressbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .75;
+    font-family: sans-serif;
+
+    &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        text-decoration: inherit;
+        text-transform: none;
+        font-family: "fontello";
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 1em;
+        content: '\e80a';
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        @include translate(-50%, -50%);
+        color: #fff;
+        font-size: 30px;
+        @include animation(spin 2s infinite linear);
+    }
+}
+
+.tx-abavo-maps {
+    margin: 0 0 $elementmarginbottom;
+
+    button {
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .map_content {
+        @include font-size(1.4);
+        line-height: 1.4;
+
+        label,
+        input {
+            font-size: inherit;
+        }
+    }
+}
+
+.tx-abavo-search {
+    margin: 0 0 $elementmarginbottom;
+
+    .search-form {
+        margin: 0 0 1em;
+
+        input,
+        button {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        input[type="search"] {
+            width: 14em;
+        }
+    }
+
+    #search-results {
+        .message-box {
+            margin: 0 0 1.3em;
+        }
+
+        .result {
+            padding: 0;
+            margin: 0 0 .8em;
+
+            .h-style-30 {
+                margin-bottom: .1em;
+            }
+
+            .result-url {
+                display: none;
+            }
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .queryTime {
+        display: none;
+    }
+
+    .pagination {
+        a {
+            margin-right: .5em;
+
+            &.active {
+                @extend %reset-anchor-styles;
+                cursor: default;
+            }
+
+            &.first,
+            &.prev,
+            &.next,
+            &.last {
+                display: none;
+            }
+        }
+    }
+}
+
+ul.typo3-messages {
+    padding: 0;
+    margin: 0 0 $elementmarginbottom;
+
+    li.alert {
+        @extend %reset-list-styles;
+        padding: 1em;
+        margin: 0 0 .3em;
+
+        .alert-title {
+            margin: 0 0 .2em;
+            margin: 0;
+            font-weight: $basefontweightbold
+        }
+
+        .alert-message {
+        }
+
+        &.alert-danger {
+            background-color: $bgcolor_danger;
+        }
+
+        &.alert-warning {
+            background-color:$bgcolor_warning;
+        }
+
+        &.alert-info {
+            background-color: $bgcolor_info;
+        }
+
+        &.alert-notice {
+            background-color: $bgcolor_notice;
+        }
+
+        &.alert-success {
+            background-color: $bgcolor_success;
+        }
+    }
+}
+
+.tx-ulrich-products {
+    .category-description {
+        margin: 0 0 2em;
+    }
+}
+

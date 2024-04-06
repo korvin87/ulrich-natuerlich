@@ -1,0 +1,33 @@
+@import "../Fonts/fontello/css/fontello.css";
+@import "../Fonts/fontello/css/animation.css";
+
+@import "partials/base";
+@import "partials/fonts";
+
+html {
+    @include box-sizing(border-box);
+    font-size: 62.5%;
+}
+
+html.cke_panel_container body {
+    font-family: $basefontfamily;
+    font-size: 12px;
+    font-weight: $basefontweight;
+    color: $basefontcolor;
+    line-height: $baselineheight;
+}
+
+body.cke_editable.cke_editable_themed {
+    font-family: $basefontfamily;
+    @include font-size($basefontsize);
+    font-weight: $basefontweight;
+    color: $basefontcolor;
+    line-height: $baselineheight;
+
+    @import "partials/base-tags";
+    @import "partials/base-classes";
+
+    a.button {
+        min-height: 0;
+    }
+}

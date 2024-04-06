@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-10T11:30:07Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="body.description" xml:space="preserve">
+			<source>Body</source>
+		</trans-unit>
+		<trans-unit id="color.description" xml:space="preserve">
+			<source>Color</source>
+		</trans-unit>
+		<trans-unit id="config.description" xml:space="preserve">
+			<source>Config</source>
+		</trans-unit>
+		<trans-unit id="title.description" xml:space="preserve">
+			<source>Title</source>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Plugin"/>
+
+    <f:section name="main">
+        <f:if condition="{success}">
+            <f:then>
+                <f:format.htmlentitiesDecode><f:translate key="Form.intro.text"/></f:format.htmlentitiesDecode>
+                <input type="hidden" data-preventbrowserbackurl="{f:uri.action(action:'new', arguments:'{step:1}', additionalParams:'{preventbrowserback:1}', noCacheHash:0)}" />
+            </f:then>
+            <f:else>
+                <f:link.action action="new"><f:translate key="Form.startnew"/></f:link.action>
+            </f:else>
+        </f:if>
+    </f:section>
+</html>

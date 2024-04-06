@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-07-22T06:58:36Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="tx_abavomaps_domain_model_map" approved="yes" xml:space="preserve">
+			<source>A map</source>
+			<target>Eine Karte</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.height" approved="yes" xml:space="preserve">
+			<source>Height</source>
+			<target>Höhe</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.markers" approved="yes" xml:space="preserve">
+			<source>Marker (current PID)</source>
+			<target>Marker (aktuelle PID)</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pancontrol" approved="yes" xml:space="preserve">
+			<source>Controls</source>
+			<target>Steuerelemente</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pinicon" approved="yes" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+			<target>Marker Symbol (optional)</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.scalecontrol" approved="yes" xml:space="preserve">
+			<source>Scaling control</source>
+			<target>Skalierungs Kontrolle</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.title" approved="yes" xml:space="preserve">
+			<source>Titel</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.width" approved="yes" xml:space="preserve">
+			<source>Width</source>
+			<target>Breite</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoom" approved="yes" xml:space="preserve">
+			<source>Zoom</source>
+			<target>Zoom</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoomcontrol" approved="yes" xml:space="preserve">
+			<source>Zoom control</source>
+			<target>Zoom Kontrolle</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker" approved="yes" xml:space="preserve">
+			<source>A marker a map</source>
+			<target>Ein Marker einer Karte</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.description" approved="yes" xml:space="preserve">
+			<source>Description</source>
+			<target>Beschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.fulladdress" approved="yes" xml:space="preserve">
+			<source>Complete address</source>
+			<target>Vollständige Adresse</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.latitude" approved="yes" xml:space="preserve">
+			<source>Latitude</source>
+			<target>Breitengrad</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.longitude" approved="yes" xml:space="preserve">
+			<source>Longitude</source>
+			<target>Längengrad</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.pinicon" approved="yes" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+			<target>Marker Symbol (optional)</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.title" approved="yes" xml:space="preserve">
+			<source>Titel</source>
+			<target>Titel</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.url" approved="yes" xml:space="preserve">
+			<source>Marker Link (optional: If set, don´t show description on clicking marker and refer to link source)</source>
+			<target>Marker Link (optional: Wenn gesetzt, zeigt nicht die Beschreibung beim klicken des Markers an, sondern leitet auf den Ziel-Link weiter.)</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelend" approved="yes" xml:space="preserve">
+			<source>Destination address</source>
+			<target>Zieladresse</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelfrom" approved="yes" xml:space="preserve">
+			<source>Away</source>
+			<target>Von Hier</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelgecodingfailed" approved="yes" xml:space="preserve">
+			<source>Geocoding failed</source>
+			<target>Geocodierung fehlgeschlagen</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelgo" approved="yes" xml:space="preserve">
+			<source>Go</source>
+			<target>Los</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labellatlonpos" approved="yes" xml:space="preserve">
+			<source>You have clicked the following coordinates</source>
+			<target>Sie haben folgende Koordinaten angeklickt</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelrouting" approved="yes" xml:space="preserve">
+			<source>Directions</source>
+			<target>Wegbeschreibung</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelstart" approved="yes" xml:space="preserve">
+			<source>Start address</source>
+			<target>Startadresse</target>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelto" approved="yes" xml:space="preserve">
+			<source>Here go</source>
+			<target>Hier hin</target>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

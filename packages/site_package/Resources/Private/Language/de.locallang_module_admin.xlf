@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-09-15T14:47:00Z" product-name="site_package">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab" xml:space="preserve">
+				<source>SitePackage</source>
+				<target>SitePackage</target>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" xml:space="preserve">
+				<source>SitePackage: Administration</source>
+				<target>SitePackage: Administration</target>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tablabel" xml:space="preserve">
+				<source>Administration of SitePackage</source>
+				<target>Administration des SitePackages</target>
+			</trans-unit>
+			<trans-unit id="hostadminForm.legend" xml:space="preserve">
+				<source>Documentation File</source>
+				<target>TYPO3-Pflegeanleitung</target>
+			</trans-unit>
+			<trans-unit id="hostadminForm.registerDocumentation.description" xml:space="preserve">
+				<source>If defined, a direkt link will be placed in BE-Moduls section "Help".</source>
+				<target>Wenn definiert, wird im Hilfebereich des Backends ein Link zur Pflegeanleitung angezeigt.</target>
+			</trans-unit>
+			<trans-unit id="hostadminForm.registerDocumentation.label" xml:space="preserve">
+				<source>Path</source>
+				<target>Pfad</target>
+			</trans-unit>
+			<trans-unit id="hostadminForm.registerDocumentationDefault" xml:space="preserve">
+				<source>Use placeholder</source>
+				<target>Platzhalter übernehmen</target>
+			</trans-unit>
+			<trans-unit id="hostadminForm.submit" xml:space="preserve">
+				<source>Save</source>
+				<target>Speichern</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

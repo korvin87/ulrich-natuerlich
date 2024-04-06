@@ -1,0 +1,24 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<div class="tx-abavo-maps">
+
+	<f:flashMessages />
+
+	<f:if condition="{0:settings.renderMode} == {0:'gm'}">
+		<link rel="stylesheet" href="{f:uri.resource(path:'Css/Style_gm.min.css')}" />
+		<script src="https://maps.googleapis.com/maps/api/js?libraries=places&language={language}{f:if(condition: '{settings.gmApiKey}', then: '&key={settings.gmApiKey}')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path:'Js/Vendor/Google/infobubble-compiled.js')}" type="text/javascript"></script>
+        <script src="{f:uri.resource(path:'Js/Vendor/Google/markerclusterer.js')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path:'Js/Base_gm.js')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path:'Js/Custom.js')}" type="text/javascript"></script>
+	</f:if>
+
+	<f:if condition="{0:settings.renderMode} == {0:'osm'}">
+		<link rel="stylesheet" href="{f:uri.resource(path:'Js/Vendor/Leaflet/leaflet.css')}" />
+		<link rel="stylesheet" href="{f:uri.resource(path:'Css/Style_osm.min.css')}" />
+		<script src="{f:uri.resource(path:'Js/Vendor/Leaflet/leaflet.js')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path:'Js/Base_osm.js')}" type="text/javascript"></script>
+		<script src="{f:uri.resource(path:'Js/Custom.js')}" type="text/javascript"></script>
+	</f:if>
+	
+	<f:render section="{settings.renderMode}" />
+</div>

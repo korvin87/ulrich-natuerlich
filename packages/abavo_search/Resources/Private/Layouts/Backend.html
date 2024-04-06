@@ -1,0 +1,40 @@
+<div class="typo3-fullDoc">
+	<div id="typo3-docheader">
+		<div id="typo3-docheader-row1">
+			<div class="buttonsleft">
+				<f:comment>
+					<!--PLACEHOLDER-->
+				</f:comment>
+			</div>
+			<div class="buttonsright">
+				<f:be.buttons.shortcut />
+			</div>
+		</div>
+		<div id="typo3-docheader-row2">
+			<div class="docheader-row2-left">
+				<f:be.buttons.csh />
+
+				<f:be.menus.actionMenu>
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'module.action.overview')}" controller="Backend" action="overview" />
+					<f:be.menus.actionMenuItem label="{f:translate(key: 'module.action.diagnosis')}" controller="Backend" action="diagnosis" />
+					<f:if condition="{beUser.admin}">
+						<f:be.menus.actionMenuItem label="{f:translate(key: 'module.action.cleanup')}" controller="Backend" action="cleanup" />
+					</f:if>
+					<f:if condition="{beUser.admin}">
+						<f:be.menus.actionMenuItem label="{f:translate(key: 'module.action.stats')}" controller="Backend" action="stats" />
+					</f:if>
+				</f:be.menus.actionMenu>
+
+			</div>
+			<div class="docheader-row2-right">
+				<f:be.pagePath />
+				<f:be.pageInfo />
+			</div>
+		</div>
+	</div>
+	<div id="typo3-docbody">
+		<div id="typo3-inner-docbody" class="tx-abavo-module">
+			<f:render section="main" />
+		</div>
+	</div>
+</div>

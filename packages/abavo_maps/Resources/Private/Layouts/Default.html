@@ -1,0 +1,24 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<div class="tx-abavo-maps">
+
+	<f:flashMessages />
+	
+	<f:if condition="{0:settings.renderMode} == {0:'gm'}">
+		<v:asset.style path="{f:uri.resource(path:'Css/Style_gm.min.css')}" group="googlemaps" name="googlemap_style" standalone="TRUE" />
+		<v:asset.script path="https://maps.googleapis.com/maps/api/js?libraries=places&language={language}{f:if(condition: '{settings.gmApiKey}', then: '&key={settings.gmApiKey}')}" group="googlemaps" name="googlemap_api" standalone="TRUE" external="TRUE" rewrite="FALSE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Vendor/Google/infobubble-compiled.js')}" group="googlemaps" name="googlemap_infobubble" standalone="TRUE" />
+        <v:asset.script path="{f:uri.resource(path:'Js/Vendor/Google/markerclusterer.js')}" group="googlemaps" name="googlemap_markerclusterer" standalone="TRUE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Base_gm.js')}" group="googlemaps" name="googlemap_base" standalone="TRUE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Custom.js')}" group="googlemaps" name="googlemap_custom" standalone="TRUE" />
+	</f:if>
+
+	<f:if condition="{0:settings.renderMode} == {0:'osm'}">
+		<v:asset.style path="{f:uri.resource(path:'Js/Vendor/Leaflet/leaflet.css')}" group="osmap" name="osmap_leaflet_style" standalone="TRUE" />
+		<v:asset.style path="{f:uri.resource(path:'Css/Style_osm.css')}" group="osmap" name="osmap_style" standalone="TRUE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Vendor/Leaflet/leaflet.js')}" group="osmmap" name="osmmap_leaflet" standalone="TRUE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Base_osm.js')}" group="osmmap" name="osmmap_base" standalone="TRUE" />
+		<v:asset.script path="{f:uri.resource(path:'Js/Custom.js')}" group="osmmap" name="osmmap_custom" standalone="TRUE" />
+	</f:if>
+	
+	<f:render section="{settings.renderMode}" />
+</div>

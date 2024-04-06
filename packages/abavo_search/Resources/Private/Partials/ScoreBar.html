@@ -1,0 +1,16 @@
+{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+<f:alias map="{
+		 similarity: '{vh:Similarity(
+			arrContent:{0:result.title,1:result.content,2:result.abstract},
+			search:search
+		 )}',
+		 hits: '{vh:Hits(refid:result.refid)}',
+		 ranking:result.ranking
+	}">
+	<span class="scoreBar" title="{f:translate(key:'search.scorefull')}: {ranking}%
+<f:format.htmlentitiesDecode value="{f:translate(key:'search.scoresimelar')}" />: {similarity}%
+{f:if(condition:hits, then:'Hits: {hits}')}">
+		<span class="score" style="width:{ranking}%;"></span>
+		<span class="similarity" style="width:{similarity}%;"></span>
+	</span>
+</f:alias>

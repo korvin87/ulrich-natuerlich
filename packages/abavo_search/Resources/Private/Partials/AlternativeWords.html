@@ -1,0 +1,13 @@
+{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+<div class="alternative-words">
+	<f:if condition="{search}">
+		<vh:IncludeHeaderFiles pathToFile="{f:uri.resource(path:'Js/OpenThesaurus.js')}" footer="TRUE" />
+		
+		<div id="searchResultArea" style="display:none" data-search="{search}" data-title="{f:translate(key:'alternativewords.title')}">
+			<p><i class="icon-spinner animate-spin"></i><f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:alternativesearch" /></p>
+		</div>
+		
+		<span class="licence"><f:translate key="alternativewords.licenceprefix" /> OpenThesaurus | <a href="http://www.openthesaurus.de" target="_blank">www.openthesaurus.de</a> under GNU (LGPL) Lizenz</span>
+		<div class="clear"></div>
+	</f:if>
+</div>

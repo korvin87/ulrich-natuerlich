@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd" xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers">
+
+    <f:layout name="Backend"/>
+
+    <f:section name="main">
+
+        <f:be.container/>
+
+        <h1><f:translate key="module.header"/></h1>
+        <h2><f:translate key="module.action.index"/></h2>
+        <hr>
+        <f:flashMessages />
+
+        <f:if condition="{pageInfo.uid}">
+            <h3><f:translate key="module.action.updateindex.finished"/> (<f:be.pageInfo />)</h3>
+
+            <table border="0" cellpadding="0" cellspacing="0" class="table typo3-dblist" style="width:800px; border-collapse:separate;">
+                <tbody>
+                    <tr class="c-table-row-spacer">
+                        <td nowrap="nowrap" class="col-icon">&nbsp;</td>
+                        <td nowrap="nowrap" class="" colspan="5"></td>
+                    </tr>
+
+                    <tr class="t3-row-header">
+                        <td nowrap="nowrap" class="col-icon"></td>
+                        <td nowrap="nowrap" class="" colspan="7"><span class="c-table">Indexer</span></td>
+                    </tr>
+
+                    <tr class="c-headLine"><td></td>
+                        <td nowrap="nowrap" class="col-icon"></td>
+                        <td nowrap="nowrap" class="col-title"><f:translate key="tx_abavosearch_domain_model_indexer.title"/></td>
+                <td nowrap="nowrap" class="">&nbsp;</td>
+                <td nowrap="nowrap" class=""><f:translate key="tx_abavosearch_domain_model_indexer.count"/></td>
+                <td nowrap="nowrap" class=""><f:translate key="tx_abavosearch_domain_model_indexer.duration"/></td>
+                </tr>
+
+                <f:if condition="{indexResults}">
+                    <f:for each="{indexResults}" as="result">
+                        <tr class="db_list_normal lastcol"><td></td>
+                            <td nowrap="nowrap" class="col-icon">
+                                <core:icon identifier="indexer-abavo_search" />
+                            </td>
+
+                            <td nowrap="nowrap" class="col-title">{result.title}</td>
+                            <td nowrap="nowrap" class="">&nbsp;</td>
+                            <td nowrap="nowrap" class="">{result.indexCount}</td>
+                            <td nowrap="nowrap" class="">
+                        <f:format.number decimals="5" decimalSeparator="," thousandsSeparator=".">
+                            {result.duration}
+                        </f:format.number>
+                        </td>
+                        </tr>
+                    </f:for>
+                </f:if>
+                </tbody>
+            </table>
+
+            <f:link.action action="overview" controller="Backend">
+                <button>&LeftArrow; <f:translate key="module.action.backto.overview"/></button>
+            </f:link.action>
+
+        </f:if>
+
+    </f:section>
+</div>

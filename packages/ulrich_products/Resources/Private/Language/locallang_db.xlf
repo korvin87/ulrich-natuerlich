@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2018-05-23T16:04:01Z" product-name="ulrich_products">
+		<header/>
+		<body>
+			<trans-unit id="tx_ulrichproducts_domain_model_product">
+				<source>Produkt</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.title">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.description">
+				<source>Beschreibung</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant">
+				<source>Pflanze</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant_media">
+				<source>Pflanze (Medien)</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin">
+				<source>Herkunft/Blütezeit/Ernte</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin_media">
+				<source>Herkunft/Blütezeit/Ernte (Medien)</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production">
+				<source>Herstellung</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production_media">
+				<source>Herstellung (Medien)</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application">
+				<source>Anwendung/Wirkung</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application_media">
+				<source>Anwendung/Wirkung (Medien)</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts">
+				<source>Weitere Merkmale/Fakten</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts_media">
+				<source>Weitere Merkmale/Fakten (Medien)</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance">
+				<source>Aussehen</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.cas_number">
+				<source>CAS Nummer</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.eg_number">
+				<source>EG Nummer</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.granulation">
+				<source>Granulierung</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.bestbefor">
+				<source>Mindesthaltbarkeit</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.qualities">
+				<source>Qualitäten</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.media">
+				<source>Bilder</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.origin_country">
+				<source>Herkunftsland</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.related_products">
+				<source>Verwandte Produkte</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.contact">
+				<source>Ansprechpartner</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.categories">
+				<source>Kategorien</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday">
+				<source>next-day</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.spec">
+				<source>Spezifikation</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.physical_state">
+				<source>Aggregatzustand</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_properties">
+				<source>Chemische Eigenschaften</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.molecular_formula">
+				<source>Molekulare Formel</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_name">
+				<source>Chemischer Name</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.registration">
+				<source>Registrierung</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.e_number">
+				<source>E-Nummer</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.grass_state">
+				<source>Grass-Status</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.container">
+				<source>Gebinde</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.inci">
+				<source>INCI</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.einecs">
+				<source>EINECS</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.melting_point">
+				<source>Schmelzpunkt</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.durability">
+				<source>Haltbarkeit</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.storage">
+				<source>Lagerung</source>
+			</trans-unit>
+
+			<trans-unit id="tx_ulrichproducts_domain_model_contact">
+				<source>Ansprechpartner</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.phone">
+				<source>Telefonnummer</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.email">
+				<source>E-Mail-Addresse</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.media">
+				<source>Bild</source>
+			</trans-unit>
+
+			<trans-unit id="tx_ulrich_products_pi.name">
+				<source>Produkte</source>
+			</trans-unit>
+			<trans-unit id="tx_ulrich_products_pi.description">
+				<source>Ulrich Produkte Extension</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

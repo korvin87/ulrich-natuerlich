@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-22T06:57:56Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="description.description" xml:space="preserve">
+			<source>Description</source>
+		</trans-unit>
+		<trans-unit id="fulladdress.description" xml:space="preserve">
+			<source>Fulladress</source>
+		</trans-unit>
+		<trans-unit id="latitude.description" xml:space="preserve">
+			<source>Latitude</source>
+		</trans-unit>
+		<trans-unit id="longitude.description" xml:space="preserve">
+			<source>Longitude</source>
+		</trans-unit>
+		<trans-unit id="pinicon.description" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+		</trans-unit>
+		<trans-unit id="title.description" xml:space="preserve">
+			<source>Titel</source>
+		</trans-unit>
+		<trans-unit id="url.description" xml:space="preserve">
+			<source>Marker Link (optional: If set, don´t show description on clicking marker and refer to link source)</source>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

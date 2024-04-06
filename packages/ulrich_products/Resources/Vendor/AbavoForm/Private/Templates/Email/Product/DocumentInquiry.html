@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="Default"/>
+
+    <f:section name="main">
+        <f:if condition="{isCustomerEmail}">
+            <!-- CUSTOMER-EMAIL -->
+        </f:if>
+
+        <f:alias map="{langFile: 'LLL:EXT:abavo_form/Resources/Private/Language/locallang.xlf:'}">
+
+            <f:format.htmlentitiesDecode><f:translate key="{langFile}Form.intro.text"/></f:format.htmlentitiesDecode>
+            <f:format.htmlentitiesDecode><f:translate key="{langFile}Form.data.label"/></f:format.htmlentitiesDecode>
+
+            <table>
+                <tr>
+                    <td class="label"><f:translate key="Email.productDocumentInquiry" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.product.title}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="Email.name" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.name}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="Email.zip" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.zip}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="Email.city" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.city}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="Email.country" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.country.shortNameLocal}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="Email.standing" extensionName="UlrichProducts"/></td>
+                    <td class="value">{form.standing}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.phone"/></td>
+                    <td class="value">{form.phone}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.email"/></td>
+                    <td class="value">{form.email}</td>
+                </tr>
+                <tr>
+                    <td class="label"><f:translate key="{langFile}Form.company"/></td>
+                    <td class="value">{form.company}</td>
+                </tr>
+                <f:if condition="{form.quality}">
+                    <tr>
+                        <td class="label"><f:translate key="Email.quality" extensionName="UlrichProducts"/></td>
+                        <td class="value">{form.quality}</td>
+                    </tr>
+                </f:if>
+                <f:if condition="{form.description}">
+                    <tr>
+                        <td class="label" colspan="2"><f:translate key="{langFile}Form.description.email"/></td>
+                    </tr>
+                    <tr>
+                        <td class="value" colspan="2">{form.description}</td>
+                    </tr>
+                </f:if>
+            </table>
+
+            <!-- FOOTER -->
+            <f:render partial="Footer" />
+        </f:alias>
+    </f:section>
+</html>

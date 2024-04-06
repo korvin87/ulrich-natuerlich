@@ -1,0 +1,19 @@
+<div id="c{data.uid}" class="row gridelement accordion-classic"
+           xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+           xmlns:vhs="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+>
+    <div class="col-xs-12">
+
+        <div class="tabs" id="accordion{data.uid}">
+            <f:for each="{data.tx_gridelements_view_children}" as="content">
+            <div class="tab">
+                <input type="checkbox" id="chck{content.uid}">
+                <label class="tab-label" for="chck{content.uid}">{content.header}</label>
+                <div class="tab-content">
+                        {data.tx_gridelements_view_child_{content.uid}->f:format.raw()}
+                </div>
+            </div>
+            </f:for>
+        </div>
+    </div>
+</div>

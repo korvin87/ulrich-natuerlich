@@ -1,0 +1,44 @@
+{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+
+<f:if condition="{0: '{paginationSettings.itemsPerPage}'} < {0: '{paginationSettings.allCount}'}">
+
+	<vh:Pagination itemsPerPage="{paginationSettings.itemsPerPage}" resultsCount="{paginationSettings.allCount}" currentPage="{paginationSettings.currentPage}" maxPages="17" />
+	
+	<div class="pagination">
+
+		<vh:extendedIf conditions="{0:'{pagination}', 1:'{search}', 2:'{orderby}', 3:'{sorting}', 4:'{paginationSettings.itemsPerPage}'}" condition="and">
+
+			<f:if condition="{pagination.first}">
+				<f:link.action action="search" arguments="{page: pagination.first, search:'{search}', facets:'{facets}', orderby:'{orderby}', sorting:'{sorting}', length:'{paginationSettings.itemsPerPage}'}" class="first">
+					<i class="fa fa-angle-double-left"></i>
+				</f:link.action>
+			</f:if>
+			<f:if condition="{pagination.prev}">
+				<f:link.action action="search" arguments="{page: pagination.prev, search:'{search}', facets:'{facets}', orderby:'{orderby}', sorting:'{sorting}', length:'{paginationSettings.itemsPerPage}'}" class="prev">
+					<i class="fa fa-angle-left"></i>
+				</f:link.action>
+			</f:if>
+
+			<f:if condition="{pagination.morePrev}">...</f:if>
+			<f:for each="{pagination.pages}" as="item">
+				<f:link.action action="search" arguments="{page: item.text, search:'{search}', facets:'{facets}', orderby:'{orderby}', sorting:'{sorting}', length:'{paginationSettings.itemsPerPage}'}" class="paginator-page {f:if(condition: '{0:pagination.current} == {0:item.text}',	then: ' active', else: '')}">
+					{item.text}
+				</f:link.action>
+			</f:for>
+			<f:if condition="{pagination.moreNext}"><span class="pagination-spacer" title="{f:translate(key:'pagination.moreNext',arguments:{0:'{pagination.moreNext}'})}">...</span></f:if>
+			
+			<f:if condition="{pagination.next}">
+				<f:link.action action="search" arguments="{page:pagination.next, search:'{search}', facets:'{facets}', orderby:'{orderby}', sorting:'{sorting}', length:'{paginationSettings.itemsPerPage}'}" class="next">
+					<i class="fa fa-angle-right"></i>
+				</f:link.action>
+			</f:if>
+
+			<f:if condition="{pagination.last}">
+				<f:link.action action="search" arguments="{page: pagination.last, search:'{search}', facets:'{facets}', orderby:'{orderby}', sorting:'{sorting}', length:'{paginationSettings.itemsPerPage}'}" class="last">
+					<i class="fa fa-angle-double-right"></i>
+				</f:link.action>
+			</f:if>
+		</vh:extendedIf>
+		
+	</div>
+</f:if>

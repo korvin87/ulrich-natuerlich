@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="resultone">
+				<source>result with term</source>
+			</trans-unit>
+			<trans-unit id="resultmulti">
+				<source>results with term</source>
+			</trans-unit>
+			<trans-unit id="noresult">
+				<source>No results with search string</source>
+			</trans-unit>
+			<trans-unit id="nosearchterm">
+				<source>Please enter a search term.</source>
+			</trans-unit>
+			<trans-unit id="minsearchlen">
+				<source>Please enter a phrase to be long with at least %s</source>
+			</trans-unit>
+			<trans-unit id="stopword">
+				<source>Search string is a stop word.</source>
+			</trans-unit>
+			<trans-unit id="exception">
+				<source>Search Exception</source>
+			</trans-unit>
+			<trans-unit id="exception.maxSearchStrinLen">
+				<source>You reached the search word limit. Only %s charactes allowed.</source>
+			</trans-unit>
+			<trans-unit id="exception.minSearchStrinLen">
+				<source>A search string length is lower than possible (%s). </source>
+			</trans-unit>
+			<trans-unit id="usedsynonyms">
+				<source>Additional used following synonyms to search string</source>
+			</trans-unit>
+			<trans-unit id="alternativesearch">
+				<source>Searching for similar words...</source>
+			</trans-unit>
+			<trans-unit id="synonymReplacements">
+				<source>Replaced obsolet synonyms</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

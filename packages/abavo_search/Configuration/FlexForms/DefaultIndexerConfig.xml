@@ -1,0 +1,18 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<ROOT>
+		<type>array</type>
+		<el>
+			<xmlTitle>
+				<TCEforms>
+					<label>No indexer type selected. Please choose one.</label>
+					<config>
+						<type>none</type>
+					</config>
+				</TCEforms>
+			</xmlTitle>
+		</el>
+	</ROOT>
+</T3DataStructure>

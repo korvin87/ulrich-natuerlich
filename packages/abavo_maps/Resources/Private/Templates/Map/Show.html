@@ -1,0 +1,17 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<f:layout name="{settings.renderType}" />
+
+<f:section name="gm">
+	<f:render partial="Map/Gm/Map" arguments="{googlemap:map}" />
+	<f:if condition="{map.shapes}">
+		<f:render partial="Map/Gm/Shape" arguments="{parent:'{map.uid}', shapes:'{map.shapes}'}" />
+	</f:if>
+</f:section>
+
+<f:section name="osm">
+	<f:render partial="Map/Osm/Map" arguments="{osmap:map}" />
+	<f:if condition="{map.shapes}">
+		<f:render partial="Map/Osm/Shape" arguments="{parent:'{map.uid}', shapes:'{map.shapes}'}" />
+	</f:if>
+</f:section>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-09-16T09:04:00Z" product-name="site_package">
+        <header/>
+        <body>
+            <trans-unit id="dateformat" xml:space="preserve">
+				<source>%Y-%m-%d</source>
+				<target>%d.%m.%Y</target>
+			</trans-unit>
+			<trans-unit id="file" xml:space="preserve">
+				<source>%s file</source>
+				<target>%s-Datei</target>
+			</trans-unit>
+			<trans-unit id="language" xml:space="preserve">
+				<source>Select language</source>
+				<target>Sprache wählen</target>
+			</trans-unit>
+			<trans-unit id="breadcrumb.label" xml:space="preserve">
+				<source>You are here:</source>
+				<target>Sie sind hier:</target>
+			</trans-unit>
+			<trans-unit id="form.privacy.accept" xml:space="preserve">
+				<source><![CDATA[With sending this form you approve our <a href="%s" class="js-nolightboxopen-ifinlightbox" target="lightbox">data privacy regulations</a>.]]></source>
+				<target><![CDATA[Ich habe die <a href="%s" class="js-nolightboxopen-ifinlightbox" target="lightbox">Datenschutz&shy;bestimmungen</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben elektronisch erhoben und gespeichert werden.]]></target>
+			</trans-unit>
+			<trans-unit id="form.privacy.hint" xml:space="preserve">
+				<source><![CDATA[Note: You may revoke this consent at any time by e-mail: %s.]]></source>
+				<target><![CDATA[Hinweis: Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an %s widerrufen.]]></target>
+			</trans-unit>
+			<trans-unit id="accordion.show_close_all" xml:space="preserve">
+				<source>show/close all</source>
+				<target>alle auf-/zuklappen</target>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

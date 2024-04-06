@@ -1,0 +1,54 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Ansicht</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">Produkt-Kategorien</numIndex>
+										<numIndex index="1">Category->list</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">Produkt-Liste/-Details</numIndex>
+										<numIndex index="1">Product->list;Product->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Kontakte</numIndex>
+										<numIndex index="1">Contact->list</numIndex>
+									</numIndex>
+								</items>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</switchableControllerActions>
+					<settings.contacts>
+						<TCEforms>
+							<label>Selektive Kontakte anzeigen oder alle</label>
+							<displayCond>FIELD:switchableControllerActions:=:Contact->list</displayCond>
+							<config>
+								<type>select</type>
+								<renderType>selectMultipleSideBySide</renderType>
+								<enableMultiSelectFilterTextfield>true</enableMultiSelectFilterTextfield>
+								<foreign_table>tx_ulrichproducts_domain_model_contact</foreign_table>
+								<foreign_table_where>ORDER BY name ASC</foreign_table_where>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.contacts>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

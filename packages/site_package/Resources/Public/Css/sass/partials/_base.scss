@@ -1,0 +1,219 @@
+//
+// Imports
+//
+@import "compass";
+
+//
+// Variables
+//
+$main-color: #6EB0DF;
+$main-color-rgb: rgb(110, 176, 223);
+$main-color-rgba-85a:rgba(110, 176, 223, 0.85);
+
+
+$yellow-cosmo: #EEC631;
+$yellow-cosmo-rgb:rgb(238, 198, 49);
+$yellow-cosmo-rgb-85a: rgba(238, 198, 49, 0.85);
+
+
+$green-cosmo: #77B752;
+$green-cosmo-rgb:rgb(119, 183, 82);
+$green-cosmo-rgba-85a:rgba(119, 183, 82, 0.85);
+
+
+$primary-color: var(--primary-color);
+body{
+    --primary-color: #{$main-color};
+    --primary-color-rgb: #{$main-color-rgb};
+  	--primary-color-rgba-85a: #{$main-color-rgba-85a};
+}
+body.p-maschinenspülen{
+    --primary-color: #{$yellow-cosmo};
+    --primary-color-rgb: #{$yellow-cosmo-rgb};
+  	--primary-color-rgba-85a: #{$yellow-cosmo-rgb-85a};
+}
+body {
+    &.p-reinigenpflegen,
+    &.p-handspülen {
+        --primary-color: #{$green-cosmo};
+        --primary-color-rgb: #{$green-cosmo-rgb};
+        --primary-color-rgba-85a: #{$green-cosmo-rgba-85a};
+    }
+}
+
+
+
+
+    $color_grey_light: #ececf5;
+    $color_grey_medium: #dddcdd;
+    $color_grey_darkmedium: #b9b9b9;
+    $color_grey_dark: #959494;
+    $color_blue_dark: #1e3e83;
+    $color_red: #d0021c;
+
+    $bgcolor_danger: #f8c0c0;
+    $bgcolor_warning: #f5d9b1;
+    $bgcolor_info: #cbe4f3;
+    $bgcolor_notice: #f5f6be;
+    $bgcolor_success: #dcf2c3;
+
+    $bordercolor: $color_grey_medium;
+
+    $basefontcolor: #333;
+    $basefontfamily: 'Titillium Web', 'Arial', sans-serif;
+    $baselineheight: 1.45;
+    $basefontsize: 1.8;
+    $basefontweight: 400;
+    $basefontweightbold: 600;
+
+    $fontcolor_highlight: $color_red;
+
+    $container_width: 1140px;
+    $pageminwidth: 320px;
+    $pagepadding: 20px;
+    $gridpadding-x: 30px;
+    $gridpadding-y: 2.5em;
+
+    $basetagmarginbottom: 1em;
+    $elementmarginbottom: 1em;
+
+    $textmedia_columnSpace: 15px;
+    $textmedia_textMargin: 20px;
+    $textmedia_floatimagemaxwidthpercent: 40%;
+
+    $mq_navigations: 840px;
+    $mq_fontsize_1: 1280px;
+    $mq_fontsize_2: 760px;
+    $mq_headerslider: $mq_navigations;
+
+    //
+    // Mixins (werden nicht gruppiert, nützlich wenn Werte übergeben werden sollen)
+    //
+
+    @mixin removelastmarginbottom($sel: "&") {
+        #{$sel} > :last-child,
+        #{$sel} > :last-child > :last-child,
+        #{$sel} > :last-child > :last-child > :last-child,
+        #{$sel} > :last-child > :last-child > :last-child > :last-child,
+        #{$sel} > :last-child > :last-child > :last-child > :last-child > :last-child {
+            margin-bottom: 0 !important;
+        }
+    }
+
+    @mixin mq-max-width($width) {
+        @media (max-width: $width) {
+            @content;
+        }
+    }
+
+    @mixin mq-min-width($width) {
+        @media (min-width: $width) {
+            @content;
+        }
+    }
+
+    @mixin widthauto($sel: "&") {
+        #{$sel} {
+            height: auto;
+            max-width: 100%;
+        }
+    }
+
+    @mixin calc($property, $expression, $fallback: "") {
+        @if $fallback != "" {
+            #{$property}: #{$fallback};
+        }
+        #{$property}: -webkit-calc(#{$expression});
+        #{$property}: calc(#{$expression});
+    }
+
+    @mixin font-size($sizeValue: 1.6) {
+        // Support for non rem-Browsers
+        // font-size: ($sizeValue * 10) + px;
+        font-size: $sizeValue + rem;
+    }
+
+    //
+    // @extend-Only Selectors (werden gruppiert, spart Dateigröße)
+    //
+
+    %reset-list-styles {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    %reset-anchor-styles {
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            text-decoration: inherit;
+        }
+    }
+
+    %button-styles {
+        display: inline-block;
+        min-height: 2.05em;
+        min-width: 5em;
+        max-width: 100%;
+        border: 1px solid transparent;
+        padding: .8em .7em .75em;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: inherit;
+        font-weight: 700;
+        font-size: 90%;
+        line-height: 1.1;
+        cursor: pointer;
+        @include appearance(none);
+        @include border-radius(.3em);
+        overflow: visible;
+
+        [class^="fontello-icon-"]:before,
+        [class*=" fontello-icon-"]:before {
+            width: auto;
+            margin: 0;
+        }
+    }
+
+    %button-small-styles {
+        min-height: 1.35em;
+        padding-top: .45em;
+        padding-bottom: .45em;
+    }
+
+    %button-big-styles {
+        min-width: 9em;
+        min-height: 1.7em;
+        padding-top: .6em;
+        padding-top: .6em;
+        font-size: 100%;
+    }
+
+    %button-primary-styles {
+        border-color: var(--primary-color);
+        color: #fff;
+        background-color: var(--primary-color);
+
+        &:hover,
+        &:focus {
+            border-color: var(--primary-color-rgb);
+            color: #fff;
+            background-color: var(--primary-color-rgb);
+        }
+    }
+
+    %button-secondary-styles {
+        border-color: currentColor;
+        color: var(--primary-color);
+        background-color: #fff;
+
+        &:hover,
+        &:focus {
+            border-color: currentColor;
+            color: var(--primary-color);
+            background-color: #f6f6f6;
+        }
+    }
+

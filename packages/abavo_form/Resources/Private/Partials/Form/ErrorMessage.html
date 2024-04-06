@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:form.validationResults for="{object}">
+        <f:if condition="{vh:property(subject:'{validationResults.flattenedErrors}', propertyName:'{property}')}">
+            <div class="error-block">
+                {message}
+                <f:for each="{validationResults.flattenedErrors}" key="errorProperty" as="flattenedErrors">
+                    <f:if condition="{0:'{errorProperty}'} == {0:'{property}'}">
+                        <f:for each="{flattenedErrors}" as="error" iteration="i">
+                            <div class="entry">{error.message}</div>
+                        </f:for>
+                    </f:if>
+                </f:for>
+            </div>
+        </f:if>
+    </f:form.validationResults>
+</html>

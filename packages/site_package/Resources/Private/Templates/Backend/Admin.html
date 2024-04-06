@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+
+    <f:layout name="Backend"/>
+
+    <f:section name="main">
+
+        <f:be.container
+                enableClickMenu="false"
+                loadExtJs="false"
+                loadExtJsTheme="false"
+                loadJQuery="true"
+        />
+
+        <h1>
+            <f:translate
+                    key="LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:mlang_labels_tabdescr"/>
+        </h1>
+
+        <f:flashMessages/>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <f:translate
+                                key="LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:hostadminForm.legend"/>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <f:translate
+                                    key="LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:hostadminForm.registerDocumentation.description"/>
+                        </p>
+                        <f:form class="hostadminForm" method="post" controller="Backend" action="admin" name="admin">
+                            <div class="form-group">
+                                <div class="input-group">
+									<span class="input-group-addon">
+										<f:translate
+                                                key="LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:hostadminForm.registerDocumentation.label"/>
+									</span>
+                                    <f:form.textfield id="registerDocumentation" name="registerDocumentation"
+                                                      placeholder="EXT:site_package/Documentation/manual.pdf"
+                                                      class="form-control" value="{registeredDocumentation}"/>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" id="registerDocumentationDefault">
+                                            <f:translate
+                                                    key="LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:hostadminForm.registerDocumentationDefault"/>
+                                        </button>
+                                    </div>
+                                </div>
+                                <script>
+                                    TYPO3.jQuery(document).ready(function () {
+                                        TYPO3.jQuery('#registerDocumentationDefault').click(function (e) {
+                                            var $registerDocumentation = TYPO3.jQuery('#registerDocumentation');
+                                            e.preventDefault();
+                                            $registerDocumentation.val($registerDocumentation.attr('placeholder'));
+                                        });
+                                    });
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <f:form.submit
+                                        value="{f:translate(key: 'LLL:EXT:site_package/Resources/Private/Language/locallang_module_admin.xlf:hostadminForm.submit')}"
+                                        class="btn btn-default btn-primary"/>
+                            </div>
+                        </f:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:section>
+</div>
+</html>

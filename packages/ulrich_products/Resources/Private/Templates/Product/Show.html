@@ -1,0 +1,411 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:af="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <af:IncludeHeaderFiles pathToFile="{f:uri.resource(path:'JavaScript/Form.js', extensionName:'AbavoForm')}" footer="1" />
+
+    <div class="productdetails">
+        <div id="fixedactionbar" class="print-hide">
+            <f:render section="ActionBar" arguments="{_all}" />
+        </div>
+        <div id="fixedactionbar--clone" class="print-hide">
+            <f:render section="ActionBar" arguments="{_all}" />
+        </div>
+
+        <div class="container container--main-white-content container--pos-relative">
+            <div class="container__inner container__inner--dontremovemarginbottom">
+                <div class="frame frame-box frame--bgcolor-white frame-space-before-medium frame-space-after-medium">
+                    <div class="frame__innerwrap">
+                        <div class="productdetails__infos">
+                            <div class="productdetails__title">
+                                <h1 class="h-style h-style-10">{product.title}</h1>
+                                <f:if condition="{product.nextday}">
+                                    <f:variable name="nextdaytooltip" value="{f:translate(key:'tx_ulrichproducts_domain_model_product.nextday.desc') -> f:spaceless()}" />
+                                    <f:if condition="{nextdaytooltip}">
+                                        <f:then>
+                                            <div class="status status--nextday js-tooltip" title="{nextdaytooltip}"><span class="fontello-icon-clock"></span> <f:translate key="tx_ulrichproducts_domain_model_product.nextday" />*</div>
+                                        </f:then>
+                                        <f:else>
+                                            <div class="status status--nextday"><span class="fontello-icon-clock"></span> <f:translate key="tx_ulrichproducts_domain_model_product.nextday" /></div>
+                                        </f:else>
+                                    </f:if>
+                                </f:if>
+                            </div>
+                            <f:if condition="{product.media}">
+                                <div class="productdetails__media">
+                                    <div class="imagegallery loading">
+                                        <div class="imagegallery__mainimage content-images" id="imagegallery-mainimage-product{product.uid}" data-sliderthumbid="imagegallery-thumbnails-product{product.uid}">
+                                            <f:cObject typoscriptObjectPath="lib.imagegallery.mainimages" data="{uid: product.uid, table: 'tx_ulrichproducts_domain_model_product', fieldName: 'media', image_zoom: 1, header: product.title, imagewidth: 423, imageheight: 423}" />
+                                        </div>
+                                        <f:if condition="{product.media -> f:count()} > 1">
+                                            <div class="imagegallery__thumbnails" id="imagegallery-thumbnails-product{product.uid}" data-sliderid="imagegallery-mainimage-product{product.uid}">
+                                                <f:for each="{product.media}" as="media">
+                                                    <div class="entry">
+                                                        <f:switch expression="{media.originalResource.properties.extension -> f:format.case(mode: 'lower')}">
+                                                            <f:case value="mp4">
+                                                                <f:image
+                                                                        src="EXT:site_package/Resources/Public/Images/video_placeholder.png"
+                                                                        width="114c"
+                                                                        height="89c"
+                                                                        additionalAttributes="{sizes: '114px', srcset: '{f:uri.image(src: \'EXT:site_package/Resources/Public/Images/video_placeholder.png\', width: \'114c\', height: \'89c\')} 114w, {f:uri.image(src: \'EXT:site_package/Resources/Public/Images/video_placeholder.png\', width: \'228c\', height: \'179c\')} 228w'}"
+                                                                        alt="{product.title -> f:format.html(parseFuncTSPath: 'lib.parseFunc_Title')}"
+                                                                />
+                                                            </f:case>
+                                                            <f:defaultCase>
+                                                                <f:image
+                                                                        image="{media}"
+                                                                        width="114c"
+                                                                        height="89c"
+                                                                        additionalAttributes="{sizes: '114px', srcset: '{f:uri.image(image: media, width: \'114c\', height: \'89c\')} 114w, {f:uri.image(image: media, width: \'228c\', height: \'179c\')} 228w'}"
+                                                                        alt="{product.title -> f:format.html(parseFuncTSPath: 'lib.parseFunc_Title')}"
+                                                                />
+                                                            </f:defaultCase>
+                                                        </f:switch>
+                                                    </div>
+                                                </f:for>
+                                            </div>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <f:if condition="{product.description}">
+                                <div class="productdetails__text">
+                                    <div class="readmore__container">
+                                        <div class="readmore__container__content productdetails__description">
+                                            <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{product.description}</f:format.html>
+                                        </div>
+                                        <div class="readmore__container__buttons">
+                                            <a href="javascript:void(0);" class="more"><f:translate key="fulldescription.label" /><span class="fontello-icon-down-open"></span></a>
+                                            <a href="javascript:void(0);" class="less"><f:translate key="hidedescription.label" /><span class="fontello-icon-down-open"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:if>
+                            <div class="productdetails__text {f:if(condition: product.media, else: 'productdetails__text--fullwidth')}">
+                                <div class="productdetails__accordion abavo_accordion" role="tablist" aria-multiselectable="true" data-showfirstentry="true" data-slideduration="300">
+                                    <f:variable name="accordionElementCount" value="1" />
+                                    <f:if condition="{product.accordiontextPlant} || {product.accordiontextPlantMedia}">
+                                        <div class="accordion-element">
+                                            <div class="accordion-header" id="acc-header-plant" tabindex="0" role="tab" aria-controls="acc-content-plant" aria-expanded="false">
+                                                {accordionElementCount}. <f:translate key="tx_ulrichproducts_domain_model_product.accordiontext_plant" />
+                                            </div>
+                                            <div class="accordion-content" id="acc-content-plant" role="tabpanel" aria-labelledby="acc-header-plant" aria-expanded="false">
+                                                <div class="accordion-wrapper">
+                                                    <f:cObject typoscriptObjectPath="lib.mediarendering" data="{fieldName: 'accordiontext_plant_media', image_zoom: 1, table: 'tx_ulrichproducts_domain_model_product', uid: product.uid, width: settings.accordionMediaWidth}" />
+                                                    <f:if condition="{product.accordiontextPlant}">
+                                                        <div class="content-text">
+                                                            <f:format.html>{product.accordiontextPlant}</f:format.html>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <f:variable name="accordionElementCount" value="{accordionElementCount + 1}" />
+                                    </f:if>
+                                    <f:if condition="{product.accordiontextOrigin} || {product.accordiontextOriginMedia}">
+                                        <div class="accordion-element">
+                                            <div class="accordion-header" id="acc-header-origin" tabindex="0" role="tab" aria-controls="acc-content-origin" aria-expanded="false">
+                                                {accordionElementCount}. <f:translate key="tx_ulrichproducts_domain_model_product.accordiontext_origin" />
+                                            </div>
+                                            <div class="accordion-content" id="acc-content-origin" role="tabpanel" aria-labelledby="acc-header-origin" aria-expanded="false">
+                                                <div class="accordion-wrapper">
+                                                    <f:cObject typoscriptObjectPath="lib.mediarendering" data="{fieldName: 'accordiontext_origin_media', image_zoom: 1, table: 'tx_ulrichproducts_domain_model_product', uid: product.uid, width: settings.accordionMediaWidth}" />
+                                                    <f:if condition="{product.accordiontextOrigin}">
+                                                        <div class="content-text">
+                                                            <f:format.html>{product.accordiontextOrigin}</f:format.html>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <f:variable name="accordionElementCount" value="{accordionElementCount + 1}" />
+                                    </f:if>
+                                    <f:if condition="{product.accordiontextProduction} || {product.accordiontextProductionMedia}">
+                                        <div class="accordion-element">
+                                            <div class="accordion-header" id="acc-header-production" tabindex="0" role="tab" aria-controls="acc-content-production" aria-expanded="false">
+                                                {accordionElementCount}. <f:translate key="tx_ulrichproducts_domain_model_product.accordiontext_production" />
+                                            </div>
+                                            <div class="accordion-content" id="acc-content-production" role="tabpanel" aria-labelledby="acc-header-production" aria-expanded="false">
+                                                <div class="accordion-wrapper">
+                                                    <f:cObject typoscriptObjectPath="lib.mediarendering" data="{fieldName: 'accordiontext_production_media', image_zoom: 1, table: 'tx_ulrichproducts_domain_model_product', uid: product.uid, width: settings.accordionMediaWidth}" />
+                                                    <f:if condition="{product.accordiontextProduction}">
+                                                        <div class="content-text">
+                                                            <f:format.html>{product.accordiontextProduction}</f:format.html>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <f:variable name="accordionElementCount" value="{accordionElementCount + 1}" />
+                                    </f:if>
+                                    <f:if condition="{product.accordiontextApplication} || {product.accordiontextApplicationMedia}">
+                                        <div class="accordion-element">
+                                            <div class="accordion-header" id="acc-header-application" tabindex="0" role="tab" aria-controls="acc-content-application" aria-expanded="false">
+                                                {accordionElementCount}. <f:translate key="tx_ulrichproducts_domain_model_product.accordiontext_application" />
+                                            </div>
+                                            <div class="accordion-content" id="acc-content-application" role="tabpanel" aria-labelledby="acc-header-application" aria-expanded="false">
+                                                <div class="accordion-wrapper">
+                                                    <f:cObject typoscriptObjectPath="lib.mediarendering" data="{fieldName: 'accordiontext_application_media', image_zoom: 1, table: 'tx_ulrichproducts_domain_model_product', uid: product.uid, width: settings.accordionMediaWidth}" />
+                                                    <f:if condition="{product.accordiontextApplication}">
+                                                        <div class="content-text">
+                                                            <f:format.html>{product.accordiontextApplication}</f:format.html>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <f:variable name="accordionElementCount" value="{accordionElementCount + 1}" />
+                                    </f:if>
+                                    <f:if condition="{product.accordiontextFacts} || {product.accordiontextFactsMedia}">
+                                        <div class="accordion-element">
+                                            <div class="accordion-header" id="acc-header-facts" tabindex="0" role="tab" aria-controls="acc-content-facts" aria-expanded="false">
+                                                {accordionElementCount}. <f:translate key="tx_ulrichproducts_domain_model_product.accordiontext_facts" />
+                                            </div>
+                                            <div class="accordion-content" id="acc-content-facts" role="tabpanel" aria-labelledby="acc-header-facts" aria-expanded="false">
+                                                <div class="accordion-wrapper">
+                                                    <f:cObject typoscriptObjectPath="lib.mediarendering" data="{fieldName: 'accordiontext_facts_media', image_zoom: 1, table: 'tx_ulrichproducts_domain_model_product', uid: product.uid, width: settings.accordionMediaWidth}" />
+                                                    <f:if condition="{product.accordiontextFacts}">
+                                                        <div class="content-text">
+                                                            <f:format.html>{product.accordiontextFacts}</f:format.html>
+                                                        </div>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </f:if>
+                                </div>
+                            </div>
+                            <div class="productdetails__text">
+                                <p class="h-style h-style-50"><f:translate key="productdetails.header" /></p>
+                                <f:render section="attributes" arguments="{product:product}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <f:if condition="{product.relatedProducts}">
+            <div class="container container--padding-y container--bgcolor-grey-light horizontal-content-padding container--withoutbgimage">
+                <div class="container__inner">
+                    <f:render section="relatedProducts" arguments="{relatedProducts:product.relatedProducts}" />
+                </div>
+            </div>
+        </f:if>
+
+        <div class="container container--padding-y container--bgcolor-white horizontal-content-padding container--withoutbgimage">
+            <div class="container__inner">
+                <f:if condition="{product.contacts}">
+                    <div class="contactpersons textalign--center">
+                        <p class="h-style h-style-60">
+                            <f:if condition="{product.contacts -> f:count()} > 1">
+                                <f:then><f:translate key="tx_ulrichproducts_domain_model_contact.plural"/></f:then>
+                                <f:else><f:translate key="tx_ulrichproducts_domain_model_contact"/></f:else>
+                            </f:if>
+                        </p>
+                        <f:for each="{product.contacts}" as="contact">
+                            <f:render partial="Contact/Person" arguments="{contact: contact}" />
+                        </f:for>
+                    </div>
+                </f:if>
+                <div class="productdetails_bottom_actionbuttons textalign--center">
+                    <f:render section="ActionButtons" arguments="{product: product, buttonclass: 'button--primary'}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+
+<f:section name="ActionBar">
+    <div class="container container--withoutbgimage">
+        <div class="container__inner">
+            <div class="fixedactionbar horizontal-content-padding">
+                <div class="fixedactionbar__inner">
+                    <div class="fixedactionbar__left">
+                        <f:comment>Query for backlink: addQueryString="1" argumentsToBeExcludedFromQueryString="{0:'tx_ulrichproducts_pi[product]'}"</f:comment>
+                        <div class="actionbutton"><f:link.action class="button button--secondary button--small backlink" pageUid="{settings.productPiPid}" controller="Product" action="list" arguments="{category:category.localizedUid}"><span class="fontello-icon-arrow-left-long"></span> <f:translate key="label.backToProduktList" /></f:link.action></div>
+                    </div>
+                    <div class="fixedactionbar__right fixedactionbar__right--accbutton">
+                        <div class="actionbutton"><a href="javascript:void(0);" class="button button--secondary button--small js-open-fixedactionbar__right--acccontent"><f:translate key="label.productInquiries" /> <span class="fontello-icon-down-open"></span></a></div>
+                    </div>
+                    <div class="fixedactionbar__right fixedactionbar__right--acccontent">
+                        <f:render section="ActionButtons" arguments="{product: product, buttonclass: 'button--secondary'}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="ActionButtons">
+    <div class="actionbutton"><f:link.page class="button {buttonclass} button--small" pageUid="{settings.productInquirePid}" additionalParams="{tx_ulrichproducts_pi:{product:product.uid}}" target="lightbox" data="{lightboxclass: 'lightboxcontent--transparent'}"><span class="fontello-icon-logo_mail-open"></span> <f:translate key="label.productInquiry" /></f:link.page></div>
+    <div class="actionbutton"><f:link.page class="button {buttonclass} button--small" pageUid="{settings.productPatternInquirePid}" additionalParams="{tx_ulrichproducts_pi:{product:product.uid}}" target="lightbox" data="{lightboxclass: 'lightboxcontent--transparent'}"><span class="fontello-icon-picture"></span> <f:translate key="label.productPatternInquiry" /></f:link.page></div>
+    <div class="actionbutton"><f:link.page class="button {buttonclass} button--small" pageUid="{settings.productDocumentInquiryPid}" additionalParams="{tx_ulrichproducts_pi:{product:product.uid}}" target="lightbox" data="{lightboxclass: 'lightboxcontent--transparent'}"><span class="fontello-icon-list-alt"></span> <f:translate key="label.productDocumentInquiry" /></f:link.page></div>
+</f:section>
+
+
+<!-- SECTION: ATTRIBUTES -->
+<f:section name="attributes">
+    <div class="contenttable-responsive">
+        <table class="contenttable fullwidth">
+            <f:if condition="{product.qualities}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.qualities" />:</th>
+                    <td>{product.qualities}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.appearance}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.appearance" />:</th>
+                    <td>{product.appearance}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.casNumber}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.cas_number" />:</th>
+                    <td>{product.casNumber}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.egNumber}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.eg_number" />:</th>
+                    <td>{product.egNumber}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.granulation}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.granulation" />:</th>
+                    <td>{product.granulation}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.originCountries}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.origin_country" />:</th>
+                    <td>
+                    <f:for each="{product.originCountries}" as="country" iteration="i">{country.nameLocalized}<f:if condition="{i.isLast}"><f:else>, </f:else></f:if></f:for>
+                    </td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.bestbefor}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.bestbefor" />:</th>
+                    <td>{product.bestbefor}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.spec}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.spec" />:</th>
+                    <td>{product.spec}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.physicalState}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.physical_state" />:</th>
+                    <td>{product.physicalState}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.chemicalProperties}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.chemical_properties" />:</th>
+                    <td>{product.chemicalProperties}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.molecularFormula}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.molecular_formula" />:</th>
+                    <td>{product.molecularFormula}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.chemicalName}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.chemical_name" />:</th>
+                    <td>{product.chemicalName}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.registration}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.registration" />:</th>
+                    <td>{product.registration}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.eNumber}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.e_number" />:</th>
+                    <td>{product.eNumber}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.grassState}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.grass_state" />:</th>
+                    <td>{product.grassState}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.container}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.container" />:</th>
+                    <td>{product.container}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.inci}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.inci" />:</th>
+                    <td>{product.inci}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.einecs}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.einecs" />:</th>
+                    <td>{product.einecs}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.meltingPoint}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.melting_point" />:</th>
+                    <td>{product.meltingPoint}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.durability}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.durability" />:</th>
+                    <td>{product.durability}</td>
+                </tr>
+            </f:if>
+            <f:if condition="{product.storage}">
+                <tr>
+                    <th><f:translate key="tx_ulrichproducts_domain_model_product.storage" />:</th>
+                    <td>{product.storage}</td>
+                </tr>
+            </f:if>
+        </table>
+    </div>
+</f:section>
+
+
+<!-- SECTION: RELATEDPRODUCTS -->
+<f:section name="relatedProducts">
+    <p class="h-style h-style-60 textalign--center"><f:translate key="crossselling.label" /></p>
+    <div class="imageslider">
+        <f:for each="{relatedProducts}" as="relatedProduct">
+            <div class="imageslider__entry textalign--center">
+                <f:link.action arguments="{product:relatedProduct}" addQueryString="1">
+                    <figure>
+                        <f:variable name="imageField" value="media" />
+                        <f:if condition="{relatedProduct.media}">
+                            <f:else>
+                                <f:if condition="{relatedProduct.accordiontextProductionMedia}">
+                                    <f:then>
+                                        <f:variable name="imageField" value="accordiontext_production_media" />
+                                    </f:then>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                        <f:cObject typoscriptObjectPath="lib.imageslider.image" data="{uid: relatedProduct.uid, table: 'tx_ulrichproducts_domain_model_product', fieldName: imageField, header: relatedProduct.title}" />
+                        <figcaption>{relatedProduct.title}</figcaption>
+                    </figure>
+                </f:link.action>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+</html>

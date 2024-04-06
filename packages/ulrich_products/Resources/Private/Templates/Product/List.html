@@ -1,0 +1,32 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/SitePackage/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <vh:pageTitle>{category.title}</vh:pageTitle>
+
+    <f:if condition="{category}">
+        <f:if condition="{category.description}">
+            <div class="category-description">
+                <p><f:format.nl2br>{category.description}</f:format.nl2br></p>
+            </div>
+        </f:if>
+    </f:if>
+
+    <div class="a-b-c-list">
+        <ul class="infinity_load_filter">
+            <f:for each="{productFilter.menu}" as="item" iteration="i">
+                <li class="infinity_load_filter-item">
+                    <f:if condition="{item.count}">
+                        <f:then><a class="js-infinity_load_filter-trigger {f:if(condition: item.active, then: 'active')}" href="#" data-char="{item.char}">{item.label}</a></f:then>
+                        <f:else><span>{item.label}</span></f:else>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </div>
+
+    <div id="js-infinity_load_content" class="arrow-list arrow-list--light-style arrow-list--big" data-offset="{apiQuery.offset}" data-limit="{apiQuery.limit}" data-category="{f:if(condition: apiQuery.category, then: apiQuery.category.uid, else: 0)}" data-branch="{apiQuery.branch}" data-char="{apiQuery.char}"><ul role="menu"></ul></div>
+    <a id="js-infinity_load_trigger" data-requestfinished="true" data-resource="{f:uri.page(pageType:settings.pageTypeApi.products, additionalParams: '{L: settings.sysLanguageUid}')}" href="#"><f:translate key="label.infinityLoad"/></a>
+
+</f:section>
+</html>

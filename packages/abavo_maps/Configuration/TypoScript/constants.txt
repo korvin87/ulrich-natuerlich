@@ -1,0 +1,53 @@
+
+plugin.tx_abavomaps {
+	view {
+		# cat=plugin.tx_abavomaps/file/10; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:abavo_maps/Resources/Private/Templates/
+		# cat=plugin.tx_abavomaps/file/20; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:abavo_maps/Resources/Private/Partials/
+		# cat=plugin.tx_abavomaps/file/30; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:abavo_maps/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_abavomaps//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings{
+		# cat=plugin.tx_abavomaps/20; type=string; label= GoogleMap API Browser Key
+		gmApiKey =
+		# cat=plugin.tx_abavomaps/20; type=string; label= MapQuest API Key: From https://developer.mapquest.com for (OSM only!)
+		mapquestApiKey =
+		# cat=plugin.tx_abavomaps/20; type=string; label= Google API quotaUser
+		quotaUser =
+		# cat=plugin.tx_abavomaps/30; type=string; label= Country code (OSM): Limit nomination query to countrys (comma separeted) http://de.wikipedia.org/wiki/ISO_3166-1_alpha-2
+		countryCodes = DE
+		# cat=plugin.tx_abavomaps/30; type=int; label= Query limits (OSM): Max results for nomination query: Unlimited=0
+		queryLimits = 0
+		# cat=plugin.tx_abavomaps/file/40; type=string; label= Marker default icon
+		markerDefaultIcon = typo3conf/ext/abavo_maps/Resources/Public/Icons/marker_default.png
+		# cat=plugin.tx_abavomaps/file/50; type=string; label= GoogleMaps Clustering images path and prefix
+		gmClusterImagesPath = /typo3conf/ext/abavo_maps/Resources/Public/Icons/Clustering/m
+		# cat=plugin.tx_abavomaps/10; type=options[gm,osm]; label= Render mode: Select map render mode
+		renderMode = gm
+		# cat=plugin.tx_abavomaps/10; type=options[Default,Standalone]; label= Render typ: Select map render type. If using render over PageType 19810831 use "Standalone" for example.
+		renderType = Default
+		# cat=plugin.tx_abavomaps/enable/10; type=boolean; label= Routing: Displays routing form in marker bubbles
+		routing = 1
+		# cat=plugin.tx_abavomaps/enable/20; type=boolean; label= MouseWheel: Using the mouse wheel to zoom in the map
+		mouseWheelZoom = 0
+		# cat=plugin.tx_abavomaps/dims/10; type=string; label=Default height in PX: If height is undefined (for example in a ajax inclusion)
+		defaultHeight = 400
+		# cat=plugin.tx_abavomaps/dims/20; type=string; label=Default width in PX: If width is undefined (for example in a ajax inclusion)
+		defaultWidth = 600
+		# cat=plugin.tx_abavomaps/color/10; type=color; label= Routing color (OSM only): The color for the route overlay
+		routeColor = ff000
+		# cat=plugin.tx_abavomaps/color/20; type=color; label= Shape color: The default color for the shape overlays
+		shapeColor = #7092FF
+		# cat=plugin.tx_abavomaps/links/10; type=string; label= Marker selector class
+		markerSelectorClass = ajaxlightbox
+		# cat=plugin.tx_abavomaps/links/20; type=string; label= URL prefix:Prefix for generating for example image URLs
+		urlPrefix = /
+		# cat=plugin.tx_abavomaps/links/30; type=boolean; label= Redirect to Link: Redirect on click event the markers web link instead of a showing a information popup, if a link is available.
+		redirectToMarkerURL = 1
+	}
+}

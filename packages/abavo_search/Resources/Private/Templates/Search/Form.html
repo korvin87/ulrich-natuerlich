@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+	{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+
+	<f:layout name="Default"/>
+
+    <f:section name="main">
+        <f:if condition="{0:settings.autocompleteLibrary} == {0:'jqueryui'}">
+            <vh:IncludeHeaderFiles pathToFile="{settings.cssjQueryUi}" />
+            <vh:IncludeHeaderFiles pathToFile="{settings.jsjQueryUi}" footer="TRUE" />
+        </f:if>
+        <f:if condition="{0:settings.autocompleteLibrary} == {0:'tooltipster'}">
+            <vh:IncludeHeaderFiles pathToFile="{settings.cssTooltipster}" />
+            <vh:IncludeHeaderFiles pathToFile="{settings.jsTooltipster}" footer="TRUE" />
+        </f:if>
+		
+		<f:if condition="{settings.jsGlobalInclude}">
+			<f:else>
+                <vh:IncludeHeaderFiles pathToFile="{f:uri.resource(path:'Js/Autocomplete_{settings.autocompleteLibrary}.js')}" footer="TRUE" />
+				<vh:IncludeHeaderFiles pathToFile="{f:uri.resource(path:'Js/Form.js')}" footer="TRUE" />
+			</f:else>
+		</f:if>
+		
+		<f:flashMessages />
+		
+		<f:form action="search" pluginName="piresults" pageUid="{settings.targetPid}" class="search-form js-abavo-search-form" id="search-form-{piData.uid}" method="POST">
+			<input
+                class="search-word autocomplete"
+                id="search-field-{piData.uid}"
+                data-minlen="{settings.minSearchStrinLen}"
+                data-pages="{settings.storagePids}"
+                data-autocompleteurl="{f:uri.action(pageType: 170411, additionalParams: '{tx_abavosearch_pidata: \'{controller: \\'Ajax\\', action: \\'autocomplete\\', pid: settings.searchstoragepage}\'}')}"
+                type="search"
+                name="tx_abavosearch_piresults[search]"
+                placeholder="{f:translate(key:'form.autocomplete')}"
+                autocomplete="off"
+                value="{search}">
+			<f:if condition="{settings.advancedForm}">
+				<f:render partial="AdvancedForm" arguments="{search:search, facets:facets, formFacets:formFacets, orderby:orderby, sorting:sorting, length:length}" />
+			</f:if>
+			<input class="search-submit-button button button--primary" type="submit" {f:if(condition:'{search}',else:'disabled="disabled"')} value="{f:translate(key: 'form.submit')}">
+			
+		</f:form>
+		
+    </f:section>
+</div>

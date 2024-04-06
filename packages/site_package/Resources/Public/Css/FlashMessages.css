@@ -1,0 +1,208 @@
+#typo3-messages {
+	margin-bottom: 10px;
+}
+.typo3-message {
+	padding: 11px;
+	margin-bottom: 18px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+	border: 0;
+	background-position: 10px 12px;
+	background-repeat: no-repeat;
+	padding: 12px 12px 12px 36px;
+}
+.typo3-message h4 {
+	margin-top: 0;
+	color: inherit;
+}
+.typo3-message .alert-link {
+	font-weight: bold;
+}
+.typo3-message > p,
+.typo3-message > ul {
+	margin-bottom: 0;
+}
+.typo3-message > p + p {
+	margin-top: 5px;
+}
+.typo3-message a {
+	color: inherit;
+	text-decoration: underline;
+}
+.typo3-message .media {
+	margin: 0;
+}
+.typo3-message .media .fa-stack > .fa:first-child {
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+}
+.typo3-message .media-body {
+	vertical-align: middle;
+}
+.typo3-message .message-header {
+	font-weight: bold;
+	margin-bottom: 9px;
+}
+.typo3-message ul,
+.typo3-message ol {
+	padding-left: 16px;
+}
+.typo3-message .message-header {
+	display: block;
+}
+.typo3-message .t3-icon-actions-message-close {
+	cursor: pointer;
+	float: right;
+}
+.typo3-message li {
+	margin-bottom: 10px;
+	list-style: disc;
+}
+.typo3-message a {
+	text-decoration: underline;
+}
+.message-notice {
+	color: #777;
+	background-color: #f6f7fa;
+	background-image: url('typo3/sysext/t3skin/icons/gfx/notice.png');
+	border-color: #c2cbcf;
+}
+.message-notice a {
+	color: #777;
+}
+.message-information {
+	background-color: #6daae0;
+	border-color: transparent;
+	color: #ffffff;
+	background-image: url('typo3/sysext/t3skin/icons/gfx/information.png');
+}
+.message-information hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.message-information .alert-link {
+	color: #e6e6e6;
+}
+.message-information a {
+	color: #4c73a1;
+}
+.message-ok {
+	background-color: #79a548;
+	border-color: transparent;
+	color: #ffffff;
+	background-image: url('typo3/sysext/t3skin/icons/gfx/ok.png');
+}
+.message-ok hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.message-ok .alert-link {
+	color: #e6e6e6;
+}
+.message-ok a {
+	color: #3b7826;
+}
+.message-warning {
+	background-color: #e8a33d;
+	border-color: transparent;
+	color: #ffffff;
+	background-image: url("typo3/sysext/t3skin/icons/gfx/warning.png");
+}
+.message-warning hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.message-warning .alert-link {
+	color: #e6e6e6;
+}
+.message-warning a {
+	color: #9e7d4a;
+}
+.message-error {
+	background-color: #c83c3c;
+	border-color: transparent;
+	color: #ffffff;
+	background-image: url('typo3/sysext/t3skin/icons/gfx/error.png');
+}
+.message-error hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.message-error .alert-link {
+	color: #e6e6e6;
+}
+.message-error a {
+	color: #aa0225;
+}
+.alert {
+	padding: 11px;
+	margin-bottom: 18px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+.alert h4 {
+	margin-top: 0;
+	color: inherit;
+}
+.alert .alert-link {
+	font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+	margin-bottom: 0;
+}
+.alert > p + p {
+	margin-top: 5px;
+}
+.alert-dismissable,
+.alert-dismissible {
+	padding-right: 31px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+	position: relative;
+	top: -2px;
+	right: -21px;
+	color: inherit;
+}
+.alert-success {
+	background-color: #79a548;
+	border-color: transparent;
+	color: #ffffff;
+}
+.alert-success hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.alert-success .alert-link {
+	color: #e6e6e6;
+}
+.alert-info {
+	background-color: #6daae0;
+	border-color: transparent;
+	color: #ffffff;
+}
+.alert-info hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.alert-info .alert-link {
+	color: #e6e6e6;
+}
+.alert-warning {
+	background-color: #e8a33d;
+	border-color: transparent;
+	color: #ffffff;
+}
+.alert-warning hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.alert-warning .alert-link {
+	color: #e6e6e6;
+}
+.alert-danger {
+	background-color: #c83c3c;
+	border-color: transparent;
+	color: #ffffff;
+}
+.alert-danger hr {
+	border-top-color: rgba(0, 0, 0, 0);
+}
+.alert-danger .alert-link {
+	color: #e6e6e6;
+}

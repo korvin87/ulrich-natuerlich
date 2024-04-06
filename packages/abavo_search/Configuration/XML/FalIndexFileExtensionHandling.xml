@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+abavo_search
+
+@copyright   2015 abavo GmbH <dev@abavo.de>
+@license     Proprietary
+-->
+
+<root>
+	<mappings version="1.0.1">
+		<mapping id="pdf">
+			<script>EXT:abavo_search/Resources/Private/Scripts/pdf2text.sh</script>
+			<tools>pdftotex,pdfinfo</tools>
+			<cleanRegex>
+				<pattern>/([0-9]{1,} von [0-9]{1,}|•|¬)/</pattern>
+				<replace> </replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="doc">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catdocx.sh</script>
+			<tools>catdoc</tools>
+			<cleanRegex>
+				<pattern></pattern>
+				<replace></replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="docx">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catdocx.sh</script>
+			<tools>catdoc,unzip</tools>
+			<cleanRegex>
+				<pattern>/([\n\t]|\xffJPG|\x89PNG|MERGEFORMAT)/</pattern>
+				<replace> </replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="xls">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catxlsx.sh</script>
+			<tools>xls2csv</tools>
+			<cleanRegex>
+				<pattern>/[",\s]{1,}/</pattern>
+				<replace> </replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="xlsx">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catxlsx.sh</script>
+			<tools>unzip</tools>
+			<cleanRegex>
+				<pattern></pattern>
+				<replace></replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="ppt">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catpptx.sh</script>
+			<tools>catppt</tools>
+			<cleanRegex>
+				<pattern>/(\v)/</pattern>
+				<replace> </replace>
+			</cleanRegex>
+		</mapping>
+		<mapping id="pptx">
+			<script>EXT:abavo_search/Resources/Private/Scripts/catpptx.sh</script>
+			<tools>catppt,unzip</tools>
+			<cleanRegex>
+				<pattern></pattern>
+				<replace></replace>
+			</cleanRegex>
+		</mapping>
+	</mappings>
+</root>

@@ -1,0 +1,173 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<BASE>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>FAL Indexer Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.class>
+						<TCEforms>
+							<label>Indexer Class</label>
+							<!-- <onchange>reload</onchange> -->
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getParamsAsFieldList</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="FalIndexer">Abavo\AbavoSearch\Indexers\FalIndexer</numIndex>
+								</parameters>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.class>
+					<settings.falStorage>
+						<TCEforms>
+							<label>FAL Storage</label>
+							<displayCond>FIELD:settings.class:=:Abavo\AbavoSearch\Indexers\FalIndexer</displayCond>
+							<onchange>reload</onchange>
+							<config>
+								<type>select</type>
+								<foreign_table>sys_file_storage</foreign_table>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>1</minitems>
+								<allowNonIdValues>1</allowNonIdValues>
+								<default>0</default>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.falStorage>
+					<settings.preventServerTimeout>
+						<TCEforms>
+							<label>Prevent server timeout on script run (!Supports only non-LOCAL-FAL-Driver based storages at your risk. This could cause server´s script runtime infinity!)</label>
+							<config>
+								<type>check</type>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.preventServerTimeout>
+					<settings.paths>
+						<TCEforms>
+							<label>Relative Paths comma separated</label>
+							<config>
+								<type>text</type>
+								<cols>40</cols>
+								<rows>3</rows>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.paths>
+					<settings.excludepaths>
+						<TCEforms>
+							<label>Exclude relative Paths comma separated (use "/" as prefix)</label>
+							<config>
+								<type>text</type>
+								<cols>40</cols>
+								<rows>3</rows>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.excludepaths>
+					<settings.fileExtensions>
+						<TCEforms>
+							<label>File-Extensions</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">PDF-Documents *.pdf (Needs module pdftotext,pdfinfo on server side)</numIndex>
+										<numIndex index="1">pdf</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">MS Word 97-2003 *.doc (Needs module catdoc on server side)</numIndex>
+										<numIndex index="1">doc</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">MS Word Office Open XML *.docx (Needs module unzip,grep,sed on server side)</numIndex>
+										<numIndex index="1">docx</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">MS Excel 97-2003 *.xls (Needs module xls2csv on server side)</numIndex>
+										<numIndex index="1">xls</numIndex>
+									</numIndex>
+									<numIndex index="4" type="array">
+										<numIndex index="0">MS Excel Office Open XML *.xlsx (Needs module unzip,grep,sed on server side)</numIndex>
+										<numIndex index="1">xlsx</numIndex>
+									</numIndex>
+									<numIndex index="5" type="array">
+										<numIndex index="0">MS Powerpoint 97-2003 *.ppt (Needs module catppt on server side)</numIndex>
+										<numIndex index="1">ppt</numIndex>
+									</numIndex>
+									<numIndex index="6" type="array">
+										<numIndex index="0">MS Powerpoint Office Open XML *.pptx (Needs module unzip,grep on server side)</numIndex>
+										<numIndex index="1">pptx</numIndex>
+									</numIndex>
+								</items>
+								<renderType>selectMultipleSideBySide</renderType>
+								<minitems>1</minitems>
+								<maxitems>100</maxitems>
+							</config>
+						</TCEforms>
+					</settings.fileExtensions>
+				</el>
+			</ROOT>
+		</BASE>
+		<ADDITIONAL>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Additional Settings</sheetTitle>
+				</TCEforms>
+				<el>
+					<settings.feGroup>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_general.xlf:LGL.fe_group</label>
+							<config>
+								<type>select</type>
+								<foreign_table>fe_groups</foreign_table>
+								<renderType>selectCheckBox</renderType>
+								<maxitems>100</maxitems>
+							</config>
+						</TCEforms>
+					</settings.feGroup>
+					<settings.language>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_tca.xlf:sys_language</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getSysLanguages</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="-1">[All]</numIndex>
+								</parameters>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.language>
+					<settings.toolPath>
+						<TCEforms>
+							<label>Server path to pdftotext, pdfinfo, catdoc, catppt, xls2csv (if not /usr/bin/ or /usr/local/bin/)</label>
+							<config>
+								<type>input</type>
+								<size>40</size>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.toolPath>
+					<settings.fileExtensionHandlingMapping>
+						<TCEforms>
+							<label>FileExtensionHandling XML-File (default EXT:abavo_search/Configuration/XML/FalIndexFileExtensionHandling.xml)</label>
+							<config>
+								<type>input</type>
+								<size>40</size>
+								<eval>trim</eval>
+								<default>EXT:abavo_search/Configuration/XML/FalIndexFileExtensionHandling.xml</default>
+							</config>
+						</TCEforms>
+					</settings.fileExtensionHandlingMapping>
+				</el>
+			</ROOT>
+		</ADDITIONAL>
+	</sheets>
+</T3DataStructure>

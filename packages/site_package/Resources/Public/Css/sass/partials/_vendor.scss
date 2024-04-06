@@ -1,0 +1,337 @@
+.slick-slider {
+    margin: 0;
+
+    .slick-slide {
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.lightboxcontent {
+    .mfp-content {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+
+    .outerwrap {
+        padding: 2em 1em 1.5em;
+        background-color: #fff;
+    }
+
+    .innerwrap {
+        @include removelastmarginbottom();
+    }
+
+    &.videocontent {
+        .mfp-content {
+            max-width: 800px;
+        }
+    }
+
+    &.lightboxcontent--transparent {
+        .mfp-content {
+            max-width: $container_width;
+        }
+
+        .outerwrap {
+            color: #fff;
+            background-color: transparent;
+
+            a {
+                color: inherit;
+                text-decoration: underline;
+
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+
+            select,
+            textarea,
+            input[type="text"],
+            input[type="search"],
+            input[type="date"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="number"],
+            input[type="password"] {
+                background-color: #fff;
+            }
+        }
+
+        .lightbox-form-success {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        &.mfp-close-btn-in {
+            .mfp-close {
+                height: 28px;
+                width: 28px;
+                border: 3px solid #fff;
+                @include border-radius(100%);
+                opacity: 1;
+                line-height: 23px;
+                color: #fff;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+}
+
+.mfp-close,
+.mfp-arrow {
+    min-height: 0;
+    min-width: 0;
+    border: 0;
+    padding: 0;
+    @include border-radius(0);
+
+    &:focus,
+    &:hover {
+        background: transparent;
+    }
+}
+
+.lbmessage {
+    .mfp-content {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 2em 1em 1.5em;
+        background-color: #fff;
+    }
+
+    .lbcontent {
+        &.fontello-pos-before-absolute {
+            min-height: 40px;
+            padding-left: 3.3em;
+
+            &:before {
+                font-size: 200%;
+            }
+        }
+    }
+
+    .lbbuttons {
+        margin-top: 1em;
+        text-align: center;
+
+        a {
+            margin-bottom: 0;
+        }
+    }
+
+    &.mfp-wrap {
+        .mfp-content {
+            opacity: 0;
+            @include translate(0, -25%);
+            @include transition(transform .2s ease-out, opacity .2s ease-out);
+        }
+
+        &.mfp-ready {
+            .mfp-content {
+                opacity: 1;
+                @include translate(0, 0%);
+            }
+        }
+
+        &.mfp-removing {
+            .mfp-content {
+                opacity: 0;
+                @include translate(0, -25%);
+            }
+        }
+    }
+}
+
+.mfp-image-holder {
+    figcaption,
+    figure {
+        margin: 0;
+    }
+}
+
+img.mfp-img {
+    background-color: #fff;
+    @include background-clip(content-box);
+}
+
+.cc-window,
+.cc-banner {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: .4em .8em;
+    font-size: 80%;
+    color: #fff;
+    background-color: $color_blue_dark;
+    @include pie-clearfix;
+
+    .cc-compliance {
+        float: right;
+        margin: .5em 0 .5em .8em;
+
+        a {
+            @extend %reset-anchor-styles;
+            display: inline-block;
+            min-width: 50px;
+            padding: .4em .8em;
+            text-align: center;
+            color: $basefontcolor;
+            background-color: #fff;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .85);
+            }
+        }
+    }
+
+    .cc-message {
+        display: inline-block;
+        margin: .5em 0;
+    }
+
+    a.cc-link {
+        @extend %reset-anchor-styles;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: rgba(255, 255, 255, .7);
+        }
+    }
+
+    &.cc-invisible {
+        display: none;
+    }
+}
+
+.tooltipster-sidetip {
+    $tooltipBorderColor: $bordercolor;
+    $tooltipBackgroundcolor: #fff;
+
+    &.tooltipster-default {
+        &.tooltipster-default-ulrich {
+            .tooltipster-box {
+                @include border-radius(0);
+                border-color: $tooltipBorderColor;
+                background-color: $tooltipBackgroundcolor;
+            }
+
+            .tooltipster-content {
+                padding: 1em;
+                color: inherit;
+                line-height: inherit;
+                @include removelastmarginbottom();
+                @include pie-clearfix;
+            }
+
+            &.tooltipster-bottom {
+                .tooltipster-arrow-background {
+                    border-bottom-color: $tooltipBackgroundcolor;
+                }
+
+                .tooltipster-arrow-border {
+                    border-bottom-color: $tooltipBorderColor;
+                }
+            }
+
+            &.tooltipster-left {
+                .tooltipster-arrow-background {
+                    border-left-color: $tooltipBackgroundcolor;
+                }
+
+                .tooltipster-arrow-border {
+                    border-left-color:$tooltipBorderColor;
+                }
+            }
+
+            &.tooltipster-right {
+                .tooltipster-arrow-background {
+                    border-right-color: $tooltipBackgroundcolor;
+                }
+
+                .tooltipster-arrow-border {
+                    border-right-color: $tooltipBorderColor;
+                }
+            }
+
+            &.tooltipster-top {
+                .tooltipster-arrow-background {
+                    border-top-color: $tooltipBackgroundcolor;
+                }
+
+                .tooltipster-arrow-border {
+                    border-top-color: $tooltipBorderColor;
+                }
+            }
+        }
+
+        &.tooltipster-default-ulrich-tooltip {
+            .tooltipster-content {
+                @include font-size(1.6);
+            }
+        }
+    }
+
+    .toolbar-tooltip-content {
+        @include font-size(1.8);
+    }
+
+    .mainnav-tooltip-content {
+        ul {
+            margin: 0;
+        }
+
+        li {
+            @extend %reset-list-styles;
+            margin: 0 0 .2em;
+
+            a {
+                @extend %reset-anchor-styles;
+                @include font-size(1.7);
+                font-weight: 600;
+
+                &:hover,
+                &:focus {
+                    color: tint($basefontcolor, 30);
+                }
+            }
+
+            &.act {
+                a {
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+
+    ul.search-autocomplete-result {
+        margin: 0;
+
+        li {
+            @extend %reset-list-styles;
+            margin: 0 0 .3em;
+
+            a {
+                @extend %reset-anchor-styles;
+                display: block;
+                @include font-size(1.7);
+                line-height: 1.3;
+
+                &:hover,
+                &:focus {
+                    color: tint($basefontcolor, 30);
+                }
+            }
+        }
+    }
+}

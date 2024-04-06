@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+	{namespace vh=Abavo\AbavoSearch\ViewHelpers}
+
+	<f:layout name="Default"/>
+
+    <f:section name="main">
+		<f:flashMessages />
+
+		<div id="search-results">
+			<f:if condition="{results}">
+				<f:then>
+					<f:if condition="{settings.statsEnabled}">
+						<vh:IncludeHeaderFiles pathToFile="{f:uri.resource(path:'Js/Search.js')}" footer="TRUE" />
+					</f:if>
+					
+					<f:render partial="Messages" arguments="{paginationSettings:paginationSettings, searchWithoutSynonyms:searchWithoutSynonyms, synonyms:synonyms, synonymReplacements:synonymReplacements}" />
+
+					<f:for each="{results}" as="result" iteration="iterator">
+                        <f:for each="{result.indexer}" as="indexer" iteration="i">
+                            <f:if condition="{i.isFirst}">
+                                <f:render partial="Index/{indexer.type}" arguments="{
+                                          iterator:iterator,
+                                          search:search,
+                                          synonyms:synonyms,
+                                          result:result,
+                                          resultCount:'{vh:indexed(object:iteration, indexedAttribute:iterator.index)}' }" />
+                            </f:if>
+                        </f:for>
+					</f:for>
+					
+					<f:render partial="Pagination" arguments="{paginationSettings:paginationSettings, search:search, facets:facets, orderby:orderby, sorting:sorting}" />
+				</f:then>
+				<f:else>
+					<f:if condition="{search}">
+						<f:then>
+							<div class="resultscount"><f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:noresult" />: "{search}"</div>
+							<f:render partial="AlternativeWords" arguments="{search:search}" />
+						</f:then>
+						<f:else>
+							<div class="resultscount"><f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:nosearchterm" /></div>
+						</f:else>
+					</f:if>
+				</f:else>
+			</f:if>
+
+			<f:if condition="{queryTime}">
+				<div class="queryTime" data-searchmethod="{searchMethod}"><i class="fa fa-clock-o"></i> <f:translate key="search.querytime" arguments="{0:'{queryTime -> f:format.number(decimals:\'5\', decimalSeparator:\',\', thousandsSeparator:\'.\')}'}" /></div>
+			</f:if>
+		</div>
+
+    </f:section>
+</div>

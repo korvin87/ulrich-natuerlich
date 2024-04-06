@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="tx_abavosearch_domain_model_indexer">
+				<source>Indexer</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.target">
+				<source>Target-PID</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.config">
+				<source>Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_index">
+				<source>Index Record</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_abavosearch_domain_model_synonym">
+				<source>Synonym</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.alt">
+				<source>Alternative-Title</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_synonym.synonym">
+				<source>Synonyms</source>
+			</trans-unit>
+			
+			<trans-unit id="mod.wizards.newContentElement.pisearch">
+				<source>abavo Search</source>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.pisearch.description">
+				<source>Showing searchbox and filter options.</source>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.piresults">
+				<source>abavo Search</source>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.piresults.description">
+				<source>Showing search results.</source>
+			</trans-unit>
+			
+			<trans-unit id="ff.pisearch.sheet.settings">
+				<source>Settings</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch">
+				<source>Advanced Search Form</source>
+			</trans-unit>	
+			<trans-unit id="ff.pisearch.sheet.settings.targetpid">
+				<source>Target Page Search Results</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.settings.advancedForm">
+				<source>Advanced Search Form (Based on storage PID)</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetSearchService">
+				<source>Facet Option Group: SearchServices</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetIndexer">
+				<source>Facet Option Group: Indexers</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.advancedFormFacetCategory">
+				<source>Facet Option Group: Categories</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.rootFacetCategory">
+				<source>Root Facet Category (Used by Facet Option Group)</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults">
+				<source>Display Results</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOptionsPerPage">
+				<source>Option: Items per page</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormSortingDirection">
+				<source>Option: Sorting Direction</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOrderBy">
+				<source>Option: Order By</source>
+			</trans-unit>
+			<trans-unit id="ff.pisearch.sheet.advancedsearch.displayresults.advancedFormOrderByFields">
+				<source>Option: Order By Fields</source>
+			</trans-unit>
+			<trans-unit id="ff.apiindexer.info.content">
+				<source><![CDATA[
+							<label style="color:red">IMPORTANT Informations about this indexer:</label>
+							<ul>
+								<li>Be sure <u>TYPO3_BASE_URL</u> in .env is set. This is needed for the indexing request. (Current value: %s)</li>
+								<li><u>You need a JsonView configuration.</u> So take a look in the class <i>\Abavo\AbavoSearch\Domain\Api\ConfigurationExample</i>.</li>
+								<li>Your configuration class <u>must</u> implements the \Abavo\AbavoSearch\Domain\Api\ConfigurationInterface</li>
+								<li>Your able to register JsonView configurations to TypoScript array path <i>config.tx_abavosearch.api.configurationClasses</i></li>
+								<li>Also possible register JsonView configurations to array <i>$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['api']['jsonViewConfigurationClasses']</i></li>
+							</ul>
+						]]>
+				</source>
+			</trans-unit>
+
+            <trans-unit id="system.hidden">
+                <source>Hide element</source>
+            </trans-unit>
+            <trans-unit id="system.language">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="system.starttime">
+                <source>Release</source>
+            </trans-unit>
+            <trans-unit id="system.endtime">
+                <source>Expiration</source>
+            </trans-unit>
+
+		</body>
+	</file>
+</xliff>

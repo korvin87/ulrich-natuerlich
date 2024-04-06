@@ -1,0 +1,86 @@
+// BASE-CONFIG
+config.tx_extbase.persistence.classes {
+
+	Abavo\AbavoSearch\Domain\Model\Index {
+		mapping {
+			tableName = tx_abavosearch_domain_model_index
+			columns {
+				indexer.mapOnProperty = indexer
+				refid.mapOnProperty = refid
+				title.mapOnProperty = title
+				content.mapOnProperty = content
+				abstract.mapOnProperty = abstract
+				params.mapOnProperty = params
+				target.mapOnProperty = target
+				fegroup.mapOnProperty = fegroup
+				sys_language_uid.mapOnProperty = sysLanguageUid
+				categories.mapOnProperty = categories
+				datetime.mapOnProperty = datetime
+			}
+		}
+	}
+	Abavo\AbavoSearch\Domain\Model\Term {
+		mapping {
+			tableName = tx_abavosearch_domain_model_term
+			columns {
+				uid.mapOnProperty = uid
+				pid.mapOnProperty = pid
+				refid.mapOnProperty = refid
+				search.mapOnProperty = search
+				sys_language_uid.mapOnProperty = sysLanguageUid
+				fegroup.mapOnProperty = fegroup
+				tstamp.mapOnProperty = tstamp
+				crdate.mapOnProperty = crdate
+			}
+		}
+	}
+	Abavo\AbavoSearch\Domain\Model\Stat {
+		mapping {
+			tableName = tx_abavosearch_domain_model_stat
+			columns {
+				uid.mapOnProperty = uid
+				pid.mapOnProperty = pid
+				refid.mapOnProperty = refid
+				type.mapOnProperty = type
+				val.mapOnProperty = val
+				hits.mapOnProperty = hits
+				sys_language_uid.mapOnProperty = sysLanguageUid
+				fegroup.mapOnProperty = fegroup
+				tstamp.mapOnProperty = tstamp
+				crdate.mapOnProperty = crdate
+			}
+		}
+	}
+	Abavo\AbavoSearch\Domain\Model\Page {
+		mapping {
+			tableName = pages
+			columns {
+				uid.mapOnProperty = uid
+				pid.mapOnProperty = pid
+				sorting.mapOnProperty = sorting
+				title.mapOnProperty = title
+				subtitle.mapOnProperty = subtitle
+				abstract.mapOnProperty = abstract
+				fe_group.mapOnProperty = fegroup
+				categories.mapOnProperty = categories
+			}
+		}
+	}
+	Abavo\AbavoSearch\Domain\Model\Ttcontent {
+		mapping {
+			tableName = tt_content
+			columns {
+				uid.mapOnProperty = uid
+				pid.mapOnProperty = pid
+				sorting.mapOnProperty = sorting
+				CType.mapOnProperty = contentType
+				header.mapOnProperty = header
+				header_link.mapOnProperty = headerLink
+				bodytext.mapOnProperty = bodytext
+				image.mapOnProperty = image
+				image_link.mapOnProperty = imageLink
+				colPos.mapOnProperty = colPos
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+config.tx_extbase {
+    persistence {
+        classes {
+		
+			Abavo\AbavoForm\Domain\Model\Form {
+				mapping {
+					tableName = tx_abavoform_domain_model_form
+					columns {
+						uid.mapOnProperty = uid
+						pid.mapOnProperty = pid
+						unique_id.mapOnProperty = uniqueId
+
+						salutation.mapOnProperty = salutation
+						firstname.mapOnProperty = firstname
+						lastname.mapOnProperty = lastname
+						phone.mapOnProperty = phone
+						email.mapOnProperty = email
+						company.mapOnProperty = company
+						address.mapOnProperty = address
+						zip.mapOnProperty = zip
+						city.mapOnProperty = city
+						country.mapOnProperty = country
+						country_zone.mapOnProperty = countryZone
+						description.mapOnProperty = description
+						media.mapOnProperty = media
+						datetime.mapOnProperty = datetime
+						privacyhint.mapOnProperty = privacyhint
+					}
+				}
+			}
+            
+    	}
+    }
+}

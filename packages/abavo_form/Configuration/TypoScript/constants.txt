@@ -1,0 +1,21 @@
+plugin {
+    tx_abavoform {
+        view {
+            # cat=plugin.abavo_form/file; type=string; label=Path to template root (FE)
+            templateRootPath = EXT:abavo_form/Resources/Private/Templates/
+            # cat=plugin.abavo_form/file; type=string; label=Path to template partials (FE)
+            partialRootPath = EXT:abavo_form/Resources/Private/Partials/
+            # cat=plugin.abavo_form/file; type=string; label=Path to template layouts (FE)
+            layoutRootPath = EXT:abavo_form/Resources/Private/Layouts/
+        }
+		
+		settings {
+			# cat=plugin.abavo_form/misc; type=int; label=Spam detection in seconds
+			formSpamDetectionSeconds = 2
+			# cat=plugin.abavo_form/misc; type=string; label=Comma separated list of countries to use countryzones
+			countriesEnableCountryzones = USA
+			# cat=plugin.abavo_form/misc; type=int; label=AJAX Validation/Submit Page Type Num
+			pageTypeNumAjax = 1705
+		}
+    }
+}

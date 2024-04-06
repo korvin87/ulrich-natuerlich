@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+
+	<f:layout name="Backend"/>
+
+	<f:section name="main">
+
+		<f:be.container
+			includeCssFiles="{0:'{f:uri.resource(path:\'Css/Backend.css\')}'}"
+			/>
+
+		<h1><f:translate key="module.header"/></h1>
+		<h2><f:translate key="module.action.diagnosis"/></h2>
+		<hr>
+		<f:flashMessages />
+
+		<f:if condition="{errorLog}">
+			<hr>
+			<h2>IndexCommandController.log</h2>
+			<table border="0" cellpadding="0" cellspacing="0" class="table typo3-dblist">
+				<thead>
+					<tr class="t3-row-header">
+						<th nowrap="nowrap" class="col-icon"></th>
+						<th nowrap="nowrap" class="" colspan="6" align="left">
+							<span class="c-table">Last 5/{errorLog.allCount} Errors</span>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="c-headLine"><td></td>
+						<td nowrap="nowrap" class="col-icon"></td>
+						<td nowrap="nowrap" class="col-title">Time</td>
+						<td nowrap="nowrap" class="">Message</td>
+						<td nowrap="nowrap" class="">Backtrace</td>
+					</tr>
+
+				<f:for each="{errorLog.items}" as="errorObj">
+					<tr class="db_list_normal lastcol"><td></td>
+						<td nowrap="nowrap" class="col-icon">
+							<span style="" class="t3-icon t3-icon-status t3-icon-status-dialog t3-icon-dialog-error">&nbsp;</span>
+						</td>
+						<td nowrap="nowrap" class="col-title">{errorObj.time}</td>
+						<td nowrap="nowrap" class="col-title">{errorObj.message}</td>
+						<td nowrap="nowrap" class=""><textarea cols="80" rows="4">{errorObj.trace}</textarea></td>
+					</tr>
+				</f:for>
+				</tbody>
+			</table>
+		</f:if>
+	</f:section>
+</div>

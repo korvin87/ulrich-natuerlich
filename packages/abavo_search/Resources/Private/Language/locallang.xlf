@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="tx_abavosearch_domain_model_indexer">
+				<source>Indexer</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.storagepid">
+				<source>Storagepid</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.target">
+				<source>Target</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.count">
+				<source>Count</source>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.duration">
+				<source>Duration (Seconds)</source>
+			</trans-unit>
+			
+			<trans-unit id="form.submit">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="form.autocomplete">
+				<source>Enter search term</source>
+			</trans-unit>
+			<trans-unit id="search.querytime">
+				<source>Query time:%s seconds</source>
+			</trans-unit>
+			<trans-unit id="search.scorefull">
+				<source>Relevance</source>
+			</trans-unit>
+			<trans-unit id="search.scoresimelar">
+				<source>Average word simelarity</source>
+			</trans-unit>
+			<trans-unit id="search.hits">
+				<source>Hits</source>
+			</trans-unit>
+			<trans-unit id="search.url">
+				<source>URL:</source>
+			</trans-unit>
+			<trans-unit id="alternativewords.title">
+				<source>Similar terms</source>
+			</trans-unit>
+			<trans-unit id="alternativewords.licenceprefix">
+				<source>Terms from</source>
+			</trans-unit>
+			
+			<trans-unit id="advancedForm.header">
+				<source>Advanced search options</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.indexerType">
+				<source>Content type</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.searchService">
+				<source>Content origin</source>
+			</trans-unit>
+			<trans-unit id="label.searchService">
+				<source>Website content</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.checkall">
+				<source>un-/check all facets</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.ranking">
+				<source>ranking</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.label">
+				<source>order by</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.title">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.content">
+				<source>content</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.sorting.label">
+				<source>direction</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.sorting.asc">
+				<source>ascending</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.sorting.desc">
+				<source>descending</source>
+			</trans-unit>
+			<trans-unit id="advancedForm.length.label">
+				<source>Results each page</source>
+			</trans-unit>
+			
+			<trans-unit id="pagination.moreNext">
+				<source>%s more pages left</source>
+			</trans-unit>
+			
+			<trans-unit id="module.noadmin" xml:space="preserve">
+				<source>Sorry, this module is for admin users only.</source>
+			</trans-unit>
+			<trans-unit id="module.header" xml:space="preserve">
+				<source>abavo Search</source>
+			</trans-unit>
+			<trans-unit id="module.action.overview" xml:space="preserve">
+				<source>Overview</source>
+			</trans-unit>
+			<trans-unit id="module.action.diagnosis" xml:space="preserve">
+				<source>Diagnosis-Mode</source>
+			</trans-unit>
+			<trans-unit id="module.action.backto.overview" xml:space="preserve">
+				<source>Back to Overview</source>
+			</trans-unit>
+			<trans-unit id="module.action.updateindex" xml:space="preserve">
+				<source>Update Search Index</source>
+			</trans-unit>
+			<trans-unit id="module.action.updateindex.finished" xml:space="preserve">
+				<source>Update Search Index</source>
+			</trans-unit>
+			<trans-unit id="module.overview.index" xml:space="preserve">
+				<source>Indexed Entries</source>
+			</trans-unit>
+			<trans-unit id="module.index.progressmessage" xml:space="preserve">
+				<source>Indexing in progress</source>
+			</trans-unit>
+			<trans-unit id="module.index.lastupdate" xml:space="preserve">
+				<source>Last indexing was done on</source>
+			</trans-unit>
+			<trans-unit id="module.action.cleanup" xml:space="preserve">
+				<source>Cleanup</source>
+			</trans-unit>
+			<trans-unit id="module.action.stats" xml:space="preserve">
+				<source>Search Statistics</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

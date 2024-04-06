@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-09-16T09:14:00Z" product-name="site_package">
+		<header/>
+		<body>
+			<trans-unit id="inherit" xml:space="preserve">
+				<source>inherit</source>
+			</trans-unit>
+			<trans-unit id="color.grey-light" xml:space="preserve">
+				<source>grey light</source>
+			</trans-unit>
+			<trans-unit id="color.turkis" xml:space="preserve">
+				<source>turkis</source>
+			</trans-unit>
+			<trans-unit id="color.blue-dark" xml:space="preserve">
+				<source>blue dark</source>
+			</trans-unit>
+			<trans-unit id="textalign.label" xml:space="preserve">
+				<source>Alignment</source>
+			</trans-unit>
+			<trans-unit id="textalign.left" xml:space="preserve">
+				<source>Left</source>
+			</trans-unit>
+			<trans-unit id="textalign.center" xml:space="preserve">
+				<source>Center</source>
+			</trans-unit>
+			<trans-unit id="textalign.right" xml:space="preserve">
+				<source>Right</source>
+			</trans-unit>
+			<trans-unit id="bgcolor.label" xml:space="preserve">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="fontsize.label" xml:space="preserve">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="fontsize.normal" xml:space="preserve">
+				<source>normal</source>
+			</trans-unit>
+			<trans-unit id="h-style.10" xml:space="preserve">
+				<source>40px, bold, uppercase, blue</source>
+			</trans-unit>
+			<trans-unit id="h-style.20" xml:space="preserve">
+				<source>40px, bold, uppercase</source>
+			</trans-unit>
+			<trans-unit id="h-style.30" xml:space="preserve">
+				<source>26px, bold</source>
+			</trans-unit>
+			<trans-unit id="h-style.40" xml:space="preserve">
+				<source>24px, bold, uppercase</source>
+			</trans-unit>
+			<trans-unit id="h-style.50" xml:space="preserve">
+				<source>24px, bold, uppercase, blue</source>
+			</trans-unit>
+			<trans-unit id="pages.target.default" xml:space="preserve">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="pages.target._blank" xml:space="preserve">
+				<source>New window</source>
+			</trans-unit>
+			<trans-unit id="pages.target.lightbox" xml:space="preserve">
+				<source>Lightbox</source>
+			</trans-unit>
+			<trans-unit id="pages.layout.label" xml:space="preserve">
+				<source>Page header</source>
+			</trans-unit>
+			<trans-unit id="pages.layout.0" xml:space="preserve">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="pages.layout.100" xml:space="preserve">
+				<source>Hide</source>
+			</trans-unit>
+			<trans-unit id="pages.backend_layout.label" xml:space="preserve">
+				<source>Website Template</source>
+			</trans-unit>
+			<trans-unit id="pages.backend_layout_next_level.label" xml:space="preserve">
+				<source>Website Template (subpages)</source>
+			</trans-unit>
+			<trans-unit id="pages.media.label" xml:space="preserve">
+				<source>Header slider</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_sitepackage_headerslider_height.label" xml:space="preserve">
+				<source>Header slider height</source>
+			</trans-unit>
+			<trans-unit id="pages.tx_sitepackage_headerslider_mapsmarker.label" xml:space="preserve">
+				<source>Marker (shows Google Maps with markers)</source>
+			</trans-unit>
+			<trans-unit id="tt_content.wizardItems.dev" xml:space="preserve">
+				<source>Developer</source>
+			</trans-unit>
+			<trans-unit id="tt_content.headerstyle.label" xml:space="preserve">
+				<source>Style</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_tsobject.label" xml:space="preserve">
+				<source>TypoScript object from lib</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_tsobject.description" xml:space="preserve">
+				<source>Element for inserting a TypoScript object.</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.1" xml:space="preserve">
+				<source>Header 1</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.2" xml:space="preserve">
+				<source>Header 2</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.3" xml:space="preserve">
+				<source>Header 3</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.4" xml:space="preserve">
+				<source>Header 4</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.5" xml:space="preserve">
+				<source>Header 5</source>
+			</trans-unit>
+			<trans-unit id="tt_content.header_layout.10" xml:space="preserve">
+				<source>Paragraph</source>
+			</trans-unit>
+			<trans-unit id="tt_content.palette.background" xml:space="preserve">
+				<source>Background</source>
+			</trans-unit>
+			<trans-unit id="tt_content.palette.text" xml:space="preserve">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_fontcolor.label" xml:space="preserve">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="fontcolor.black" xml:space="preserve">
+				<source>Black</source>
+			</trans-unit>
+			<trans-unit id="fontcolor.white" xml:space="preserve">
+				<source>White</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_bgimage.label" xml:space="preserve">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_bgimagesize.label" xml:space="preserve">
+				<source>Image size</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_bgimagesize.cover" xml:space="preserve">
+				<source>Cover</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_bgimagesize.contain" xml:space="preserve">
+				<source>Contain</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tx_sitepackage_bgcoloroverimage.label" xml:space="preserve">
+				<source>Background color as overlay</source>
+			</trans-unit>
+			<trans-unit id="tt_content.menu_product_categories.label" xml:space="preserve">
+				<source>Product categories</source>
+			</trans-unit>
+			<trans-unit id="tt_content.menu_product_categories.description" xml:space="preserve">
+				<source>Shows product areas.</source>
+			</trans-unit>
+			<trans-unit id="sys_file_reference.tx_sitepackage_posterimage.label" xml:space="preserve">
+				<source>Poster image</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_page.css.noheader">
+				<source>No header</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.nolabel">
+				<source>No label</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail_domain_model_field.css.short">
+				<source>Short input field</source>
+			</trans-unit>
+			<trans-unit id="tx_powermail.tx_powermail_domain_model_field.privacylink.label">
+				<source>Privacy hint</source>
+			</trans-unit>
+			<trans-unit id="rte.classes.fontello-icon-mail" xml:space="preserve">
+				<source>Mail icon</source>
+			</trans-unit>
+			<trans-unit id="rte.classes.fontello-icon-url" xml:space="preserve">
+				<source>URL icon</source>
+			</trans-unit>
+			<trans-unit id="rte.classes.fontello-icon-fax" xml:space="preserve">
+				<source>Fax icon</source>
+			</trans-unit>
+			<trans-unit id="rte.classes.fontello-icon-phone" xml:space="preserve">
+				<source>Phone icon</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1.title" xml:space="preserve">
+				<source>2 columns</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1.columns.name" xml:space="preserve">
+				<source>Column (50%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1.title" xml:space="preserve">
+				<source>3 columns</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1.columns.name" xml:space="preserve">
+				<source>Column (33%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1-1.title" xml:space="preserve">
+				<source>4 columns</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1-1.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-1-1-1.columns.name" xml:space="preserve">
+				<source>Column (25%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-2.title" xml:space="preserve">
+				<source>2 columns (1:2)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-2.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-2.columns.name1" xml:space="preserve">
+				<source>Column (33%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-1-2.columns.name2" xml:space="preserve">
+				<source>Column (66%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-2-1.title" xml:space="preserve">
+				<source>2 columns (2:1)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-2-1.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-2-1.columns.name1" xml:space="preserve">
+				<source>Column (66%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_columns-2-1.columns.name2" xml:space="preserve">
+				<source>Column (33%)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_accordion.title" xml:space="preserve">
+				<source>Accordion</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_accordion.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_accordion.columns.name" xml:space="preserve">
+				<source>Accordion content</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_wrapper.title" xml:space="preserve">
+				<source>Wrapper element</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_wrapper.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_wrapper.columns.name" xml:space="preserve">
+				<source>Wrapper content</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_defaultaccordion.title" xml:space="preserve">
+				<source>Accordion</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_defaultaccordion.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_defaultaccordion.columns.name" xml:space="preserve">
+				<source>Accordion content</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_tabs.title" xml:space="preserve">
+				<source>Tabs</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_tabs.description" xml:space="preserve">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.tx_gridelements_tabs.columns.name" xml:space="preserve">
+				<source>Tabs content</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.gridpadding.label" xml:space="preserve">
+				<source>Grid padding</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.gridpadding.0" xml:space="preserve">
+				<source>30px (default)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.gridpadding.1" xml:space="preserve">
+				<source>40px</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.verticalalign.label" xml:space="preserve">
+				<source>Vertical alignment of content</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.verticalalign.top" xml:space="preserve">
+				<source>Top (default)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.verticalalign.middle" xml:space="preserve">
+				<source>Middle</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.verticalalign.bottom" xml:space="preserve">
+				<source>Bottom</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.columns.verticalalign.stretch" xml:space="preserve">
+				<source>Stretch</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.accordion.slideduration.label" xml:space="preserve">
+				<source>slide duration (in ms)</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.accordion.showfirstentry.label" xml:space="preserve">
+				<source>show first entry</source>
+			</trans-unit>
+			<trans-unit id="tx_gridelements.pi_flexform.accordion.showtogglealldiv.label" xml:space="preserve">
+				<source>show toggle-all link</source>
+			</trans-unit>
+			<trans-unit id="BackendLayouts.main.title" xml:space="preserve">
+				<source>Main template</source>
+			</trans-unit>
+			<trans-unit id="BackendLayouts.main.columns.0" xml:space="preserve">
+				<source>Main content</source>
+			</trans-unit>
+			<trans-unit id="BackendLayouts.main.columns.1" xml:space="preserve">
+				<source>Main content on white background</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

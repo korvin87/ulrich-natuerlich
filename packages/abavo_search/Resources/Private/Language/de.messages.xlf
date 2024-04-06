@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="resultone">
+				<source>results with term</source>
+				<target>Ergebnis mit Suchbegriff</target>
+			</trans-unit>
+			<trans-unit id="resultmulti">
+				<source>result with term</source>
+				<target>Ergebnisse mit Suchbegriff</target>
+			</trans-unit>
+			<trans-unit id="noresult" approved="yes">
+				<source>No results with search string</source> 
+				<target state="translated">Kein Suchergebnis mit dem Begriff</target>
+			</trans-unit>
+			<trans-unit id="nosearchterm">
+				<source>Please enter a search term.</source>
+				<target state="translated">Bitte geben Sie einen Suchbegriff ein.</target>
+			</trans-unit>
+			<trans-unit id="minsearchlen" approved="yes">
+				<source>Please enter a phrase to be long with at least %s</source> 
+				<target state="translated">Bitte geben Sie einen Begriff mit mindestens %s Zeichen ein.</target>
+			</trans-unit>
+			<trans-unit id="stopword" approved="yes">
+				<source>Search contains a stop word.</source> 
+				<target state="translated"><![CDATA[Es wurden die Begriffe mit wenig Relevanz ("%s") aus der Anfrage gefiltert.]]></target>
+			</trans-unit>
+			<trans-unit id="exception">
+				<source>Search Exception</source>
+				<target state="translated">Hinweis</target>
+			</trans-unit>
+			<trans-unit id="exception.maxSearchStrinLen">
+				<source>You reached the search word limit. Only %s charactes allowed.</source>
+				<target state="translated">Ihre Suche-Anfrage überschreitet die maxmimal erlaubten %s Zeichen. Dies wurde entsprechend reduziert.</target>
+			</trans-unit>
+			<trans-unit id="exception.minSearchStrinLen">
+				<source>A search string length is lower than possible (%s). </source>
+				<target state="translated"><![CDATA[Der Bestandteil "%s" in Ihrer Anfrage unterschreitet die minimal mögliche Länge von %s Zeichen und wurden daher entfernt.]]></target>
+			</trans-unit>
+			<trans-unit id="usedsynonyms">
+				<source>Additional used following synonyms to search string</source>
+				<target>Zusätzlich zum Suchbegriff verwendete Synonyme</target>
+			</trans-unit>
+			<trans-unit id="alternativesearch">
+				<source>Searching for similar words...</source>
+				<target>Suche nach ähnlichen Begriffen...</target>
+			</trans-unit>
+			<trans-unit id="synonymReplacements">
+				<source>Replaced obsolet synonyms</source>
+				<target>Überholte Synonyme wurden ersetzt</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

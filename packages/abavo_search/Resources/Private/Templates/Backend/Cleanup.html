@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<div xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" f:schemaLocation="https://fluidtypo3.org/schemas/fluid-master.xsd">
+
+	<f:layout name="Backend"/>
+
+	<f:section name="main">
+
+		<f:be.container
+			includeCssFiles="{0:'{f:uri.resource(path:\'Css/Backend.css\')}'}"
+			/>
+
+		<h1><f:translate key="module.header"/></h1>
+		<h2><f:translate key="module.action.cleanup"/></h2>
+		<hr>
+		<f:flashMessages />
+
+		<f:form class="cleanupForm" method="post" controller="Backend" action="cleanup" name="cleanup">
+			<h3>Select tables for truncate</h3>
+			<div>
+				<label>
+					<f:form.checkbox name="tx_abavosearch_domain_model_index" value="1" />
+					Search-Index (tx_abavosearch_domain_model_index and columns in sys_file_metadata)
+				</label>
+			</div>
+			<div>
+				<label>
+					<f:form.checkbox name="tx_abavosearch_domain_model_term" value="1" />
+					Terms catalog for auto completion (tx_abavosearch_domain_model_term)
+				</label>
+			</div>
+
+			<h3>Select files to delete</h3>
+			<f:if condition="{lockFileExist}">
+				<div>
+					<label>
+						<f:form.checkbox name="lockFile" value="1"/>
+						LOCK-File to prevent multi indexing instances
+					</label>
+				</div>
+			</f:if>
+			<f:if condition="{logFileSize}">
+				<div>
+					<label>
+						<f:form.checkbox name="logFile" value="1" />
+						LOG-File ({logFileSize}) for error logging
+					</label>
+				</div>
+			</f:if>
+
+			<h3>Other Options</h3>
+			<div>
+				<label>
+					<f:form.checkbox name="setShellScriptsPermissions" value="1"/>
+					Set shell scripts permisson to (integer):
+					<f:form.textfield name="setShellScriptsPermissionsValue" value="755" />
+				</label>
+			</div>
+
+			<br>
+			<f:form.submit value="Cleanup!" />
+		</f:form>
+	</f:section>
+</div>

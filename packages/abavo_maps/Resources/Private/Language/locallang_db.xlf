@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-22T07:03:22Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="CType_pimain" xml:space="preserve">
+			<source>abavo Maps</source>
+		</trans-unit>
+		<trans-unit id="pimain_plus_wiz_description" xml:space="preserve">
+			<source>Add a abavo Map-Plugin.</source>
+		</trans-unit>
+		<trans-unit id="pimain_title" xml:space="preserve">
+			<source>abavo Maps</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map" xml:space="preserve">
+			<source>Map</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.flextitle" xml:space="preserve">
+			<source>Flexform Options</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.height" xml:space="preserve">
+			<source>Height</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.markers" xml:space="preserve">
+			<source>Markers</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pancontrol" xml:space="preserve">
+			<source>Pan control</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.percent" xml:space="preserve">
+			<source>Percent</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pinicon" xml:space="preserve">
+			<source>Marker Icon</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.rendermode" xml:space="preserve">
+			<source>Render mode</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.scalecontrol" xml:space="preserve">
+			<source>Scale control</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.shapes" xml:space="preserve">
+			<source>Shapes</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.storage" xml:space="preserve">
+			<source>abavo Maps Storage</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.title" xml:space="preserve">
+			<source>Title</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.width" xml:space="preserve">
+			<source>Width</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoom" xml:space="preserve">
+			<source>Zoom factor</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoomcontrol" xml:space="preserve">
+			<source>Zoom control</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker" xml:space="preserve">
+			<source>Marker</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.description" xml:space="preserve">
+			<source>Description</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.fulladdress" xml:space="preserve">
+			<source>Fulladdress</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.geodatatitle" xml:space="preserve">
+			<source>GEOdata</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.latitude" xml:space="preserve">
+			<source>Latitude</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.longitude" xml:space="preserve">
+			<source>Longitude</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.pinicon" xml:space="preserve">
+			<source>Marker Icon</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.title" xml:space="preserve">
+			<source>Title</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.url" xml:space="preserve">
+			<source>URL</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape" xml:space="preserve">
+			<source>Shape</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.body" xml:space="preserve">
+			<source>Body</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.color" xml:space="preserve">
+			<source>Color</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.config" xml:space="preserve">
+			<source>Config</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_shape.title" xml:space="preserve">
+			<source>Title</source>
+		</trans-unit>
+		
+		<trans-unit id="ff.mode" xml:space="preserve">
+			<source>PlugIn-Mode</source>
+		</trans-unit>
+		<trans-unit id="ff.latitude" xml:space="preserve">
+			<source>Latitude</source>
+		</trans-unit>
+		<trans-unit id="ff.longitude" xml:space="preserve">
+			<source>Longitude</source>
+		</trans-unit>
+		<trans-unit id="ff.description" xml:space="preserve">
+			<source>Description (optional)</source>
+		</trans-unit>
+		<trans-unit id="ff.mapStyleConfig" xml:space="preserve">
+			<source>GoogleMaps Style Config (JSON; optional)</source>
+		</trans-unit>
+		
+		</body>
+	</file>
+</xliff>

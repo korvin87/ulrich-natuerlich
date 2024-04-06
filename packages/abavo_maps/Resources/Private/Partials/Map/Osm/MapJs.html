@@ -1,0 +1,107 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace vh=TYPO3\AbavoMaps\ViewHelpers}
+
+// Base config
+var ROUTING = {settings.routing};
+var ROUTING_COLOR = '{settings.routeColor}';
+var zoom_osm_map_{osmap.uid} = {osmap.zoom};
+var markerCount_osm_map_{osmap.uid} = 0;
+var totalBounds_osm_map_{osmap.uid} = new Array();
+var MAPQUESTAPI_KEY = '{settings.mapquestApiKey}';
+
+// Geocoding source as JSON;
+var nameToGeoCodeSource = 'https://nominatim.openstreetmap.org/search.php?format=json&q=';
+
+// Language definitions
+var labelRouting = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelrouting"/>';
+var labelTo = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelto"/>';
+var labelFrom = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelfrom"/>';
+var labelStart = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelstart"/>';
+var labelEnd = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelend"/>';
+var labelGo = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelgo"/>';
+var labelLatLonPos = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labellatlonpos"/>';
+var labelGecodingfailed = '<f:translate key="LLL:EXT:abavo_maps/Resources/Private/Language/locallang.xlf:tx_abavomaps_routing.labelgecodingfailed"/>';
+
+// Define popup opject
+var popup_{osmap.uid} = L.popup();
+
+// Init map
+var osm_leaflet_map_{osmap.uid} = L.map('tx-abavo-maps-{osmap.uid}', {
+	touchZoom:true,
+	scrollWheelZoom:<f:if condition='{settings.mouseWheelZoom}'><f:then>true</f:then><f:else>false</f:else></f:if>
+});
+
+// Define icon object
+var LeafIcon = L.Icon.extend({
+	options: {
+		iconSize:     [32, 32],
+		popupAnchor:  [0, 0]
+	}
+});
+
+
+// add an OpenStreetMap tile layer
+L.tileLayer(<![CDATA['http://{s}.tile.osm.org/{z}/{x}/{y}.png']]>, {
+	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | Nominatim Search Courtesy of <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png">'
+}).addTo(osm_leaflet_map_{osmap.uid});
+
+
+// Define Marker array
+arrOsmMarker = new Array();
+arrOsmMarker[{osmap.uid}] = new Array();
+arrOsmMarker[{osmap.uid}]['popup'] = new Array();
+arrOsmMarker[{osmap.uid}]['querys'] = new Array();
+arrOsmMarker[{osmap.uid}]['title'] = new Array();
+arrOsmMarker[{osmap.uid}]['description'] = new Array();
+arrOsmMarker[{osmap.uid}]['pinicon'] = new Array();
+arrOsmMarker[{osmap.uid}]['url'] = new Array();
+arrOsmMarker[{osmap.uid}]['lat'] = new Array();
+arrOsmMarker[{osmap.uid}]['lon'] = new Array();
+arrOsmMarker[{osmap.uid}]['ukey'] = new Array();
+arrOsmMarker[{osmap.uid}]['repo'] = new Array();
+<f:for each="{osmap.markers}" as="marker">
+	arrOsmMarker[{osmap.uid}]['querys'][{marker.uid}] = '<f:if condition="{marker.fulladdress}"><f:then>{marker.fulladdress}</f:then><f:else><vh:Addcslashes data="{marker.address} {marker.zip} {marker.city} {marker.country}" /></f:else></f:if>';
+	arrOsmMarker[{osmap.uid}]['title'][{marker.uid}] = '<f:if condition="{marker.name}"><f:then><vh:Addcslashes data="{marker.name}" /></f:then><f:else><vh:Addcslashes data="{marker.title} {marker.firstName} {marker.lastName}" /></f:else></f:if>';
+	arrOsmMarker[{osmap.uid}]['description'][{marker.uid}] = '<p><vh:Addcslashes data="<f:format.nl2br>{marker.description}</f:format.nl2br>" /></p>';
+	arrOsmMarker[{osmap.uid}]['url'][{marker.uid}] = '<f:if condition="{settings.redirectToMarkerURL}"><f:if condition="{marker.url}"><f:then><f:cObject typoscriptObjectPath='lib.tx_abavomaps_link' data="{url: '{marker.url}', uid:'{marker.uid}'}" currentValueKey='url' /></f:then><f:else><f:cObject typoscriptObjectPath='lib.tx_abavomaps_link' data="{url: '{marker.www}', uid:'{marker.uid}'}" currentValueKey='url' /></f:else></f:if></f:if>';
+	arrOsmMarker[{osmap.uid}]['lat'][{marker.uid}] = '{marker.latitude}';
+	arrOsmMarker[{osmap.uid}]['lon'][{marker.uid}] = '{marker.longitude}';
+	arrOsmMarker[{osmap.uid}]['ukey'][{marker.uid}] = '<vh:Ukey data="{marker.uid}" />';
+	arrOsmMarker[{osmap.uid}]['repo'][{marker.uid}] = '{marker.repo}';
+	<f:if condition="{osmap.pinicon}">
+		<f:then>arrOsmMarker[{osmap.uid}]['pinicon'][{marker.uid}] = '{pinicon.originalResource.publicUrl -> f:for(each:osmap.pinicon, as:\'pinicon\')}';</f:then>
+		<f:else>arrOsmMarker[{osmap.uid}]['pinicon'][{marker.uid}] = '{pinicon.originalResource.publicUrl -> f:for(each:marker.pinicon, as:'pinicon')}';</f:else>
+	</f:if>
+</f:for>	
+
+// TODO: Feature permalink - is a new feature
+//osm_map_{osmap.uid}.addControl( new OpenLayers.Control.Permalink() );
+//osm_map_{osmap.uid}.addControl( new OpenLayers.Control.Permalink('permalink') );
+
+// Add Markers to map
+var markers;
+for (markerKey in arrOsmMarker[{osmap.uid}]['querys']) {
+
+	var mapuid = {osmap.uid}; //Because of fluid
+	var iconSource = (arrOsmMarker[mapuid]['pinicon'][markerKey] == '') ? "{settings.markerDefaultIcon}" : arrOsmMarker[{osmap.uid}]['pinicon'][markerKey] ;
+
+	if ( arrOsmMarker[{osmap.uid}]['lat'][markerKey] == '' || arrOsmMarker[{osmap.uid}]['lon'][markerKey] == '' ){
+		makeMarkerAsync({osmap.uid}, markerKey, iconSource);
+	}else{
+		makeMarker(osm_leaflet_map_{osmap.uid}, arrOsmMarker[{osmap.uid}]['lon'][markerKey], arrOsmMarker[{osmap.uid}]['lat'][markerKey], iconSource, {osmap.uid}, markerKey);
+	}
+	markerCount_osm_map_{osmap.uid}++;
+}
+
+// Finalize Map
+<vh:Promise data="{osmap.markers}" mapuid="{osmap.uid}" />
+
+
+// Bind map click event
+<![CDATA[function onMapClick(e) {]]>
+	popup_{osmap.uid}
+		.setLatLng(e.latlng)
+		.setContent(labelLatLonPos +': '+ e.latlng.toString())
+		.openOn(osm_leaflet_map_{osmap.uid});
+}
+osm_leaflet_map_{osmap.uid}.on('click', onMapClick);

@@ -1,0 +1,234 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:vh="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:layout name="{f:if(condition:settings.noWrapLayout, then:'NoWrap', else:'Plugin')}"/>
+
+    <!-- SECTION MAIN -->
+    <f:section name="main">
+
+        <f:alias map="{product: '{vh:Repository(namespace: \'Abavo\UlrichProducts\Domain\Repository\', model: \'Product\', param: \'{f:cObject(typoscriptObjectPath: \"lib.tx_ulrichproducts.productUidByGp\")}\', method: \'findByUid\')}'}">
+            <f:if condition="{product}">
+                <h2 class="h-style h-style-40 textalign--center"><f:translate key="label.productDocumentInquiry" extensionName="UlrichProducts" /> &quot;{product.title}&quot;</h2>
+            </f:if>
+
+            <f:form class="default-form default-form--2-columns" action="{formAction}" name="newForm" object="{newForm}" enctype="multipart/form-data" additionalAttributes="{
+                    data-pagetype:settings.pageTypeNumAjax,
+                    data-ajaxsubmit:settings.enableAjaxSubmit,
+                    data-pluginparam:settings.pluginParam,
+                    data-preventbrowserbackurl:'{f:uri.action(action:\'new\', arguments:\'{step:newForm.stepper.prev}\', additionalParams:\'{preventbrowserback:1}\', noCacheHash:0)}',
+                    data-validationurl:'{f:uri.action(
+                        action:\'ajaxValidate\',
+                        arguments:{
+                            formModelClass:settings.formModelClass
+                        },
+                        format:\'json\',
+                        noCacheHash:0
+                    )}',
+                    data-ajaxsubmiturl:'{f:uri.action(
+                        action:formAction,
+                        arguments:{
+                            formModelClass:settings.formModelClass,
+                            formSettingsUid:settings.piData.uid,
+                            noWrapLayout:1
+                        },
+                        noCacheHash:0
+                    )}'
+                    }">
+
+                <input type="hidden" name="L" value="{settings.sysLanguageUid}" />
+                <input type="text" name="{settings.pluginParam}[controll]" value="" autocomplete="off" style="display:none;" />
+
+                <f:if condition="{newForm.stepper.current}">
+                    <f:render section="step_{newForm.stepper.current}" arguments="{newForm:newForm, salutaions:salutaions, staticCountries:staticCountries, product:product}" />
+                </f:if>
+            </f:form>
+        </f:alias>
+
+    </f:section>
+
+    <!-- SECTION STEP 1 -->
+    <f:section name="step_1">
+        <input type="hidden" name="{settings.pluginParam}[datetime]" value="{f:format.date(date:'now', format:'Y.m.d H:i:s')}" />
+        <f:form.hidden property="uniqueId" />
+        <f:if condition="{product}">
+            <f:form.hidden property="product" value="{product.uid}" />
+        </f:if>
+        <fieldset>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-name">
+                        <f:translate key="Form.name" extensionName="UlrichProducts" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.name', extensionName: 'UlrichProducts')}*" property="name" required="required" id="form-name" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'name', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-zip">
+                        <f:translate key="Form.zip" extensionName="UlrichProducts" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.zip', extensionName: 'UlrichProducts')}*" property="zip" required="required" id="form-zip" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'zip', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-city">
+                        <f:translate key="Form.city" extensionName="UlrichProducts" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.city', extensionName: 'UlrichProducts')}*" property="city" required="required" id="form-name" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'city', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-country">
+                        <f:translate key="Form.country" extensionName="UlrichProducts" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.select property="country" options="{staticCountries}" additionalAttributes="{required:'required'}" optionValueField="uid" optionLabelField="shortNameLocal" id="form-country" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'country', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-company">
+                        <f:translate key="Form.company" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.company')}*" property="company" required="required" id="form-company" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'company', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-phone">
+                        <f:translate key="Form.phone" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.phone')}*" property="phone" required="required" id="form-phone" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'phone', message:''}" />
+                </div>
+            </div>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-email">
+                        <f:translate key="Form.email" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.email')}*" property="email" type="email" required="required" id="form-email" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'email', message:''}" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <div class="row text">
+                <div class="label">
+                    <label for="form-standing">
+                        <f:translate key="Form.standing" extensionName="UlrichProducts" />
+                        <span class="requiredlabel">*</span>
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textfield placeholder="{f:translate(key: 'Form.standing', extensionName: 'UlrichProducts')}*" property="standing" required="required" id="form-standing" class="js-ajax-validation" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'standing', message:''}" />
+                </div>
+            </div>
+
+            <f:if condition="{product}">
+                <div class="row text">
+                    <div class="label">
+                        <label for="form-description">
+                            <f:translate key="Form.quality" />
+                        </label>
+                    </div>
+                    <div class="entry">
+                        <f:form.select options="{product.qualitiesForSelection}" optionsAfterContent="1" prependOptionLabel="{f:translate(key: 'Form.quality', extensionName:'UlrichProducts')}" property="quality" id="form-quality" class="js-ajax-validation" />
+                        <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'quality', message:''}" />
+                    </div>
+                </div>
+            </f:if>
+
+            <div class="row text">
+                <div class="label">
+                    <label for="form-description">
+                        <f:translate key="Form.description" />
+                    </label>
+                </div>
+                <div class="entry">
+                    <f:form.textarea placeholder="{f:translate(key: 'Form.description')}" property="description" id="form-description" class="js-ajax-validation" rows="5" cols="50" />
+                    <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'description', message:''}" />
+                </div>
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+
+            <f:comment>
+                Attention: Following property (privacyhint) depends on global typoscript constant configurations ({$config.pid_privacy}/{$config.email_privacy}) and (optional) translations!
+            </f:comment>
+            <f:if condition="{settings.privacyDeclaration.pid}">
+                <div class="row privacylink">
+                    <div class="label">
+                    </div>
+                    <div class="entry">
+                        <div class="checkbox">
+                            <label>
+                                <f:form.checkbox property="privacyhint" additionalAttributes="{required: 'required'}" id="form-privacyhint" value="1" />
+                                <f:if condition="{f:translate(key:'form.privacy.accept', extensionName:'SitePackage')}">
+                                    <f:then>
+                                        <f:format.htmlentitiesDecode><f:translate key="form.privacy.accept" extensionName="SitePackage" arguments="{0: '{f:uri.page(pageUid: settings.privacyDeclaration.pid)}'}" /></f:format.htmlentitiesDecode>
+                                    </f:then>
+                                    <f:else>
+                                        <f:format.htmlentitiesDecode><f:translate key="Form.privacyhint" arguments="{0: '{f:uri.page(pageUid: settings.privacyDeclaration.pid)}'}" /></f:format.htmlentitiesDecode>
+                                    </f:else>
+                                </f:if>
+                            </label>
+                            <f:if condition="{settings.privacyDeclaration.email)}">
+                                <f:if condition="{f:translate(key:'form.privacy.hint', extensionName:'SitePackage')}">
+                                    <label><f:format.htmlentitiesDecode><f:translate key="form.privacy.hint" extensionName="SitePackage" arguments="{0: '{f:link.email(email: settings.privacyDeclaration.email)}'}" /></f:format.htmlentitiesDecode></label>
+                                </f:if>
+                            </f:if>
+                        </div>
+                        <f:render partial="Form/ErrorMessage" arguments="{object:'newForm', property:'privacyhint', message:''}" />
+                    </div>
+                </div>
+            </f:if>
+
+            <div class="row powermail_fieldwrap_type_submit">
+                <div class="label"></div>
+                <div class="entry">
+                    <f:form.submit id="submit-form" value="{f:translate(key:'Form.submit')}" />
+                </div>
+            </div>
+
+        </fieldset>
+
+    </f:section>
+</html>

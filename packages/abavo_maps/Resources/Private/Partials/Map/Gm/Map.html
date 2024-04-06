@@ -1,0 +1,27 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace vh=TYPO3\AbavoMaps\ViewHelpers}
+
+<div id="abavo-maps-{googlemap.uid}-wrap">
+	<div class="responsivemap" style="width:{googlemap.width}px;">
+		<f:image src="{f:uri.resource(path: 'Icons/pixel.png')}" width="{googlemap.width}" height="{googlemap.height}" alt="{googlemap.title -> f:format.stripTags() -> f:format.htmlspecialchars()}" />
+		<div id="abavo-maps-{googlemap.uid}" class="map-canvas"></div>
+	</div>
+	<div id="abavo-maps-{googlemap.uid}-directions-panel" class="directions-panel"></div>
+	<div id="tx-abavo-maps-{googlemap.uid}-links" style="display:none;"></div>
+	
+	<f:if condition="{0:settings.renderType} == {0:'Default'}">
+		<v:asset.script group="googlemaps" dependencies="googlemap_api,googlemap_infobubble,googlemap_base,googlemap_custom" name="googlemap_inline_{googlemap.uid}"
+			fluid="1"
+			standalone="1"
+			movable="1"
+            rewrite="1"
+			path="EXT:abavo_maps/Resources/Private/Partials/Map/Gm/MapJs.html"
+			variables="{googlemap:googlemap, settings:settings}" />
+	</f:if>
+	
+	<f:if condition="{0:settings.renderType} == {0:'Standalone'}">
+		<script><f:render partial="Map/Gm/MapJs" arguments="{googlemap:googlemap}" /></script>
+	</f:if>
+
+	<div class="clear"></div>
+</div>

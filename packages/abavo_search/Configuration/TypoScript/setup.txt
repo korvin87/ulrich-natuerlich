@@ -1,0 +1,120 @@
+// Base configuration
+config.tx_abavosearch {
+	contentModifier {
+		enable = {$config.tx_abavosearch.contentModifier.enable}
+		modifyDOMId = {$config.tx_abavosearch.contentModifier.modifyDOMId}
+		regex = {$config.tx_abavosearch.contentModifier.regex}
+		wrap = {$config.tx_abavosearch.contentModifier.wrap}
+		param = {$config.tx_abavosearch.contentModifier.param}
+	}
+	api {
+		configurationClasses {
+			0 = Abavo\AbavoSearch\Domain\Api\ConfigurationExample
+		}
+	}
+}
+
+// PLUGIN-CONFIG
+plugin.tx_abavosearch {
+	view {
+		templateRootPaths {
+			0 = EXT:abavo_search/Resources/Private/Templates/
+			1 = {$plugin.tx_abavosearch.view.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:abavo_search/Resources/Private/Partials/
+			1 = {$plugin.tx_abavosearch.view.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:abavo_search/Resources/Private/Layouts/
+			1 = {$plugin.tx_abavosearch.view.layoutRootPath}
+		}
+	}
+	persistence {
+		storagePid = {$plugin.tx_abavosearch.persistence.storagePid}
+		#storagePid.ifEmpty.data = page:uid
+		recursive = {$plugin.tx_abavosearch.persistence.recursive}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings {
+		cssFile = {$plugin.tx_abavosearch.settings.cssFile}
+		jsjQueryUi = {$plugin.tx_abavosearch.settings.jsjQueryUi}
+		cssjQueryUi = {$plugin.tx_abavosearch.settings.cssjQueryUi}
+		jsTooltipster = {$plugin.tx_abavosearch.settings.jsTooltipster}
+		cssTooltipster = {$plugin.tx_abavosearch.settings.cssTooltipster}
+		itemsPerPage = {$plugin.tx_abavosearch.settings.itemsPerPage}
+		stopWordList.0 = {$plugin.tx_abavosearch.settings.stopWordList}
+		whiteWordList.0 = {$plugin.tx_abavosearch.settings.whiteWordList}
+		minSearchStrinLen = {$plugin.tx_abavosearch.settings.minSearchStrinLen}
+		maxSearchStrinLen = 60
+		targetPid = {$plugin.tx_abavosearch.settings.targetPid}
+		jsGlobalInclude = {$plugin.tx_abavosearch.settings.jsGlobalInclude}
+		statsEnabled = {$plugin.tx_abavosearch.settings.statsEnabled}
+		maxAutocompleteItems = {$plugin.tx_abavosearch.settings.maxAutocompleteItems}
+		autocompleteLibrary = {$plugin.tx_abavosearch.settings.autocompleteLibrary}
+	}
+}
+
+// Condition Form-JS-Include
+["{$plugin.tx_abavosearch.settings.jsGlobalInclude}" < "0"]
+page.includeCSS.abavo-search-tooltipster = {$plugin.tx_abavosearch.settings.cssTooltipster}
+page.includeJSFooter.abavo-search-tooltipster = {$plugin.tx_abavosearch.settings.jsTooltipster}
+[global]
+["{$plugin.tx_abavosearch.settings.jsGlobalInclude}" < "0"]
+page.includeCSS.abavo-search-jqueryui = {$plugin.tx_abavosearch.settings.cssjQueryUi}
+page.includeJSFooter.abavo-search-jqueryui = {$plugin.tx_abavosearch.settings.jsjQueryUi}
+[global]
+["{$plugin.tx_abavosearch.settings.jsGlobalInclude}" < "0"]
+page.includeJSFooter.abavo-search-autocomplete = EXT:abavo_search/Resources/Public/Js/Autocomplete_{$plugin.tx_abavosearch.settings.autocompleteLibrary}.js
+page.includeJSFooter.abavo-search-form = EXT:abavo_search/Resources/Public/Js/Form.js
+[global]
+// PageTypes
+AbavoSearchDataPageType = PAGE
+AbavoSearchDataPageType {
+	typeNum = {$plugin.tx_abavosearch.settings.dataPageType}
+	config {
+		disableAllHeaderCode = 1
+		metaCharset = utf-8
+		additionalHeaders.10.header = Content-Type:application/json;charset=utf-8
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+		xhtml_cleaning = none
+		genericRouting = abavosearchresult.json
+	}
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = AbavoSearch
+		pluginName = PiData
+		vendorName = Abavo
+		format = json
+		features {
+			requireCHashArgumentForActionArguments = 0
+		}
+	}
+}
+
+AbavoSearchApiPageType < AbavoSearchDataPageType
+AbavoSearchApiPageType {
+	config {
+		genericRouting = abavosearch-api.json
+	}
+	typeNum = 180617
+	10 {
+		features {
+			requireCHashArgumentForActionArguments = 0
+		}
+		mvc {
+			callDefaultActionIfActionCantBeResolved = 1
+		}
+		switchableControllerActions {
+			Api {
+				1 = indexer
+			}
+		}
+	}
+}

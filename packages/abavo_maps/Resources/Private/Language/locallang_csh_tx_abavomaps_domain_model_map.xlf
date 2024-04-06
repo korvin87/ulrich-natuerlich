@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-22T06:59:29Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="height.description" xml:space="preserve">
+			<source>Height</source>
+		</trans-unit>
+		<trans-unit id="markers.description" xml:space="preserve">
+			<source>Marker (current PID)</source>
+		</trans-unit>
+		<trans-unit id="pancontrol.description" xml:space="preserve">
+			<source>Controls</source>
+		</trans-unit>
+		<trans-unit id="pinicon.description" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+		</trans-unit>
+		<trans-unit id="scalecontrol.description" xml:space="preserve">
+			<source>Scaling control</source>
+		</trans-unit>
+		<trans-unit id="title.description" xml:space="preserve">
+			<source>Title</source>
+		</trans-unit>
+		<trans-unit id="width.description" xml:space="preserve">
+			<source>Width</source>
+		</trans-unit>
+		<trans-unit id="zoom.description" xml:space="preserve">
+			<source>Zoom</source>
+		</trans-unit>
+		<trans-unit id="zoomcontrol.description" xml:space="preserve">
+			<source>Zoom control</source>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,96 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Content Indexer Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.class>
+						<TCEforms>
+							<label>Indexer Class</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getParamsAsFieldList</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="ContentIndexer">Abavo\AbavoSearch\Indexers\ContentIndexer</numIndex>
+								</parameters>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.class>
+					<settings.language>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_tca.xlf:sys_language</label>
+							<config>
+								<type>select</type>
+								<maxitems>100</maxitems>
+								<renderType>selectMultipleSideBySide</renderType>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getSysLanguages</itemsProcFunc>
+							</config>
+						</TCEforms>
+					</settings.language>
+					<settings.pages>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_tca.xlf:storage_pid</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<show_thumbs>1</show_thumbs>
+								<size>5</size>
+								<maxitems>100</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.pages>
+					<settings.excludepages>
+						<TCEforms>
+							<label>Exclude Pages</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<show_thumbs>1</show_thumbs>
+								<size>5</size>
+								<maxitems>100</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.excludepages>
+					<settings.customCTypes>
+						<TCEforms>
+							<label>Additional CTypes comma separated (Defaults: textmedia, text, textpic, image, bullets, table, html, header, uploads, shortcut)</label>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.customCTypes>
+					<settings.customDokTypes>
+						<TCEforms>
+							<label>Additional DokTypes comma separated (Default: 1)</label>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<eval>nospace</eval>
+							</config>
+						</TCEforms>
+					</settings.customDokTypes>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

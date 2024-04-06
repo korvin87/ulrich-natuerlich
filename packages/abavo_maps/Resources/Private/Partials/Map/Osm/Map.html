@@ -1,0 +1,37 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+{namespace vh=TYPO3\AbavoMaps\ViewHelpers}
+
+<div id="abavo-maps-{osmap.uid}-wrap" class="tx-abavo-maps">
+	<div class="responsivemap" style="width:{osmap.width}px;">
+		<f:image src="{f:uri.resource(path: 'Icons/pixel.png')}" width="{osmap.width}" height="{osmap.height}" alt="{osmap.title -> f:format.stripTags() -> f:format.htmlspecialchars()}" />
+		
+		<div class="wrap">
+			<div id="tx-abavo-maps-{osmap.uid}"></div>
+			<div id="tx-abavo-maps-{osmap.uid}-links" style="display:none;"></div>
+			<div id="tx-abavo-maps-{osmap.uid}-messagebox" style="display:none;">
+				<p class="tx-abavo-maps-messages-header">Error:</p>
+				<ul class="tx-abavo-maps-messages-body"></ul>
+			</div>
+			
+			<div id="tx-abavo-maps-{osmap.uid}-loadingbox" class="tx-abavo-maps-osm-loadingbox">
+				<div class="loadingbg"></div>
+				<div class="loadinganim"></div>
+			</div>
+		</div>
+	</div>
+	
+	<f:if condition="{0:settings.renderType} == {0:'Default'}">
+		<v:asset.script group="osmmap" dependencies="" name="osmmap_inline"
+			fluid="1"
+			standalone="1"
+			movable="1"
+            rewrite="1"
+			path="EXT:abavo_maps/Resources/Private/Partials/Map/Osm/MapJs.html"
+			variables="{osmap:osmap, settings:settings}" />
+	</f:if>
+	
+	<f:if condition="{0:settings.renderType} == {0:'Standalone'}">
+		<script><f:render partial="Map/Osm/MapJs" arguments="{osmap:osmap}" /></script>
+	</f:if>
+
+</div>

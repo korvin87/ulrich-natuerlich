@@ -1,0 +1,10 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/constants.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/temp.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/config.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/plugin.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/lib.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/tt_content.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/page.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/conditions.ts">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:site_package/Configuration/TypoScript/setup/context_development.ts" condition="applicationContext = *Development*">

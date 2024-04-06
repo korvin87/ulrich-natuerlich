@@ -1,0 +1,64 @@
+# Load default processing options
+imports:
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
+    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    contentsCss: 'EXT:site_package/Resources/Public/Css/rte.css'
+    stylesSet:
+      # block level styles
+      - { name: '40px, bold, uppercase, blau', element: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], attributes: { class: 'h-style h-style-10'} }
+      - { name: '40px, bold, uppercase', element: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], attributes: { class: 'h-style h-style-20'} }
+      - { name: '26px, bold', element: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], attributes: { class: 'h-style h-style-30'} }
+      - { name: '24px, bold, uppercase', element: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], attributes: { class: 'h-style h-style-40'} }
+      - { name: '24px, bold, uppercase, blau', element: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], attributes: { class: 'h-style h-style-50'} }
+      # Inline styles
+      - { name: 'Türkiser Button', element: 'a', attributes: { class: 'button button--primary'} }
+      - { name: 'Türkiser Button (groß)', element: 'a', attributes: { class: 'button button--primary button--big'} }
+      - { name: 'Türkiser Button (klein)', element: 'a', attributes: { class: 'button button--primary button--small'} }
+      - { name: 'Weißer Button', element: 'a', attributes: { class: 'button button--secondary'} }
+      - { name: 'Weißer Button (groß)', element: 'a', attributes: { class: 'button button--secondary button--big'} }
+      - { name: 'Weißer Button (klein)', element: 'a', attributes: { class: 'button button--secondary button--small'} }
+      - { name: 'Icon E-Mail', element: 'a', attributes: { class: 'fontello-icon fontello-pos-before-inline fontello-icon-mail'} }
+      - { name: 'Icon URL', element: 'a', attributes: { class: 'fontello-icon fontello-pos-before-inline fontello-icon-url'} }
+      - { name: 'Icon Telefon', element: 'span', attributes: { class: 'fontello-icon fontello-pos-before-inline fontello-icon-phone'} }
+
+    format_tags: 'p;h1;h2;h3;h4;h5'
+
+    toolbarGroups:
+      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: editing,   groups: [find, selection] }
+      - { name: links }
+      - { name: insert }
+      - { name: tools }
+      - { name: table }
+      - { name: tabletools }
+      - { name: document,  groups: [ mode, document, doctools ] }
+      - { name: others }
+      - '/'
+      - { name: styles }
+      - { name: basicstyles, groups: [ cleanup, basicstyles, align ] }
+      - { name: paragraph,   groups: [ list, indent, blocks, align ] }
+
+    justifyClasses:
+      - textalign-left
+      - textalign-center
+      - textalign-right
+      - textalign-justify
+
+    extraPlugins:
+      - justify
+      - find
+
+    removePlugins:
+      - image
+
+    removeButtons:
+      - Underline
+      - JustifyBlock
+      - Anchor
+      - Blockquote

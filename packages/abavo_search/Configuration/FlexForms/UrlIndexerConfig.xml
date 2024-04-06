@@ -1,0 +1,65 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>URL Indexer Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.class>
+						<TCEforms>
+							<label>Indexer Class</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getParamsAsFieldList</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="UrlIndexer">Abavo\AbavoSearch\Indexers\UrlIndexer</numIndex>
+								</parameters>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.class>
+					<settings.urllist>
+						<TCEforms>
+							<label>URL List line separated like typolink.parameter http://docs.typo3.org/typo3cms/TyposcriptReference/Functions/Typolink/Index.html (typolink.parameter = 51,100,&test=1)</label>
+							<config>
+								<type>text</type>
+								<cols>60</cols>
+								<rows>5</rows>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.urllist>
+					<settings.feGroup>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_general.xlf:LGL.fe_group</label>
+							<config>
+								<type>select</type>
+								<foreign_table>fe_groups</foreign_table>
+								<renderMode>checkbox</renderMode>
+								<maxitems>100</maxitems>
+							<renderType>selectCheckBox</renderType></config>
+						</TCEforms>
+					</settings.feGroup>
+					<settings.language>
+						<TCEforms>
+							<label>LLL:EXT:lang/locallang_tca.xlf:sys_language</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<itemsProcFunc>Abavo\AbavoSearch\TCA\FlexFormHelper->getSysLanguages</itemsProcFunc>
+								<parameters type="array">
+									<numIndex index="-1">[All]</numIndex>
+								</parameters>
+								<maxitems>1</maxitems>
+							</config>
+						</TCEforms>
+					</settings.language>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

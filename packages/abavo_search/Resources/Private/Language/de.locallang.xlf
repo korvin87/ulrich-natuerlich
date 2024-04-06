@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-01-19T10:43:06Z" product-name="abavo_search">
+		<header/>
+		<body>
+			<trans-unit id="tx_abavosearch_domain_model_indexer" approved="yes">
+				<source>Indexer</source>
+				<target state="translated">Indexer</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.title" approved="yes">
+				<source>Title</source>
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.storagepid" approved="yes">
+				<source>Storagepid</source>
+				<target state="translated">Datensatzsammlung</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.target" approved="yes">
+				<source>Target</source> 
+				<target state="translated">Ziel-Seite</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.type" approved="yes">
+				<source>Type</source> 
+				<target state="translated">Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.count">
+				<source>Count</source>
+				<target>Anzahl</target>
+			</trans-unit>
+			<trans-unit id="tx_abavosearch_domain_model_indexer.duration">
+				<source>Duration (Seconds)</source>
+				<target>Dauer (Sekunden)</target>
+			</trans-unit>
+			
+			<trans-unit id="form.submit" approved="yes">
+				<source>Search</source> 
+				<target state="translated">Suchen</target>
+			</trans-unit>
+			<trans-unit id="form.autocomplete">
+				<source>Enter search term</source>
+				<target state="translated">Suchbegriff eingeben</target>
+			</trans-unit>
+			<trans-unit id="search.querytime" approved="yes">
+				<source>Query time:%s seconds</source> 
+				<target state="translated">Datenbankabfrage:%s Sekunden</target>
+			</trans-unit>
+			<trans-unit id="search.scorefull">
+				<target>Relevanz</target>
+			</trans-unit>
+			<trans-unit id="search.scoresimelar">
+				<target><![CDATA[&Oslash; Wortähnlichkeit zum Inhalt]]></target>
+			</trans-unit>
+			<trans-unit id="search.hits">
+				<target>Hits</target>
+			</trans-unit>
+			<trans-unit id="search.url">
+				<target>URL:</target>
+				<target state="translated">URL:</target>
+			</trans-unit>
+			<trans-unit id="alternativewords.title" approved="yes">
+				<source>Similar terms</source> 
+				<target state="translated">Ähnliche Begriffe</target>
+			</trans-unit>
+			<trans-unit id="alternativewords.licenceprefix" approved="yes">
+				<source>Terms from</source> 
+				<target state="translated">Begriffe von</target>
+			</trans-unit>
+			
+			<trans-unit id="advancedForm.header">
+				<source>Advanced search options</source>
+				<target>Filtern und Sortieren</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.indexerType">
+				<source>Content type</source>
+				<target>Inhaltstyp</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.searchService">
+				<source>Content origin</source>
+				<target>Inhaltsquelle</target>
+			</trans-unit>
+			<trans-unit id="label.searchService">
+				<source>Website content</source>
+				<target>Inhalte der Website</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.checkall">
+				<source>un-/check all facets</source>
+				<target>Alle aus-/abwählen</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.label">
+				<source>order by</source>
+				<target>Sortieren nach</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.ranking">
+				<source>ranking</source>
+				<target>Relevanz</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.title">
+				<source>title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.orderby.content">
+				<source>content</source>
+				<target>Inhalt</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.sorting.asc">
+				<source>ascending</source>
+				<target>aufsteigend</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.sorting.desc">
+				<source>descending</source>
+				<target>absteigend</target>
+			</trans-unit>
+			<trans-unit id="advancedForm.length.label">
+				<source>Results each page</source>
+				<target>Ergebnisse pro Seite</target>
+			</trans-unit>
+			
+			<trans-unit id="pagination.moreNext">
+				<source>%s more pages left</source>
+				<target>noch %s Seiten</target>
+			</trans-unit>
+			
+			<trans-unit id="module.noadmin" xml:space="preserve">
+				<source>Sorry, this module is for admin users only.</source>
+				<targer>Sorry, dieses Modul ist nur für Admin-Benutzer sichtbar.</targer>
+			</trans-unit>
+			<trans-unit id="module.action.overview" xml:space="preserve">
+				<source>Overview</source>
+				<target>Übersicht</target>
+			</trans-unit>
+			<trans-unit id="module.action.diagnosis" xml:space="preserve">
+				<source>Diagnosis-Mode</source>
+				<target>Diagnose</target>
+			</trans-unit>
+			<trans-unit id="module.action.backto.overview" xml:space="preserve">
+				<source>Back to Overview</source>
+				<target>Zurück zur Übersicht</target>
+			</trans-unit>
+			<trans-unit id="module.action.updateindex" xml:space="preserve">
+				<source>Update Search Index</source>				
+				<target>Suchindex aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="module.action.updateindex.finished" xml:space="preserve">
+				<source>Update Search Index</source>
+				<target>Suchindex wurde aktualisiert</target>
+			</trans-unit>
+			
+			<trans-unit id="module.overview.index" xml:space="preserve">
+				<source>Indexed Entries</source>
+				<target>Übersicht indexierter Inhalte</target>
+			</trans-unit>
+			<trans-unit id="module.index.progressmessage" xml:space="preserve">
+				<source>Indexing in progress</source>
+				<target>Indexierung läuft</target>
+			</trans-unit>
+			<trans-unit id="module.index.lastupdate" xml:space="preserve">
+				<source>Last indexing was done on</source>
+				<target>Letzte Indexierung</target>
+			</trans-unit>
+			<trans-unit id="module.action.cleanup" xml:space="preserve">
+				<source>Cleanup</source>
+				<target>Bereinigung</target>
+			</trans-unit>
+			<trans-unit id="module.action.stats" xml:space="preserve">
+				<source>Statistics</source>
+				<target>Statistiken</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

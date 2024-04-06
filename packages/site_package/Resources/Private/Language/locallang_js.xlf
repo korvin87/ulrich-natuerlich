@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-09-16T09:04:00Z" product-name="site_package">
+		<header/>
+		<body>
+			<trans-unit id="js.generic.error" xml:space="preserve">
+				<source>An error occured!</source>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.tClose" xml:space="preserve">
+				<source>Close (Esc)</source>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.tLoading" xml:space="preserve">
+				<source>Loading...</source>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tPrev" xml:space="preserve">
+				<source>Previous</source>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tNext" xml:space="preserve">
+				<source>Next</source>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tCounter" xml:space="preserve">
+				<source>%curr% of %total%</source>
+			</trans-unit>
+			<trans-unit id="js.abavolbmessage.ok" xml:space="preserve">
+				<source>Ok</source>
+			</trans-unit>
+			<trans-unit id="js.abavolbmessage.cancel" xml:space="preserve">
+				<source>Cancel</source>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.message" xml:space="preserve">
+				<source>This website uses cookies to ensure you get the best experience on our website. </source>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.dismiss" xml:space="preserve">
+				<source>Got it</source>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.learnMore" xml:space="preserve">
+				<source>More info.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

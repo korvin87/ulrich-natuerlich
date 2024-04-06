@@ -1,0 +1,62 @@
+config.tx_abavosearch {
+	contentModifier {
+		# cat=tx_abavosearch/basic; type=boolean; label=Enable content modifier for highlighting
+		enable = 0
+		# cat=tx_abavosearch/basic; type=string; label=Highlighting for HTML-DOM-ID: Only HTML content in this selector will be replaced with highlighting tags
+		modifyDOMId = contentarea
+		# cat=tx_abavosearch/basic; type=string; label=Content modifier regex: For tx_abavosearch_sword_list highlighting, the ###SWORDS### is the search words marker, pipe separated.
+		regex = (###SWORDS###)(?=[^>]*<|$)
+		# cat=tx_abavosearch/basic; type=string; label=Content modifier html wrap: ###SWORD### is the search word marker.
+		wrap = <span class="tx-abavo-search-highlight">###SWORD###</span>
+		# cat=tx_abavosearch/basic; type=string; label=Content modifier param: Default tx_abavosearch_sword_list
+		param = tx_abavosearch_sword_list	
+	}
+}
+plugin.tx_abavosearch {
+	view {
+		# cat=plugin.tx_abavosearch/file/10; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:abavo_search/Resources/Private/Templates/
+		# cat=plugin.tx_abavosearch/file/20; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:abavo_search/Resources/Private/Partials/
+		# cat=plugin.tx_abavosearch/file/30; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:abavo_search/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_abavosearch//a; type=string; label=Default storage PID
+		storagePid =
+        # cat=plugin.tx_abavosearch//a; type=string; label=Default recursive
+		recursive = 0
+	}
+	settings{
+		# cat=plugin.tx_abavosearch/file/40; type=string; label=Path to css file
+		cssFile = typo3conf/ext/abavo_search/Resources/Public/Css/Style.min.css
+		# cat=plugin.tx_abavosearch/file/45; type=string; label=Path to jQuery-UI Javascript Lib
+		jsjQueryUi = EXT:abavo_search/Resources/Public/Vendor/jquery-ui-custom/jquery-ui.min.js
+		# cat=plugin.tx_abavosearch/file/45; type=string; label=Path to jQuery-UI Javascript css Lib
+		cssjQueryUi = EXT:abavo_search/Resources/Public/Vendor/jquery-ui-custom/jquery-ui.min.css
+		# cat=plugin.tx_abavosearch/file/45; type=string; label=Path to Tooltipster Javascript Lib
+		jsTooltipster = EXT:abavo_search/Resources/Public/Vendor/tooltipster/dist/js/tooltipster.bundle.min.js
+		# cat=plugin.tx_abavosearch/file/45; type=string; label=Path to Tooltipster CSS Lib
+		cssTooltipster = EXT:abavo_search/Resources/Public/Vendor/tooltipster/dist/css/tooltipster.bundle.min.css
+		# cat=plugin.tx_abavosearch/file/50; type=string; label=Path to Stop-Word-Lists
+		stopWordList = EXT:abavo_search/Resources/Private/WordLists/
+		# cat=plugin.tx_abavosearch/file/60; type=string; label=Path to White-Word-List
+		whiteWordList = EXT:abavo_search/Resources/Private/WordLists/
+		# cat=plugin.tx_abavosearch/other/; type=int+; label=Results each page: Fallback if form value is invalid
+		itemsPerPage = 10
+		# cat=plugin.tx_abavosearch/other/; type=int+; label=Min search string len for search
+		minSearchStrinLen = 3
+		# cat=plugin.tx_abavosearch/other/; type=int+; label=Page with search results plugin
+		targetPid = 
+		# cat=plugin.tx_abavosearch/other/; type=boolean; label=Include Form.js with page.includeJS: Global TS-Include instead of form include
+		jsGlobalInclude = 0
+		# cat=plugin.tx_abavosearch/other/; type=boolean; label=Search Statistics: Enable Search Statistics
+		statsEnabled = 1
+		# cat=plugin.tx_abavosearch/other/; type=int+; label=Max items for autocomplete
+		maxAutocompleteItems = 10
+		# cat=plugin.tx_abavosearch/other/; type=options[jqueryui,tooltipster]; label=The autocomplete javascript library (jqueryui or tooltipster)
+		autocompleteLibrary = jqueryui
+		# cat=plugin.tx_abavosearch/other/; type=int+; label=dataPageType
+		dataPageType = 170411
+	}
+}

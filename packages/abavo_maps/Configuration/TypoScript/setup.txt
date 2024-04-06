@@ -1,0 +1,188 @@
+
+plugin.tx_abavomaps {
+	view {
+		templateRootPaths {
+			0 = EXT:abavo_maps/Resources/Private/Templates/
+			1 = {$plugin.tx_abavomaps.view.templateRootPath}
+		}
+		partialRootPaths {
+			0 = EXT:abavo_maps/Resources/Private/Partials/
+			1 = {$plugin.tx_abavomaps.view.partialRootPath}
+		}
+		layoutRootPaths {
+			0 = EXT:abavo_maps/Resources/Private/Layouts/
+			1 = {$plugin.tx_abavomaps.view.layoutRootPath}
+		}
+	}
+	persistence {
+		storagePid = {$plugin.tx_abavomaps.persistence.storagePid}
+
+        classes {
+            TYPO3\AbavoMaps\Domain\Model\Address {
+                mapping {
+					tableName = tt_address
+					columns {
+						uid.mapOnProperty               = uid
+						name.mapOnProperty              = name
+						first_name.mapOnProperty        = firstname
+						last_name.mapOnProperty         = lastname
+						description.mapOnProperty       = description
+						address.mapOnProperty           = address
+						city.mapOnProperty				= city
+						zip.mapOnProperty				= zip
+						country.mapOnProperty			= country
+						www.mapOnProperty				= url
+					}
+                }
+            }
+			
+            TYPO3\AbavoMaps\Domain\Model\AbavoAddress {
+                mapping {
+					tableName = tx_abavoaddress_domain_model_address
+					columns {
+						uid.mapOnProperty               = uid
+					}
+                }
+            }
+
+			TYPO3\AbavoMaps\Domain\Model\FeUser {
+                mapping {
+					tableName = fe_users
+					columns {
+						longitude.mapOnProperty			= longitude
+						latitude.mapOnProperty          = latitude
+					}
+                }
+            }
+			
+			TYPO3\AbavoMaps\Domain\Model\NnAddress {
+                mapping {
+					tableName = tx_nnaddress_domain_model_address
+					columns {
+						uid.mapOnProperty               = uid
+					    person.mapOnProperty			= person
+						longitude.mapOnProperty			= longitude
+						latitude.mapOnProperty          = latitude
+						street.mapOnProperty            = street
+						street_nr.mapOnProperty         = streetnr
+						city.mapOnProperty				= city
+						zip.mapOnProperty				= zip
+						country.mapOnProperty			= country
+						website.mapOnProperty			= url
+						flexform.mapOnProperty			= description
+					}
+                }
+            }
+		}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	settings{
+		urlPrefix = {$plugin.tx_abavomaps.settings.urlPrefix}
+		renderMode = {$plugin.tx_abavomaps.settings.renderMode}
+		renderType = {$plugin.tx_abavomaps.settings.renderType}
+		gmApiKey = {$plugin.tx_abavomaps.settings.gmApiKey}
+		mapquestApiKey = {$plugin.tx_abavomaps.settings.mapquestApiKey}
+		quotaUser = {$plugin.tx_abavomaps.settings.quotaUser}
+		countryCodes = {$plugin.tx_abavomaps.settings.countryCodes}
+		queryLimits = {$plugin.tx_abavomaps.settings.queryLimits}
+		routeColor = {$plugin.tx_abavomaps.settings.routeColor}
+		shapeColor = {$plugin.tx_abavomaps.settings.shapeColor}
+		routing = {$plugin.tx_abavomaps.settings.routing}
+		redirectToMarkerURL = {$plugin.tx_abavomaps.settings.redirectToMarkerURL}
+		markerDefaultIcon = {$plugin.tx_abavomaps.settings.markerDefaultIcon}
+		mouseWheelZoom = {$plugin.tx_abavomaps.settings.mouseWheelZoom}
+		defaultHeight = {$plugin.tx_abavomaps.settings.defaultHeight}
+		defaultWidth = {$plugin.tx_abavomaps.settings.defaultWidth}
+		gmClusterImagesPath = {$plugin.tx_abavomaps.settings.gmClusterImagesPath}
+		arguments {
+		}
+	}
+}
+
+# For easy link generating
+lib.tx_abavomaps_link = TEXT
+lib.tx_abavomaps_link {
+	typolink.parameter.current = 1
+	typolink.ATagParams = id="tx-abavo-maps-marker-{field: uid}-link" class="{$plugin.tx_abavomaps.settings.markerSelectorClass}"
+	typolink.ATagParams.insertData = 1
+}
+
+# Base-Map LIB for flexibel integrations
+lib.tx_abavomaps_map = USER
+lib.tx_abavomaps_map {
+	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	extensionName = AbavoMaps
+	pluginName = Pimain
+	vendorName = TYPO3
+	controller = Map
+	action = show
+	view < plugin.tx_abavomaps.view
+	persistence < plugin.tx_abavomaps.persistence
+	settings < plugin.tx_abavomaps.settings
+}
+
+# LIB for showing all marker records recursive by current page
+# Possible repositories: MarkerRepository (=default or if argument leave blank), AbavoAddressRepository, AddressRepository (tt_address), FeUserRepository, NnAddressRepository
+lib.tx_abavomaps_map_current_records < lib.tx_abavomaps_map
+lib.tx_abavomaps_map_current_records {
+	settings {
+		arguments {
+			repo = MarkerRepository
+
+			useStdWrap = uids
+			uids.stdWrap.cObject = CONTENT
+			uids.stdWrap.cObject {
+			   table = tx_abavomaps_domain_model_marker
+			   select {
+				  pidInList.data = page:uid
+				  pidInList.intval = 1
+				  recursive = 10
+			   }
+				renderObj = COA
+				renderObj {
+					10 = TEXT
+					10.field = uid
+					10.noTrimWrap = ||,|
+				}
+			}
+		}
+	}
+}
+
+# LIB for showing by commaseparated list
+# FLUID Usage Examples
+# <f:cObject typoscriptObjectPath="lib.tx_abavomaps_map_commaseparated" data="{markerUids}" />
+# <f:cObject typoscriptObjectPath="lib.tx_abavomaps_map_commaseparated" data="{f:if(condition: i.isLast, then: marker.uid, else: '{marker.uid},') -> f:for(each: journey.marker, as: 'marker', iteration: 'i')}" />
+lib.tx_abavomaps_map_commaseparated < lib.tx_abavomaps_map
+lib.tx_abavomaps_map_commaseparated {
+	settings {
+		arguments {
+			Map = {"width":"1060","height":"360","zoomcontrol":"1","latitude":"51","longitude":"9","zoom":"5"}
+			repo = MarkerRepository
+
+			useStdWrap = uids
+			uids.stdWrap.cObject = TEXT
+			uids.stdWrap.cObject.current = 1
+		}
+	}
+}
+
+# PAGE cObject
+# FLUID Usage:
+# <f:link.page pageType="19810831" additionalParams="{tx_abavomaps_pimain:{controller:'Map', action:'show', repo:'AbavoAddressRepository', uids:'{uids}', Map:{zoom:12}}}
+# Take a look in the documentation and Classes\Controller\MapController.php for further examples
+tx_abavomaps_page = PAGE
+tx_abavomaps_page {
+	typeNum = 19810831
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 1
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+	}
+	10 < lib.tx_abavomaps_map
+}

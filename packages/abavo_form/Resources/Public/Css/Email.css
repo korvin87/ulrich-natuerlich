@@ -1,0 +1,19 @@
+body, table, p { font-family: verdana; font-size:12}
+table {border:1px solid #cfcfcf;}
+h2{margin:15px 0 4px 0; font-size:15px;}
+h3 {margin:15px 0 4px 0; font-size:14px;}
+h4 {margin:15px 0 4px 0; font-size:13px;}
+
+th,
+td {
+	padding:4px;
+	vertical-align: top;
+}
+
+.label {
+	font-weight: bold;
+}
+
+.value {
+	
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-06-02T08:15:00Z" product-name="abavo_form">
+		<header/>
+		<body>
+			<trans-unit id="mod.wizards.newContentElement.pi">
+				<source>abavo Form</source>
+			</trans-unit>
+			<trans-unit id="mod.wizards.newContentElement.pi.description">
+				<source>PlugIn für dynamisch, flexible, Template und Domain-Model basierende Formulare.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

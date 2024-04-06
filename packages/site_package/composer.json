@@ -1,0 +1,27 @@
+{
+  "name": "abavo/site-package",
+  "type": "typo3-cms-extension",
+  "description": "",
+  "authors": [
+    {
+      "name": "Simon Würstle",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": ">=7.6.0 < 12.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Abavo\\SitePackage\\": "Classes"
+    }
+  },
+  "extra": {
+		"typo3/cms": {
+		  "extension-key": "site_package"
+		}
+	},
+  "replace": {
+    "site_package": "self.version"
+  }
+}

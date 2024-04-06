@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div id="page" class="{settings.page_class} area-{settings.areaname}">
+    <header id="header">
+        <div id="fixedheader">
+            <div class="container horizontal-content-padding">
+                <div class="container__inner container__inner--dontremovemarginbottom">
+                    <div class="ulrich-heaed">
+                        <div class="left print-hide">
+							<f:link.page pageUid="{settings.pid_root}" class="logo">
+								<f:image
+										src="EXT:site_package/Resources/Public/Images/ulrich-natuerlichneu-logo.svg"
+
+										alt="{settings.areatitle}" />
+							</f:link.page>
+						</div>
+						<div class="left-2">
+
+                            <f:cObject typoscriptObjectPath="lib.page.mainnav" />
+                            <a href="javascript:void(0);" id="hamburger">
+                                <span class="top-bar"></span>
+                                <span class="middle-bar"></span>
+                                <span class="bottom-bar"></span>
+                            </a>
+                        </div>
+                        <div class="right print-hide">
+                            <nav id="metamenu">
+                                <ul role="menu">
+                                    <li role="menuitem" class="search-new">
+                                        <f:render partial="Searchbox" />
+                                    </li>
+                                    <f:cObject typoscriptObjectPath="lib.page.metamenu" />
+                                    <li role="menuitem" class="langselect">
+                                        <a href="javascript:void(0);" title="{f:translate(key: 'language', extensionName: 'SitePackage')}" data-tooltip-content="#tooltip-content-langselect"><span class="fontello-icon-earth"></span></a>
+                                        <div class="tooltip_templates">
+                                            <div id="tooltip-content-langselect">
+                                                <f:cObject typoscriptObjectPath="lib.page.langselect" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <f:cObject typoscriptObjectPath="lib.page.headerslider" />
+    <div id="contentarea">
+        <div class="contentarea__inner">
+            <f:render section="Content" />
+        </div>
+    </div>
+    <footer id="footer" class="footer print-hide">
+        <div class="container container--padding-y container--bgcolor-grey-light horizontal-content-padding">
+            <div class="container__inner container__inner--dontremovemarginbottom">
+                <f:cObject typoscriptObjectPath="lib.page.breadcrumb" />
+                <nav class="footersitemap">
+                    <f:cObject typoscriptObjectPath="lib.page.footer.sitemap" />
+                </nav>
+                <hr>
+                <div class="contactbar">
+                    <f:cObject typoscriptObjectPath="lib.page.footer.contactbar" />
+                </div>
+            </div>
+        </div>
+        <div class="container container--padding-y container--footermenu horizontal-content-padding">
+            <div class="container__inner container__inner--dontremovemarginbottom">
+                <div class="footermenu">
+                    <nav class="footermenu__col footermenu__col--menu"><f:cObject typoscriptObjectPath="lib.page.footer.menu" /></nav>
+                    <div class="footermenu__col footermenu__col--copyright">&copy; Copyright <f:format.date date="now" format="Y" />, W. ULRICH GmbH</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="loadingoverlay" class="loadingoverlay print-hide" aria-hidden="true"><span class="fontello-icon-spin6 animate-spin"></span></div>
+    <div id="searchoverlay" class="loadingoverlay print-hide" aria-hidden="true"></div>
+</div>
+<f:cObject typoscriptObjectPath="lib.page.respmenu" />
+</html>

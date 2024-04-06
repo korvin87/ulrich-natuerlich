@@ -1,0 +1,19 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:af="http://typo3.org/ns/Abavo/AbavoForm/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="contactpersons__entry">
+        <div class="contactpersons__entry__image">
+            <f:cObject typoscriptObjectPath="lib.contactperson.image" data="{uid: contact.uid, name: contact.name}" />
+        </div>
+        <h4 class="h-style h-style-30">{contact.name}</h4>
+        <div class="contactpersons__entry__contactinfos">
+            <f:if condition="{contact.position}">
+                <div class="contactinfo contactinfo--position">{contact.position}</div>
+            </f:if>
+            <f:if condition="{contact.phone}">
+                <div class="contactinfo"><f:translate key="contact.phone.label" /> {contact.phone}</div>
+            </f:if>
+            <f:if condition="{contact.email}">
+                <div class="contactinfo"><f:link.email email="{contact.email}" /></div>
+            </f:if>
+        </div>
+    </div>
+</html>

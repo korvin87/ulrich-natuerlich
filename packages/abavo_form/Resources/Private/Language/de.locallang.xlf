@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-09-16T09:09:00Z" product-name="abavo_form">
+		<header/>
+		<body>
+			<trans-unit id="format.dateformat" xml:space="preserve">
+				<source>Y-m-d</source>
+				<target>d.m.Y</target>
+			</trans-unit>
+			<trans-unit id="format.decimalSeparator" xml:space="preserve">
+				<source>.</source>
+				<target>,</target>
+			</trans-unit>	
+			
+			<trans-unit id="Form.error" approved="yes">
+				<source>Form is not valid</source> 
+				<target state="translated">Formular ist ungültig.</target>
+			</trans-unit>
+			<trans-unit id="Form.error.message" approved="yes">
+				<source>Please be sure, you filled in all fields correctly.</source> 
+				<target>Bitte füllen Sie alle Felder korrekt aus.</target>
+			</trans-unit>
+			<trans-unit id="Form.error.maxFileSizeMessage" approved="yes">
+				<source>File is to big. Please use a smaller file.</source> 
+				<target>Datei ist zu groß. Bitte verwenden Sie eine kleinere Datei.</target>
+			</trans-unit>
+			<trans-unit id="Form.error.fileTypeMessage" approved="yes">
+				<source>This file type is not allowed. Possible file types: %s.</source> 
+				<target>Dieser Datei-Typ ist nicht erlaubt. Mögliche Datei-Typen sind: %s.</target>
+			</trans-unit>
+			
+			<trans-unit id="Form.startnew" approved="yes">
+				<source>Start new form</source> 
+				<target>Neues Formular beginnen</target>
+			</trans-unit>
+						
+			<trans-unit id="Form.salutation">
+				<source>Salutation</source>
+				<target>Anrede</target>
+			</trans-unit>
+			<trans-unit id="Form.salutations.mr">
+				<source>Mr</source>
+				<target>Herr</target>
+			</trans-unit>
+			<trans-unit id="Form.salutations.ms">
+				<source>Ms</source>
+				<target>Frau</target>
+			</trans-unit>
+			<trans-unit id="Form.firstname">
+				<source>Firstname</source>
+				<target>Vorname</target>
+			</trans-unit>
+			<trans-unit id="Form.lastname">
+				<source>Lastname</source>
+				<target>Nachname</target>
+			</trans-unit>
+			<trans-unit id="Form.phone">
+				<source>Phone</source>
+				<target>Telefon</target>
+			</trans-unit>
+			<trans-unit id="Form.email">
+				<source>E-Mail</source>
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="Form.address">
+				<source>Street and number</source>
+				<target>Straße und Nr.</target>
+			</trans-unit>
+			<trans-unit id="Form.company">
+				<source>Company</source>
+				<target>Firma</target>
+			</trans-unit>
+			<trans-unit id="Form.zip">
+				<source>ZIP Code</source>
+				<target>PLZ</target>
+			</trans-unit>
+			<trans-unit id="Form.city">
+				<source>City</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="Form.country">
+				<source>Country</source>
+				<target>Land</target>
+			</trans-unit>
+			<trans-unit id="Form.countryZone">
+				<source>Country Zone</source>
+				<target>Bundesland</target>
+			</trans-unit>
+			<trans-unit id="Form.description">
+				<source>Your special description</source>
+				<target>Ihre Nachricht an uns</target>
+			</trans-unit>
+			<trans-unit id="Form.media">
+				<source>Media</source>
+				<target>Dateianhang</target>
+			</trans-unit>
+			<trans-unit id="Form.description.email">
+				<source>Your message</source>
+				<target>Ihre Nachricht an uns</target>
+			</trans-unit>
+			<trans-unit id="Form.submit">
+				<source>Submit form</source>
+				<target>Anfrage senden</target>
+			</trans-unit>
+			<trans-unit id="Form.data.label">
+				<source><![CDATA[<p>Your form contains the following data:</p>]]></source>
+				<target><![CDATA[<p>Ihre Anfrage enthält folgende Daten:</p>]]></target>
+			</trans-unit>
+			<trans-unit id="Form.intro.text">
+				<source><![CDATA[<h2>Your inquire</h2><p>Thank you for your inquire. We will contact you as soon as possible.</p>]]></source>
+				<target><![CDATA[<h2>Ihre Anfrage</h2><p>Vielen Dank für Ihre Anfrage. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.</p>]]></target>
+			</trans-unit>
+
+			<trans-unit id="Form.privacyhint">
+				<source><![CDATA[Reviewed the <a href="%s" class="js-nolightboxopen-ifinlightbox" target="lightbox">privacy policy</a>. I agree that my details are collected and stored electronically. This consent can be revoked at any time for the future.]]></source>
+				<target><![CDATA[Ich habe die <a href="%s" class="js-nolightboxopen-ifinlightbox" target="lightbox">Datenschutz&shy;bestimmungen</a> zur Kenntnis genommen. Ich stimme zu, dass meine Angaben elektronisch erhoben und gespeichert werden. Diese Einwilligung kann jederzeit für die Zukunft widerrufen werden.]]></target>
+			</trans-unit>
+			<trans-unit id="Form.error.privacyhint">
+				<source>Please confirm that you have read the privacy policy.</source>
+				<target>Bitte bestätigen Sie, dass Sie den Datenschutzhinweis gelesen haben.</target>
+			</trans-unit>
+			
+			<trans-unit id="Validation.message.honeypot">
+				<source>Form is not valid.</source>
+				<target>Das Formular ist ungültig.</target>
+			</trans-unit>
+			<trans-unit id="Validation.message.spam">
+				<source><![CDATA[Spam detected (%s)]]></source>
+				<target><![CDATA[Es wurde Spam erkannt. (%s)]]></target>
+			</trans-unit>
+			<trans-unit id="Validation.message.expired">
+				<source>The Form has expired. Please start with a new form.</source>
+				<target>Das Formular ist nicht mehr gültig. Bitte füllen Sie dies neu aus.</target>
+			</trans-unit>
+			<trans-unit id="Validation.uniqueId.notvalid">
+				<source>This form is not valid anymore.</source>
+				<target>Das Formular wurde bereits versendet. Bitte füllen Sie die Felder neu aus und senden Sie dieses Formular über den Abesenden-Button.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

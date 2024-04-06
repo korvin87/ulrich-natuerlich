@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-09-16T09:04:00Z" product-name="site_package">
+        <header/>
+        <body>
+            <trans-unit id="js.generic.error" xml:space="preserve">
+				<source>An error occured!</source>
+				<target>Ein Fehler ist aufgetreten!</target>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.tClose" xml:space="preserve">
+				<source>Close (Esc)</source>
+				<target>Schließen (Esc)</target>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.tLoading" xml:space="preserve">
+				<source>Loading...</source>
+				<target>Wird geladen...</target>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tPrev" xml:space="preserve">
+				<source>Previous</source>
+				<target>Zurück</target>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tNext" xml:space="preserve">
+				<source>Next</source>
+				<target>Vor</target>
+			</trans-unit>
+			<trans-unit id="js.magnificpopup.gallery.tCounter" xml:space="preserve">
+				<source>%curr% of %total%</source>
+				<target>%curr% von %total%</target>
+			</trans-unit>
+			<trans-unit id="js.abavolbmessage.ok" xml:space="preserve">
+				<source>Ok</source>
+				<target>Ok</target>
+			</trans-unit>
+			<trans-unit id="js.abavolbmessage.cancel" xml:space="preserve">
+				<source>Cancel</source>
+				<target>Abbrechen</target>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.message" xml:space="preserve">
+				<source>This website uses cookies to ensure you get the best experience on our website. </source>
+				<target>Diese Webseite verwendet Cookies, um die Bedienfreundlichkeit zu erhöhen. Wenn Sie auf der Seite weitersurfen, stimmen Sie der Cookie-Nutzung zu. Informationen über den Einsatz von Cookies auf dieser Webseite erhalten Sie in unserer </target>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.dismiss" xml:space="preserve">
+				<source>Got it</source>
+				<target>OK verstanden</target>
+			</trans-unit>
+			<trans-unit id="js.cookieconsent.learnMore" xml:space="preserve">
+				<source>More info.</source>
+				<target>Datenschutzerklärung.</target>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

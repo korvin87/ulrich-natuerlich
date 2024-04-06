@@ -1,0 +1,54 @@
+plugin {
+    tx_abavoform {
+        view {
+            templateRootPaths.0 = {$plugin.tx_abavoform.view.templateRootPath}
+            partialRootPaths.0 = {$plugin.tx_abavoform.view.partialRootPath}
+            layoutRootPaths.0 = {$plugin.tx_abavoform.view.layoutRootPath}
+        }
+
+        settings {
+			debug = 0
+			formSpamDetectionSeconds = {$plugin.tx_abavoform.settings.formSpamDetectionSeconds}
+			countriesEnableCountryzones = {$plugin.tx_abavoform.settings.countriesEnableCountryzones}
+			pageTypeNumAjax = {$plugin.tx_abavoform.settings.pageTypeNumAjax}
+			sessionKeyPrefix = 0
+			privacyDeclaration {
+				pid = {$config.pid_privacy}
+				email = {$config.email_privacy}
+			}
+        }
+    }
+}
+
+lib.siteUrl =TEXT
+lib.siteUrl.data = getIndpEnv:TYPO3_SITE_URL
+
+tx_abavoform_ajax = PAGE
+tx_abavoform_ajax {
+
+	typeNum = {$plugin.tx_abavoform.settings.pageTypeNumAjax}
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 1
+		admPanel = 0
+		debug = 0
+		no_cache = 1
+	}
+
+	10 = USER_INT
+	10 {
+		userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+		extensionName = AbavoForm
+		pluginName = Pi
+		vendorName = Abavo
+		controller = Form
+		view < plugin.tx_abavoform.view
+		persistence < plugin.tx_abavoform.persistence
+		settings < plugin.tx_abavoform.settings
+	}
+}
+
+tx_abavoform_ajax_validation < tx_abavoform_ajax
+tx_abavoform_ajax_validation.typeNum = 815
+tx_abavoform_ajax_validation.10.pluginName = PiAjaxValidate

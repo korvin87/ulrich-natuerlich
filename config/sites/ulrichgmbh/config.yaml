@@ -1,0 +1,52 @@
+base: '/'
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    base: /
+    typo3Language: de
+    locale: de_DE
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: ''
+    hreflang: de
+    direction: ''
+    flag: global
+    languageId: 0
+  -
+    title: Englisch
+    enabled: true
+    base: /en/
+    typo3Language: default
+    locale: en
+    iso-639-1: en
+    websiteTitle: ''
+    navigationTitle: en
+    hreflang: en
+    direction: ''
+    fallbackType: strict
+    fallbacks: ''
+    flag: gb
+    languageId: 1
+rootPageId: 1
+websiteTitle: ''
+
+routeEnhancers:
+  Products:
+    type: Extbase
+    extension: UlrichProducts
+    plugin: Pi
+    routes:
+      - routePath: '/{category}/{product}/'
+        _controller: 'Product::show'
+      - routePath: '/{category}/'
+        _controller: 'Product::list'
+    aspects:
+      product:
+        type: PersistedAliasMapper
+        tableName: tx_ulrichproducts_domain_model_product
+        routeFieldName: slug
+      category:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: slug

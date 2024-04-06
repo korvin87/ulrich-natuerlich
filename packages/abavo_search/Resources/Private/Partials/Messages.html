@@ -1,0 +1,29 @@
+<div class="message-box">
+	<div class="message-body">
+		<p><strong>{paginationSettings.allCount}</strong>
+		<f:if condition="{paginationSettings.allCount} == 1">
+			<f:then><f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:resultone" /></f:then>
+			<f:else><f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:resultmulti" /></f:else>
+		</f:if>: "{searchWithoutSynonyms}"</p>
+	</div>
+
+	<f:if condition="{synonyms}">
+		<div class="message-body additional-message">
+			<p>
+				<i class="fa fa-info-circle"></i>
+				<f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:usedsynonyms" />:
+				<f:for each="{synonyms}" as="synonym" iteration="iterator">{synonym}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></f:for>
+			</p>
+		</div>
+	</f:if>
+
+	<f:if condition="{synonymReplacements}">
+		<div class="message-body additional-message">
+			<p>
+				<i class="fa fa-info-circle"></i>
+				<f:translate key="LLL:EXT:abavo_search/Resources/Private/Language/messages.xlf:synonymReplacements" />:
+				<f:for each="{synonymReplacements}" as="alt" iteration="iterator" key="synonymTitle">{synonymTitle} <i class="fa fa-arrow-right"></i> {alt}<f:if condition="{iterator.isLast}"><f:else>, </f:else></f:if></f:for>
+			</p>
+		</div>
+	</f:if>
+</div>

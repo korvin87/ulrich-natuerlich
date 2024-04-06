@@ -1,0 +1,46 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <main>
+            <ROOT>
+                <type>array</type>
+                <el>
+                    <slideduration type="array">
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.accordion.slideduration.label
+                            </label>
+                            <config>
+                                <type>input</type>
+                                <size>5</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </slideduration>
+                    <showfirstentry type="array">
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.accordion.showfirstentry.label
+                            </label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </showfirstentry>
+                    <showtogglealldiv type="array">
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:site_package/Resources/Private/Language/locallang_db.xlf:tx_gridelements.pi_flexform.accordion.showtogglealldiv.label
+                            </label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </showtogglealldiv>
+                </el>
+            </ROOT>
+        </main>
+    </sheets>
+</T3DataStructure>

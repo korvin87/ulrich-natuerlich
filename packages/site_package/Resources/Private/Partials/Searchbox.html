@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form extensionName="AbavoSearch" controller="Search" action="search" pageUid="{settings.searchresultpage}" class="search-form" additionalAttributes="{role: 'search'}">
+    <input type="search"
+           name="tx_abavosearch_piresults[search]"
+           class="search-word autocomplete"
+           placeholder="{f:translate(extensionName: 'AbavoSearch', key: 'form.autocomplete')}"
+           autocomplete="off"
+           data-pages="{settings.searchstoragepage}"
+           data-autocompleteurl="{f:uri.action(pageType: 170411, action: 'autocomplete', pluginName: 'PiData', controller: 'Ajax', extensionName: 'AbavoSearch', arguments: {pid: pid: settings.searchstoragepage})}"
+    /><button title="{f:translate(extensionName: 'AbavoSearch', key: 'form.submit')}">
+        <span class="fontello-icon-search"></span>
+    </button>
+</f:form>
+</html>

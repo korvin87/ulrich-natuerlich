@@ -1,0 +1,77 @@
+/* Accordion styles */
+.accordion-classic input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.accordion-classic input ~ .tab-content {
+	overflow: hidden;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+}
+.accordion-classic input:checked + .tab-label {
+	background: #4b659c;
+}
+.accordion-classic input:checked + .tab-label::after {
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.accordion-classic input:checked ~ .tab-content {
+	max-height: 100%;
+	height: 100%;
+	padding: 1em;
+
+}
+.accordion-classic .tabs {
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+.accordion-classic .tab {
+	width: 100%;
+	color: white;
+	overflow: hidden;
+}
+.accordion-classic .tab-label {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	padding: 1em;
+	background: #1e3e83;
+	font-weight: bold;
+	cursor: pointer;
+}
+.accordion-classic .tab-label:hover {
+	background: #4b659c;
+}
+.accordion-classic .tab-label::after {
+	content: "\276F";
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+}
+.accordion-classic .tab-content {
+	max-height: 0;
+	padding: 0 1em;
+	color: #333;
+	background: white;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+}
+.accordion-classic .tab-close {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: end;
+	justify-content: flex-end;
+	padding: 1em;
+	font-size: 0.75em;
+	background: #1e3e83;
+	cursor: pointer;
+}
+.accordion-classic .tab-close:hover {
+	background: #4b659c;
+}

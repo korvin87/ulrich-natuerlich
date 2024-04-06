@@ -1,0 +1,24 @@
+{
+	"name": "abavo/abavo-search",
+	"type": "typo3-cms-extension",
+	"description": "abavo Search",
+	"authors": [
+		{
+			"name": "Mathias Bruckmoser",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Abavo\\AbavoSearch\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+		  "extension-key": "abavo_search"
+		}
+	},
+	"replace": {
+		"abavo_search": "self.version"
+	}
+}

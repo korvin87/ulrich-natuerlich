@@ -1,0 +1,4 @@
+<INCLUDE_TYPOSCRIPT:source="FILE:EXT:site_package/Configuration/TSconfig/Page/main.ts">
+<INCLUDE_TYPOSCRIPT:source="FILE:EXT:site_package/Configuration/TSconfig/Page/backendlayouts.ts">
+<INCLUDE_TYPOSCRIPT:source="FILE:EXT:site_package/Configuration/TSconfig/Page/gridelements.ts">
+<INCLUDE_TYPOSCRIPT:source="FILE:EXT:site_package/Configuration/TSconfig/Page/conditions.ts">

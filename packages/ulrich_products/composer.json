@@ -1,0 +1,26 @@
+{
+	"name": "abavo/ulrich-products",
+	"type": "typo3-cms-extension",
+	"description": "",
+	"authors": [
+		{
+			"name": "Mathias Bruckmoser",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"typo3/cms-core": "^8.7.1 || ^9.5.1 || ^10.4.1 || ^11.5.1",
+		"sjbr/static-info-tables": ">=6.5.1 < 11.9.99",
+		"abavo/abavo-form": "^1.1"
+	},
+	"extra": {
+		"typo3/cms": {
+		  "extension-key": "ulrich_products"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Abavo\\UlrichProducts\\": "Classes"
+		}
+	}
+}

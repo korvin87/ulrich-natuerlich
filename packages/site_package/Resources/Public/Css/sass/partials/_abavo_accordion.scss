@@ -1,0 +1,128 @@
+.abavo_accordion {
+    margin: 0 0 $elementmarginbottom;
+
+    .show_close_all_wrap {
+        margin: 0 0 .6em;
+        text-align: right;
+
+        @media print {
+            display: none;
+        }
+    }
+
+    & > .accordion-element {
+        margin: 0 0 .5em;
+
+        & > .accordion-header {
+            @include user-select(none);
+            position: relative;
+            padding: .4em .6em .45em 4.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            @include font-size(2);
+            color: #fff;
+            background-color: var(--primary-color);
+
+            .h-style {
+                margin: 0;
+                @include font-size(2);
+            }
+
+            &:after {
+                content: '\e80d';
+                position: absolute;
+                left: .45em;
+                top: .25em;
+                font-family: "fontello";
+                font-style: normal;
+                font-weight: normal;
+                speak: none;
+                display: inline-block;
+                text-decoration: inherit;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1em;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                color: #fff;
+                font-size: 150%;
+            }
+
+            &:hover,
+            &:focus {
+                opacity: .7;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            .accordion-header-innerwrap > * {
+                margin-bottom: 0;
+            }
+
+            @media print {
+                padding: 0;
+                background: none;
+
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+        &.current > .accordion-header {
+            &:after {
+                content: '\e80e';
+            }
+        }
+    }
+
+    .accordion-content {
+        display: none;
+
+        @media print {
+            display: block !important;
+        }
+
+        .accordion-header-innerwrap {
+            display: none;
+        }
+
+        .accordion-wrapper {
+            padding: .8em 0;
+            @include removelastmarginbottom();
+        }
+
+        .tabs {
+            margin-left: 4.5rem;
+        }
+    }
+
+    &.heightmode {
+        .accordion-content {
+            display: block;
+            height: 0;
+            overflow: hidden;
+
+            @media print {
+                height: auto !important;
+                overflow: visible !important;
+            }
+        }
+
+        .current {
+            .accordion-content {
+                overflow: visible;
+            }
+        }
+    }
+
+    @include mq-max-width("640px") {
+        .accordion-content {
+            .tabs {
+                margin-left: 0;
+            }
+        }
+    }
+}

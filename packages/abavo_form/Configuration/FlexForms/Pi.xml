@@ -1,0 +1,209 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<tab1>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>General</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.postServices>
+						<TCEforms>
+							<label>Post Services: Executing on createAction requests BEFORE Session Hooks and form.processed=true</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<maxitems>99</maxitems>
+								<minitems>1</minitems>
+								<size>5</size>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getServicesList</itemsProcFunc>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">E-Mail Delivery (default)</numIndex>
+										<numIndex index="1">Abavo\AbavoForm\Domain\Service\FormMailService</numIndex>
+									</numIndex>
+								</items>
+							<renderType>selectMultipleSideBySide</renderType></config>
+						</TCEforms>
+					</settings.postServices>
+					<settings.subject>
+						<TCEforms>
+							<label>Form Subject</label>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<max>500</max>
+								<eval>trim,required</eval>
+							</config>
+						</TCEforms>
+					</settings.subject>
+					<settings.useFormsEmailAddress>
+						<TCEforms>
+							<label>Send additional E-Mail to Form´s E-Mail-Address</label>
+							<displayCond><![CDATA[FIELD:settings.postServices:IN:Abavo\AbavoForm\Domain\Service\FormMailService]]></displayCond>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.useFormsEmailAddress>
+					<settings.toAddresses>
+						<TCEforms>
+							<label>To E-Mail Addresses (comma separated)</label>
+							<displayCond><![CDATA[FIELD:settings.postServices:IN:Abavo\AbavoForm\Domain\Service\FormMailService]]></displayCond>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<max>500</max>
+								<eval>trim,required</eval>
+							</config>
+						</TCEforms>
+					</settings.toAddresses>
+					<settings.bccAddresses>
+						<TCEforms>
+							<label>BCC E-Mail Addresses (comma separated, optional)</label>
+							<displayCond><![CDATA[FIELD:settings.postServices:IN:Abavo\AbavoForm\Domain\Service\FormMailService]]></displayCond>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<max>500</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.bccAddresses>
+					<settings.replyToAddresses>
+						<TCEforms>
+							<label>ReplyTo E-Mail Addresses (comma separated, optional; If not defined use INSTALL_TOOLS E-Mail Address)</label>
+							<displayCond><![CDATA[FIELD:settings.postServices:IN:Abavo\AbavoForm\Domain\Service\FormMailService]]></displayCond>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<max>500</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.replyToAddresses>
+					<settings.styleSheet>
+						<TCEforms>
+							<label>E-Mail Stylesheet (optional; By default EXT:abavo_form/Resources/Public/Css/Email.css)</label>
+							<displayCond><![CDATA[FIELD:settings.postServices:IN:Abavo\AbavoForm\Domain\Service\FormMailService]]></displayCond>
+							<config>
+								<type>input</type>
+								<size>50</size>
+								<max>500</max>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.styleSheet>
+				</el>
+			</ROOT>
+		</tab1>
+		<tab2>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Advanced</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.formModelClass>
+						<TCEforms>
+							<label>Form Model Class</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getModelClassList</itemsProcFunc>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.formModelClass>
+					<settings.sessionHooks>
+						<TCEforms>
+							<label>Session Hook Classes: Executing on newAction requests also createAction requests AFTER Post Services and form.processed=true</label>
+							<config>
+								<type>select</type>
+								<maxitems>99</maxitems>
+								<minitems>0</minitems>
+								<size>5</size>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getSessionhooks</itemsProcFunc>
+							<renderType>selectMultipleSideBySide</renderType></config>
+						</TCEforms>
+					</settings.sessionHooks>
+					<settings.template.new>
+						<TCEforms>
+							<label>Form Template</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getTemplateListNew</itemsProcFunc>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.template.new>
+					<settings.template.create>
+						<TCEforms>
+							<label>Successed Template (Only comes into force if no page on setting "Redirect after success to page" is defined)</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getTemplateListCreate</itemsProcFunc>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.template.create>
+					<settings.template.email>
+						<TCEforms>
+							<label>E-Mail Template (Only comes into force if "FormMailService" is defined)</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getTemplateListEmail</itemsProcFunc>
+							<renderType>selectSingle</renderType></config>
+						</TCEforms>
+					</settings.template.email>
+					<settings.successPid>
+						<TCEforms>
+							<label>Redirect after success to page</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<show_thumbs>0</show_thumbs>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.successPid>
+					<settings.enableSpamDetection>
+						<TCEforms>
+							<label>Spam detection enabled (use setting formSpamDetectionSeconds)</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.enableSpamDetection>
+					<settings.enableAjaxSubmit>
+						<TCEforms>
+							<label>Enable AJAX submit</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</settings.enableAjaxSubmit>
+					<settings.countriesEnableCountryzones>
+						<TCEforms>
+							<label>List of countries to use country zones (if used by template)</label>
+							<config>
+								<type>select</type>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<size>5</size>
+								<itemsProcFunc>Abavo\AbavoForm\Utility\TcaHelper->getCountriesIsoCodeA3</itemsProcFunc>
+								<enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+							<renderType>selectMultipleSideBySide</renderType></config>
+						</TCEforms>
+					</settings.countriesEnableCountryzones>
+				</el>
+			</ROOT>
+		</tab2>
+	</sheets>
+</T3DataStructure>

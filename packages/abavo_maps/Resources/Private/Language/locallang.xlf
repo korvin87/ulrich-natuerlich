@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-07-22T06:58:36Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="tx_abavomaps_domain_model_map" xml:space="preserve">
+			<source>A map</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.height" xml:space="preserve">
+			<source>Height</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.markers" xml:space="preserve">
+			<source>Marker (current PID)</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pancontrol" xml:space="preserve">
+			<source>Controls</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.pinicon" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.scalecontrol" xml:space="preserve">
+			<source>Scaling control</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.title" xml:space="preserve">
+			<source>Titel</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.width" xml:space="preserve">
+			<source>Width</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoom" xml:space="preserve">
+			<source>Zoom</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_map.zoomcontrol" xml:space="preserve">
+			<source>Zoom control</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker" xml:space="preserve">
+			<source>A marker a map</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.description" xml:space="preserve">
+			<source>Description</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.fulladdress" xml:space="preserve">
+			<source>Complete address</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.latitude" xml:space="preserve">
+			<source>Latitude</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.longitude" xml:space="preserve">
+			<source>Longitude</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.pinicon" xml:space="preserve">
+			<source>Marker Icon (optional)</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.title" xml:space="preserve">
+			<source>Titel</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_domain_model_marker.url" xml:space="preserve">
+			<source>Marker Link (optional: If set, don´t show description on clicking marker and refer to link source)</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelend" xml:space="preserve">
+			<source>Destination address</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelfrom" xml:space="preserve">
+			<source>Away</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelgecodingfailed" xml:space="preserve">
+			<source>Geocoding failed</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelgo" xml:space="preserve">
+			<source>Go</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labellatlonpos" xml:space="preserve">
+			<source>You have clicked the following coordinates</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelrouting" xml:space="preserve">
+			<source>Directions</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelstart" xml:space="preserve">
+			<source>Start address</source>
+		</trans-unit>
+		<trans-unit id="tx_abavomaps_routing.labelto" xml:space="preserve">
+			<source>Here go</source>
+		</trans-unit>
+		</body>
+	</file>
+</xliff>
