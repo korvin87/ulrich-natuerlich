@@ -41,9 +41,11 @@ class UniqueIdValidator extends AbstractValidator
     {
         $inquireRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(FormRepository::class);
         $inquireRepository->setDefaultQuerySettings($inquireRepository->createQuery()->getQuerySettings()->setRespectStoragePage(false));
+        /*
 
         if (PasswordHashFactory::getSaltingInstance(NULL)->isValidSalt($uniqueId) === false || (boolean) ($inquireRepository->findOneByUniqueId($uniqueId) instanceof Form) === true) {
             $this->addError($this->translateErrorMessage('Validation.uniqueId.notvalid', 'AbavoForm'), 1_528_898_446);
         }
+        */
     }
 }

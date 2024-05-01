@@ -159,22 +159,26 @@ class FormController extends BaseFrontendController
         // Overrule settings from original plugin flexform
         if (is_int($formSettingsUid)) {
 
-            $records = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('*'
-                , 'tt_content'
-                , 'uid='.(int) $formSettingsUid
-                , null
-                , null
-                , 1
-            );
+            $connectionPool = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class);
+            $queryBuilder = $connectionPool->getQueryBuilderForTable('tt_content');
+            $records = $queryBuilder
+                        ->select('*')
+                        ->from('tt_content')
+                        ->where(
+                            $queryBuilder->expr()->eq('uid', (int) $formSettingsUid)
+                        )
+                        ->executeQuery();
+            
+            $piData = null;
+            while ($row = $records->fetchAssociative()) {
+                $piData = $row;
+            }
 
-            if ((is_countable($records) ? count($records) : 0) === 1) {
+            if (isset($piData['pi_flexform'])) {
                 $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
-                $piData          = current($records);
-                if (isset($piData['pi_flexform'])) {
-                    $flexFormData             = $flexFormService->convertFlexFormContentToArray($piData['pi_flexform']);
-                    ArrayUtility::mergeRecursiveWithOverrule($this->settings, $flexFormData['settings'], true);
-                    $this->settings['piData'] = $piData;
-                }
+                $flexFormData             = $flexFormService->convertFlexFormContentToArray($piData['pi_flexform']);
+                ArrayUtility::mergeRecursiveWithOverrule($this->settings, $flexFormData['settings'], true);
+                $this->settings['piData'] = $piData;
             }
         }
 
@@ -244,9 +248,6 @@ class FormController extends BaseFrontendController
              * Create an new argument instance with dataType from setting 'formModelClass'
              */
             $argument       = $this->objectManager->get(Argument::class, 'newForm', $this->settings['formModelClass']);
-            $propertyMapper = $this->objectManager->get(PropertyMapper::class);
-            $argument->injectPropertyMapper($propertyMapper);
-
 
             // Extract and allow differnt properties from extended model or skip unknown properties
             $propertyMappingConfiguration = $this->arguments->getArgument('newForm')->getPropertyMappingConfiguration();
@@ -263,7 +264,7 @@ class FormController extends BaseFrontendController
                 }
             } else {
                 $propertyMappingConfiguration->skipUnknownProperties();
-            }
+            }            
 
             // Inject (modified/original) property mapping configuration from base arguments
             $argument->injectPropertyMappingConfiguration($propertyMappingConfiguration);
@@ -612,6 +613,7 @@ class FormController extends BaseFrontendController
                  *  2. Get the persistent object by uid ($value)
                  *  3. Overwrite $value for validation with persistent object or null if not exisist
                  */
+                /*
                 $propertyReflection = new PropertyReflection(get_class($tempForm), $property);
                 $propertyTags       = $propertyReflection->getTagsValues();
                 if (isset($propertyTags['var'][0])) {
@@ -624,6 +626,7 @@ class FormController extends BaseFrontendController
                         }
                     }
                 }
+                */
 
                 // Validate property
                 if (!empty($propertyValidators) && array_key_exists($property, $propertyValidators)) {

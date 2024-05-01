@@ -16,7 +16,8 @@
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true,
 			"helhum/typo3-console-plugin": true,
-			"helhum/dotenv-connector": true
+			"helhum/dotenv-connector": true,
+			"cweagans/composer-patches": true
 		}
 	},
     "extra": {
@@ -30,7 +31,12 @@
         "helhum/dotenv-connector": {
             "cache-dir": "var/cache",
             "env-file": ".env"
-        }
+        },
+		"patches": {
+			"typo3/cms-extbase": {
+			  "Add injectPropertyMappingConfiguration":"patches/extbase-argument.diff"
+			}
+		}
     },
 	"require": {
 		"abavo/site-package": "@dev",
@@ -82,7 +88,8 @@
 		"in2code/powermail": "^10.8",
 		"helhum/dotenv-connector": "^3.1",
 		"typo3-ter/static-info-tables-de": "^11.5",
-		"georgringer/news": "^11.4"
+		"georgringer/news": "^11.4",
+		"cweagans/composer-patches": "^1.7"
 	},
 	"scripts":{
 		"typo3-cms-scripts": [

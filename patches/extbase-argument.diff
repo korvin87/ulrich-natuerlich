@@ -1,0 +1,14 @@
+--- Classes/Mvc/Controller/Argument.php	2024-02-20 09:27:39.000000000 +0100
++++ Classes/Mvc/Controller/Argument_new.php	2024-05-01 12:52:08.460751244 +0200
+@@ -91,6 +91,11 @@
+      */
+     private $hasBeenValidated = false;
+ 
++    public function injectPropertyMappingConfiguration(MvcPropertyMappingConfiguration $propertyMappingConfiguration)
++    {
++         $this->propertyMappingConfiguration = $propertyMappingConfiguration;
++    }
++
+     /**
+      * Constructs this controller argument
+      *
