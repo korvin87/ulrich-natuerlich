@@ -1,66 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <xliff version="1.0">
-	<file source-language="de" datatype="plaintext" original="messages" date="2018-05-23T16:04:01Z" product-name="ulrich_products">
+	<file source-language="en" target-language="en" datatype="plaintext" original="messages" date="2018-05-23T16:04:01Z" product-name="ulrich_products">
 		<header/>
 		<body>
-			<trans-unit id="tx_ulrichproducts_domain_model_product">
-				<source>Produkt</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product" approved="yes">
+				<source>Product</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.title">
-				<source>Titel</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.title" approved="yes">
+				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.description">
-				<source>Beschreibung</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.description" approved="yes">
+				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant">
-				<source>Pflanze</source>
+				<source>Plant</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin">
-				<source>Herkunft/Blütezeit/Ernte</source>
+				<source>Origin/flowering time/harvest</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production">
-				<source>Herstellung</source>
+				<source>Production</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application">
-				<source>Anwendung/Wirkung</source>
+				<source>Use/effect</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts">
-				<source>Weitere Merkmale/Fakten</source>
+				<source>Further properties/facts</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance">
-				<source>Aussehen</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance" approved="yes">
+				<source>Appearance</source> 
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.cas_number">
-				<source>CAS Nummer</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.cas_number" approved="yes">
+				<source>CAS number</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.eg_number">
-				<source>EG Nummer</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.eg_number" approved="yes">
+				<source>EG number</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.granulation">
-				<source>Granulierung</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.granulation" approved="yes">
+				<source>Granulation</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.bestbefor">
-				<source>Mindesthaltbarkeit</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.bestbefor" approved="yes">
+				<source>Best before</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.qualities">
-				<source>Qualitäten</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.qualities" approved="yes">
+				<source>Qualities</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.media">
-				<source>Bilder</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.media" approved="yes">
+				<source>Images</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.origin_country">
-				<source>Herkunftsland</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.origin_country" approved="yes">
+				<source>Origin country</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.related_products">
-				<source>Verwandte Produkte</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.related_products" approved="yes">
+				<source>Related products</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.contact">
-				<source>Ansprechpartner</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.contact" approved="yes">
+				<source>Contact</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.categories">
-				<source>Kategorien</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.categories" approved="yes">
+				<source>Categories</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday">
+			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday" approved="yes">
 				<source>next-day</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday.desc">
@@ -70,165 +70,157 @@ Ob Klein- oder Großgebinde: Lagerware liefern wir garantiert (Bestellung bis Uh
 Fordern Sie uns!
 ]]></source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.spec">
-				<source>Spezifikation</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.spec" approved="yes">
+				<source>Specification</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.physical_state">
-				<source>Aggregatzustand</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.physical_state" approved="yes">
+				<source>Physical state</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_properties">
-				<source>Chemische Eigenschaften</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_properties" approved="yes">
+				<source>Chemical properties</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.molecular_formula">
-				<source>Molekulare Formel</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.molecular_formula" approved="yes">
+				<source>Molecular formula</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_name">
-				<source>Chemischer Name</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_name" approved="yes">
+				<source>Chemical name</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.registration">
-				<source>Registrierung</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.registration" approved="yes">
+				<source>Registration</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.e_number">
-				<source>E-Nummer</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.e_number" approved="yes">
+				<source>E-Number</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.grass_state">
-				<source>Grass-Status</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.grass_state" approved="yes">
+				<source>Grass-State</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.container">
-				<source>Gebinde</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.container" approved="yes">
+				<source>Container</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.inci">
+			<trans-unit id="tx_ulrichproducts_domain_model_product.inci" approved="yes">
 				<source>INCI</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.einecs">
+			<trans-unit id="tx_ulrichproducts_domain_model_product.einecs" approved="yes">
 				<source>EINECS</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.melting_point">
-				<source>Schmelzpunkt</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.melting_point" approved="yes">
+				<source>Melting point</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.durability">
-				<source>Haltbarkeit</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.durability" approved="yes">
+				<source>Durability</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_product.storage">
-				<source>Lagerung</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.storage" approved="yes">
+				<source>Storage</source>
 			</trans-unit>
 
-			<trans-unit id="tx_ulrichproducts_domain_model_contact">
-				<source>Ihr Ansprechpartner</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact" approved="yes">
+				<source>Your contact</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_contact.plural">
-				<source>Ihre Ansprechpartner</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.plural" approved="yes">
+				<source>Your contact</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_contact.name">
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.name" approved="yes">
 				<source>Name</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_contact.phone">
-				<source>Telefonnummer</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.phone" approved="yes">
+				<source>Phone</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_contact.email">
-				<source>E-Mail-Addresse</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.email" approved="yes">
+				<source>E-Mail</source>
 			</trans-unit>
-			<trans-unit id="tx_ulrichproducts_domain_model_contact.media">
-				<source>Bild</source>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.media" approved="yes">
+				<source>Image</source>
 			</trans-unit>
-
 			<trans-unit id="exception.unknownErrorMessage" approved="yes">
-				<source>Ein unbekannter Fehler ist aufgetreten.</source>
+				<source>An unknown error was occurred.</source>
 			</trans-unit>
 			<trans-unit id="exception.entityNotFoundMessage" approved="yes">
-				<source>Die angeforderte Entität konnte nicht gefunden werden.</source>
+				<source>The requested entity could not be found.</source>
 			</trans-unit>
-
 			<trans-unit id="label.backToProduktList" approved="yes">
-				<source>Zurück</source>
+				<source>Back</source>
 			</trans-unit>
 			<trans-unit id="label.infinityLoad" approved="yes">
-				<source>Mehr laden...</source>
+				<source>Show more...</source>
 			</trans-unit>
 			<trans-unit id="label.aToZ.filter.all" approved="yes">
-				<source>Alle</source>
+				<source>All</source>
 			</trans-unit>
 			<trans-unit id="label.productInquiries" approved="yes">
-				<source>Anfragen</source>
+				<source>Inquire</source>
 			</trans-unit>
 			<trans-unit id="label.productInquiry" approved="yes">
-				<source>Produktanfrage</source>
+				<source>Product inquiry</source>
 			</trans-unit>
 			<trans-unit id="label.productPatternInquiry" approved="yes">
-				<source>Muster</source>
+				<source>Product pattern inquiry</source>
 			</trans-unit>
 			<trans-unit id="label.productDocumentInquiry" approved="yes">
-				<source>Dokumente</source>
+				<source>Documents</source>
 			</trans-unit>
 			<trans-unit id="productdetails.header" approved="yes">
-				<source>Produktdetails</source>
+				<source>Product details</source>
 			</trans-unit>
-			<trans-unit id="fulldescription.label" xml:space="preserve">
-				<source>Vollständige Beschreibung anzeigen</source>
+			<trans-unit id="fulldescription.label" xml:space="preserve" approved="yes">
+				<source>Show full description</source>
 			</trans-unit>
-			<trans-unit id="hidedescription.label" xml:space="preserve">
-				<source>Beschreibung einklappen</source>
+			<trans-unit id="hidedescription.label" xml:space="preserve" approved="yes">
+				<source>Hide description</source>
 			</trans-unit>
-			<trans-unit id="crossselling.label" xml:space="preserve">
-				<source>Weitere Produkte</source>
+			<trans-unit id="crossselling.label" xml:space="preserve" approved="yes">
+				<source>More Products</source>
 			</trans-unit>
-			<trans-unit id="contact.phone.label" xml:space="preserve">
-				<source>Tel.:</source>
+			<trans-unit id="contact.phone.label" xml:space="preserve" approved="yes">
+				<source>Phone.:</source>
 			</trans-unit>
-
 			<trans-unit id="Form.standing" approved="yes">
-				<source>Funktion</source>
+				<source>Position</source>
 			</trans-unit>
 			<trans-unit id="Form.name" approved="yes">
 				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="Form.zip" approved="yes">
-				<source>PLZ</source>
+				<source>Postcode</source>
 			</trans-unit>
 			<trans-unit id="Form.city" approved="yes">
-				<source>Ort / Stadt</source>
+				<source>City</source>
 			</trans-unit>
 			<trans-unit id="Form.country" approved="yes">
-				<source>Land</source>
+				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="Form.intro.text">
-				<source><![CDATA[<h2 class="h-style h-style-40">Ihre Anfrage</h2><p>Vielen Dank für Ihre Anfrage. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.</p>]]></source>
+				<source>&lt;h2 class="h-style h-style-40"&gt;Your inquire&lt;/h2&gt;&lt;p&gt;Thank you for your inquire. We will contact you as soon as possible.&lt;/p&gt;</source> 
 			</trans-unit>
 			<trans-unit id="Form.quality" approved="yes">
-				<source>Bitte Produktqualität auswählen</source>
+				<source>Please choose product quality</source>
 			</trans-unit>
 			<trans-unit id="Form.quality.misc" approved="yes">
-				<source>sonstige</source>
+				<source>misc</source>
 			</trans-unit>
-
 			<trans-unit id="Email.name" approved="yes">
 				<source>Name</source>
 			</trans-unit>
 			<trans-unit id="Email.zip" approved="yes">
-				<source>PLZ</source>
+				<source>Postcode</source>
 			</trans-unit>
 			<trans-unit id="Email.city" approved="yes">
-				<source>Ort / Stadt</source>
+				<source>City</source>
 			</trans-unit>
 			<trans-unit id="Email.country" approved="yes">
-				<source>Land</source>
+				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="Email.productInquiry" approved="yes">
-				<source>Anfrage zu</source>
+				<source>Inquire for</source>
 			</trans-unit>
 			<trans-unit id="Email.productPatternInquiry" approved="yes">
-				<source>Musteranfrage zu</source>
-			</trans-unit>
-			<trans-unit id="Email.productDocumentInquiry" approved="yes">
-				<source>Dokumentanfrage zu</source>
+				<source>Product pattern inquire for</source>
 			</trans-unit>
 			<trans-unit id="Email.standing" approved="yes">
-				<source>Funktion</source>
+				<source>Position</source>
 			</trans-unit>
 			<trans-unit id="Email.quality" approved="yes">
-				<source>Qualtität</source>
+				<source>Quality</source>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>

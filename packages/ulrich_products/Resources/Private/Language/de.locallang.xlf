@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" tatget-language="de" datatype="plaintext" original="messages" date="2018-05-23T16:04:01Z" product-name="ulrich_products">
+		<header/>
+		<body>
+			<trans-unit id="tx_ulrichproducts_domain_model_product">
+				<source>Product</source>
+				<target state="translated">Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.title">
+				<source>Title</source>
+				<target state="translated">Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.description">
+				<source>Description</source>
+				<target state="translated">Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant">
+				<source>Plant</source>
+				<target state="translated">Pflanze</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin">
+				<source>Origin/flowering time/harvest</source>
+				<target state="translated">Herkunft/Blütezeit/Ernte</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production">
+				<source>Production</source>
+				<target state="translated">Herstellung</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application">
+				<source>Use/effect</source>
+				<target state="translated">Anwendung/Wirkung</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts">
+				<source>Further properties/facts</source>
+				<target state="translated">Weitere Merkmale/Fakten</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance">
+				<source>Appearance</source>
+				<target state="translated">Aussehen</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.cas_number">
+				<source>CAS number</source>
+				<target state="translated">CAS Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.eg_number">
+				<source>EG number</source>
+				<target state="translated">EG Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.granulation">
+				<source>Granulation</source>
+				<target state="translated">Granulierung</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.bestbefor">
+				<source>Best before</source>
+				<target state="translated">Mindesthaltbarkeit</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.qualities">
+				<source>Qualities</source>
+				<target state="translated">Qualitäten</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.media">
+				<source>Images</source>
+				<target state="translated">Bilder</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.origin_country">
+				<source>Origin country</source>
+				<target state="translated">Herkunftsland</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.related_products">
+				<source>Related products</source>
+				<target state="translated">Verwandte Produkte</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.contact">
+				<source>Contact</source>
+				<target state="translated">Ansprechpartner</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.categories">
+				<source>Categories</source>
+				<target state="translated">Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday">
+				<source>next-day</source>
+				<target state="translated">next-day</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.nextday.desc">
+				<source><![CDATA[Akute Rohstoffprobleme! Ihre Produktion stoppt!<br>
+Die schnellste Lösung: Ulrich next-day-delivery!<br>
+Ob Klein- oder Großgebinde: Lagerware liefern wir garantiert (Bestellung bis Uhr 10.00!) innerhalb von 24 Stunden innerhalb Deutschlands!<br>
+Fordern Sie uns!
+]]></source>
+				<target state="translated"><![CDATA[Akute Rohstoffprobleme! Ihre Produktion stoppt!<br>
+Die schnellste Lösung: Ulrich next-day-delivery!<br>
+Ob Klein- oder Großgebinde: Lagerware liefern wir garantiert (Bestellung bis Uhr 10.00!) innerhalb von 24 Stunden innerhalb Deutschlands!<br>
+Fordern Sie uns!
+]]></target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.spec">
+				<source>Specification</source>
+				<target state="translated">Spezifikation</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.physical_state">
+				<source>Physical state</source>
+				<target state="translated">Aggregatzustand</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_properties">
+				<source>Chemical properties</source>
+				<target state="translated">Chemische Eigenschaften</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.molecular_formula">
+				<source>Molecular formula</source>
+				<target state="translated">Molekulare Formel</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.chemical_name">
+				<source>Chemical name</source>
+				<target state="translated">Chemischer Name</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.registration">
+				<source>Registration</source>
+				<target state="translated">Registrierung</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.e_number">
+				<source>E-Number</source>
+				<target state="translated">E-Nummer</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.grass_state">
+				<source>Grass-State</source>
+				<target state="translated">Grass-Status</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.container">
+				<source>Container</source>
+				<target state="translated">Gebinde</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.inci">
+				<source>INCI</source>
+				<target state="translated">INCI</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.einecs">
+				<source>EINECS</source>
+				<target state="translated">EINECS</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.melting_point">
+				<source>Melting_point</source>
+				<target state="translated">Schmelzpunkt</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.durability">
+				<source>Durability</source>
+				<target state="translated">Haltbarkeit</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_product.storage">
+				<source>Storage</source>
+				<target state="translated">Lagerung</target>
+			</trans-unit>
+
+			<trans-unit id="tx_ulrichproducts_domain_model_contact">
+				<source>Your contact</source>
+				<target state="translated">Ihr Ansprechpartner</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.plural">
+				<source>Your contact</source>
+				<target state="translated">Ihre Ansprechpartner</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.name">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.phone">
+				<source>Phone</source>
+				<target state="translated">Telefonnummer</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.email">
+				<source>E-Mail</source>
+				<target state="translated">E-Mail-Addresse</target>
+			</trans-unit>
+			<trans-unit id="tx_ulrichproducts_domain_model_contact.media">
+				<source>Image</source>
+				<target state="translated">Bild</target>
+			</trans-unit>
+
+			<trans-unit id="exception.unknownErrorMessage" approved="yes">
+				<source>An unknown error was occurred.</source>
+				<target state="translated">Ein unbekannter Fehler ist aufgetreten.</target>
+			</trans-unit>
+			<trans-unit id="exception.entityNotFoundMessage" approved="yes">
+				<source>The requested entity could not be found.</source>
+				<target state="translated">Die angeforderte Entität konnte nicht gefunden werden.</target>
+			</trans-unit>
+
+			<trans-unit id="label.backToProduktList" approved="yes">
+				<source>Back</source>
+				<target state="translated">Zurück</target>
+			</trans-unit>
+			<trans-unit id="label.infinityLoad" approved="yes">
+				<source>Show more...</source>
+				<target state="translated">Mehr laden...</target>
+			</trans-unit>
+			<trans-unit id="label.aToZ.filter.all" approved="yes">
+				<source>All</source>
+				<target state="translated">Alle</target>
+			</trans-unit>
+			<trans-unit id="label.productInquiries" approved="yes">
+				<source>Inquire</source>
+				<target state="translated">Anfragen</target>
+			</trans-unit>
+			<trans-unit id="label.productInquiry" approved="yes">
+				<source>Product inquiry</source>
+				<target state="translated">Produktanfrage</target>
+			</trans-unit>
+			<trans-unit id="label.productPatternInquiry" approved="yes">
+				<source>Product pattern inquiry</source>
+				<target state="translated">Muster</target>
+			</trans-unit>
+			<trans-unit id="label.productDocumentInquiry" approved="yes">
+				<source>Documents</source>
+				<target state="translated">Dokumente</target>
+			</trans-unit>
+			<trans-unit id="productdetails.header" approved="yes">
+				<source>Product details</source>
+				<target state="translated">Produktdetails</target>
+			</trans-unit>
+			<trans-unit id="fulldescription.label" xml:space="preserve">
+				<source>Show full description</source>
+				<target state="translated">Vollständige Beschreibung anzeigen</target>
+			</trans-unit>
+			<trans-unit id="hidedescription.label" xml:space="preserve">
+				<source>Hide description</source>
+				<target state="translated">Beschreibung einklappen</target>
+			</trans-unit>
+			<trans-unit id="crossselling.label" xml:space="preserve">
+				<source>More Products</source>
+				<target state="translated">Weitere Produkte</target>
+			</trans-unit>
+			<trans-unit id="contact.phone.label" xml:space="preserve">
+				<source>Phone.:</source>
+				<target state="translated">Tel.:</target>
+			</trans-unit>
+
+			<trans-unit id="Form.standing" approved="yes">
+				<source>Position</source>
+				<target state="translated">Funktion</target>
+			</trans-unit>
+			<trans-unit id="Form.name" approved="yes">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="Form.zip" approved="yes">
+				<source>Postcode</source>
+				<target state="translated">PLZ</target>
+			</trans-unit>
+			<trans-unit id="Form.city" approved="yes">
+				<source>City</source>
+				<target state="translated">Ort / Stadt</target>
+			</trans-unit>
+			<trans-unit id="Form.country" approved="yes">
+				<source>Country</source>
+				<target state="translated">Land</target>
+			</trans-unit>
+			<trans-unit id="Form.intro.text">
+				<source><![CDATA[<h2 class="h-style h-style-40">Ihre Anfrage</h2><p>Vielen Dank für Ihre Anfrage. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.</p>]]></source>
+				<target state="translated"><![CDATA[<h2 class="h-style h-style-40">Ihre Anfrage</h2><p>Vielen Dank für Ihre Anfrage. Wir werden uns so schnell wie möglich mit Ihnen in Verbindung setzen.</p>]]></target>
+			</trans-unit>
+			<trans-unit id="Form.quality" approved="yes">
+				<source>Please choose product quality</source>
+				<target state="translated">Bitte Produktqualität auswählen</target>
+			</trans-unit>
+			<trans-unit id="Form.quality.misc" approved="yes">
+				<source>misc</source>
+				<target state="translated">sonstige</target>
+			</trans-unit>
+
+			<trans-unit id="Email.name" approved="yes">
+				<source>Name</source>
+				<target state="translated">Name</target>
+			</trans-unit>
+			<trans-unit id="Email.zip" approved="yes">
+				<source>Postcode</source>
+				<target state="translated">PLZ</target>
+			</trans-unit>
+			<trans-unit id="Email.city" approved="yes">
+				<source>City</source>
+				<target state="translated">Ort / Stadt</target>
+			</trans-unit>
+			<trans-unit id="Email.country" approved="yes">
+				<source>Country</source>
+				<target state="translated">Land</target>
+			</trans-unit>
+			<trans-unit id="Email.productInquiry" approved="yes">
+				<source>Inquire for</source>
+				<target state="translated">Anfrage zu</target>
+			</trans-unit>
+			<trans-unit id="Email.productPatternInquiry" approved="yes">
+				<source>Product pattern inquire for</source>
+				<target state="translated">Musteranfrage</target>
+			</trans-unit>
+			<trans-unit id="Email.productDocumentInquiry" approved="yes">
+				<source>Dokumentanfrage zu</source>
+				<target state="translated">Dokumentanfrage zu</target>
+			</trans-unit>
+			<trans-unit id="Email.standing" approved="yes">
+				<source>Position</source>
+				<target state="translated">Funktion</target>
+			</trans-unit>
+			<trans-unit id="Email.quality" approved="yes">
+				<source>Quality</source>
+				<target state="translated">Qualtität</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
