@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develop
+      - master
 jobs:
   phplint:
     name: Test/Lint PHP
@@ -36,5 +36,5 @@ jobs:
         uses: deployphp/action@v1
         with:
           private-key: ${{ secrets.PRIVATE_KEY }}
-          dep: deploy stage
+          dep: deploy production
           deployer-version: "7.1.4"
