@@ -529,15 +529,12 @@ lib {
         }
         headerslider = COA
         headerslider {
-            stdWrap {
-                outerWrap = <div id="headerslider" class="headerslider print-hide">|</div>
-                required = 1
-            }
             10 = FILES
             10 {
                 stdWrap {
-                    wrap = <div class="slider">|</div>
+                    wrap = <div id="headerslider" class="headerslider print-hide"><div class="slider">|</div></div>
                     required = 1
+                    trim = 1
                 }
                 references {
                     table = pages
