@@ -17,23 +17,23 @@
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant">
 				<source>Plant</source>
-				<target state="translated">Pflanze</target>
+				<target state="translated">Produktbeschreibung</target>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin">
 				<source>Origin/flowering time/harvest</source>
-				<target state="translated">Herkunft/Blütezeit/Ernte</target>
+				<target state="translated">Anwendung <![CDATA[&]]> Dosierung</target>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production">
 				<source>Production</source>
-				<target state="translated">Herstellung</target>
+				<target state="translated">Technische Information</target>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application">
 				<source>Use/effect</source>
-				<target state="translated">Anwendung/Wirkung</target>
+				<target state="translated">Gebinde / Verpackung</target>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts">
 				<source>Further properties/facts</source>
-				<target state="translated">Weitere Merkmale/Fakten</target>
+				<target state="translated">Zertifizierung</target>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance">
 				<source>Appearance</source>
