@@ -140,7 +140,7 @@ class SearchController extends ActionController
         $this->settings['piData']               = $this->configurationManager->getContentObject()->data;
         $this->settings['controllerActionName'] = $this->request->getControllerActionName();
         $relevantParametersForCachingFromPageArguments = [];
-        $pageArguments = $GLOBALS['REQUEST']->getAttribute('routing');
+        $pageArguments = $GLOBALS['TYPO3_REQUEST']->getAttribute('routing');
         $queryParams = $pageArguments->getDynamicArguments();
         if (!empty($queryParams) && ($pageArguments->getArguments()['cHash'] ?? false)) {
             $queryParams['id'] = $pageArguments->getPageId();

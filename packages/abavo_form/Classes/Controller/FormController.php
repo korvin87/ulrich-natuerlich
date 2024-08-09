@@ -503,6 +503,7 @@ class FormController extends BaseFrontendController
 
                 // Get all service names from settings
                 $postServices = GeneralUtility::trimExplode(',', $this->settings['postServices']);
+
                 if (!empty($postServices)) {
                     foreach ($postServices as $serviceClassName) {
 
