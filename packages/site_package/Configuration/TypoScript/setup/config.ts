@@ -58,7 +58,7 @@ config {
             forceLink = 0
             typolink {
                 parameter = {$plugin.tx_ulrichproducts.settings.productPiPid}
-                additionalParams = &tx_ulrichproducts_pi[category]={field:uid}&tx_ulrichproducts_pi[action]=show&tx_ulrichproducts_pi[controller]=Product
+                additionalParams = &tx_ulrichproducts_pi[category]={field:uid}&tx_ulrichproducts_pi[action]=list&tx_ulrichproducts_pi[controller]=Product
                 additionalParams {
                     insertData = 1
                 }
