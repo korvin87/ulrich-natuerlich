@@ -53,7 +53,6 @@ class Form extends AbstractEntity
      * stepper
      *
      * @var Stepper
-     * @ignorevalidation
      */
     protected $stepper = null;
 
@@ -186,7 +185,6 @@ class Form extends AbstractEntity
      * media
      *
      * @var array
-     * @Extbase\Validate("\Abavo\AbavoForm\Validation\Validator\UploadValidator", options={"maxfilesize": PHP_INI, "filetypes": pdf|jpg|jpeg|png})
      */
     protected $media = null;
 
@@ -194,7 +192,6 @@ class Form extends AbstractEntity
      * privacyhint
      *
      * @var boolean
-     * @Extbase\Validate("\Abavo\AbavoForm\Validation\Validator\GenericBooleanValidator", options={"is": true, "notTrueMessage": AbavoForm:Form.error.privacyhint})
      */
     protected $privacyhint = false;
 
@@ -220,13 +217,17 @@ class Form extends AbstractEntity
         $this->stepper = Stepper::getInstance($this::STEPS_COUNT);
 
         // Set default country object
+        
         if (!$this->country instanceof Country) {
+            
             $objectManager     = GeneralUtility::makeInstance(ObjectManager::class);
             $countryRepository = $objectManager->get(CountryRepository::class);
+            /*
 
             if (($country = $countryRepository->findOneByIsoCodeA3($this::DEFAULT_COUNTRY)) instanceof Country) {
                 $this->country = $country;
             }
+            */
         }
     }
 
@@ -249,7 +250,9 @@ class Form extends AbstractEntity
     private function generateUniqueIdentifier()
     {
         $randomString = $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey'].GeneralUtility::makeInstance(Random::class)->generateRandomHexString(10).time();
-        return PasswordHashFactory::getSaltingInstance(NULL)->getHashedPassword($randomString);
+        $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
+
+        return $hashInstance->getHashedPassword($randomString);
     }
 
     /**
@@ -576,7 +579,11 @@ class Form extends AbstractEntity
      */
     public function getDatetime()
     {
-        return($this->datetime instanceof \DateTime) ? $this->datetime : \DateTime::createFromFormat('Y-m-d H:i:s', $this->datetime, $this->getDatetimezone());
+        if ($this->datetime instanceof \DateTime) {
+            return $this->datetime;
+        }
+
+        return \DateTime::createFromFormat('Y-m-d H:i:s', $this->datetime, $this->getDatetimezone());
     }
 
     /**

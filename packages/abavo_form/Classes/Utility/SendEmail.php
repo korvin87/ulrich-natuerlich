@@ -66,7 +66,7 @@ class SendEmail implements SingletonInterface
         $message = GeneralUtility::makeInstance(MailMessage::class);
         $message->setFrom($sender);
         $message->setTo($to);
-        //$message->setReturnPath(key(MailUtility::getSystemFrom()));
+        $message->setReturnPath(key(MailUtility::getSystemFrom()));
 
         // bcc
         if (is_array($bcc) && !empty($bcc)) {

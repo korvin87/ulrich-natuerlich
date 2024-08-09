@@ -34,7 +34,7 @@ class BaseFrontendController extends ActionController
     /**
      * EXTKEY
      *
-     * @string $extkey
+     * string $extkey
      */
     protected $extKey = '';
 
@@ -44,7 +44,7 @@ class BaseFrontendController extends ActionController
      * Using for for example in UriBuilder or form names
      * This value is also accessible in FLUID via {settings.pluginParam}
      *
-     * @string $pluginParam
+     * string $pluginParam
      */
     protected $pluginParam = '';
 
