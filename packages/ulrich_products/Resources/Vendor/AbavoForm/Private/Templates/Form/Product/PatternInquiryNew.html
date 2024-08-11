@@ -12,14 +12,13 @@
                     data-pagetype:settings.pageTypeNumAjax,
                     data-ajaxsubmit:settings.enableAjaxSubmit,
                     data-pluginparam:settings.pluginParam,
-                    data-preventbrowserbackurl:'{f:uri.action(action:\'new\', arguments:\'{step:newForm.stepper.prev}\', additionalParams:\'{preventbrowserback:1}\', noCacheHash:0)}',
+                    data-preventbrowserbackurl:'{f:uri.action(action:\'new\', arguments:\'{step:newForm.stepper.prev}\', additionalParams:\'{preventbrowserback:1}\')}',
                     data-validationurl:'{f:uri.action(
                         action:\'ajaxValidate\',
                         arguments:{
                             formModelClass:settings.formModelClass
                         },
-                        format:\'json\',
-                        noCacheHash:0
+                        format:\'json\'
                     )}',
                     data-ajaxsubmiturl:'{f:uri.action(
                         action:formAction,
@@ -27,8 +26,7 @@
                             formModelClass:settings.formModelClass,
                             formSettingsUid:settings.piData.uid,
                             noWrapLayout:1
-                        },
-                        noCacheHash:0
+                        }
                     )}'
                     }">
 
