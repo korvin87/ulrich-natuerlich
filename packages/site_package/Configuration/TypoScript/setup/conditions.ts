@@ -27,7 +27,8 @@ lightbox {
     typeNum = 0
     stdWrap {
         outerWrap = <div class="outerwrap">|</div>
-        innerWrap = <div class="innerwrap">|</div>
+        innerWrap = <div class="innerwrap">|</div><script src="{path:EXT:powermail/Resources/Public/JavaScripts/Powermail/Form.min.js}"></script>
+        innerWrap.insertData = 1
         parseFunc.constants = 1
     }
     10 = TEXT
@@ -45,12 +46,6 @@ lightbox {
     20 < styles.content.get
     21 < styles.content.get
     21.select.where = {#colPos}=1
-
-    30 = TEXT
-    30 {
-        value = <script src="{path:EXT:powermail/Resources/Public/JavaScripts/Powermail/Form.min.js}"></script>
-        insertData = 1
-    }
 }
 [global]
 # Produktkategorie-Seiten
