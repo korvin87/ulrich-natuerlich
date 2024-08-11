@@ -6,7 +6,7 @@
         <f:if condition="{success}">
             <f:then>
                 <f:format.htmlentitiesDecode><f:translate key="Form.intro.text" extensionName="UlrichProducts" /></f:format.htmlentitiesDecode>
-                <input type="hidden" data-preventbrowserbackurl="{f:uri.action(action:'new', arguments:'{step:1}', additionalParams:'{preventbrowserback:1}', noCacheHash:0)}" />
+                <input type="hidden" data-preventbrowserbackurl="{f:uri.action(action:'new', arguments:'{step:1}', additionalParams:'{preventbrowserback:1}')}" />
             </f:then>
             <f:else>
                 <f:link.action action="new"><f:translate key="Form.startnew"/></f:link.action>
