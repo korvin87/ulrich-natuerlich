@@ -13,19 +13,19 @@
 				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_plant">
-				<source>Plant</source>
+				<source>Product description</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_origin">
-				<source>Origin/flowering time/harvest</source>
+				<source>Application <![CDATA[&]]> dosage</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_production">
-				<source>Production</source>
+				<source>Technical information</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_application">
-				<source>Use/effect</source>
+				<source>Container / packaging</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.accordiontext_facts">
-				<source>Further properties/facts</source>
+				<source>Certification</source>
 			</trans-unit>
 			<trans-unit id="tx_ulrichproducts_domain_model_product.appearance" approved="yes">
 				<source>Appearance</source> 
