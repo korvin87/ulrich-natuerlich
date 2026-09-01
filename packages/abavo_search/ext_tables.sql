@@ -38,8 +38,8 @@ CREATE TABLE tx_abavosearch_domain_model_index (
 
 	indexer int(11) DEFAULT '0' NOT NULL,
 	refid VARCHAR(255) DEFAULT '' NOT NULL,
-	title tinytext NOT NULL,
-	content mediumtext NOT NULL,
+	title tinytext,
+	content mediumtext,
 	abstract text,
 	params text,
 	target VARCHAR(255) DEFAULT '' NOT NULL,
@@ -54,7 +54,12 @@ CREATE TABLE tx_abavosearch_domain_model_index (
 	FULLTEXT INDEX fullcontent (content,abstract),
 
 	PRIMARY KEY (uid),
-	KEY parent (pid)
+	KEY parent (pid),
+	-- TermRepository::cleanTermsFormPid runs
+	--   SELECT * FROM tx_abavosearch_domain_model_index WHERE refid=? AND pid IN (?)
+	-- once per term. Without this index the query is a full-table scan and the
+	-- cleanup phase blows up quadratically as the index grows.
+	KEY refid_pid (refid, pid)
 
 ) ENGINE=MyISAM;
 

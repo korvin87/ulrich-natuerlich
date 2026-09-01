@@ -299,8 +299,11 @@ abstract class AbstractIndexer extends BaseIndexer
         // define vars
         $getter    = 'get'.ucfirst($name);
         $conf      = $indexConfiguration->{$getter}();
+        $isoCodeLang = '';
         if ($languages = $this->languageUtility->getLanguages()) {
-            $isoCodeLang = $languages[$sysLanguageUid]->getIsoCodeA2();
+            if (isset($languages[$sysLanguageUid]) && is_object($languages[$sysLanguageUid])) {
+                $isoCodeLang = $languages[$sysLanguageUid]->getIsoCodeA2();
+            }
         }
 
 

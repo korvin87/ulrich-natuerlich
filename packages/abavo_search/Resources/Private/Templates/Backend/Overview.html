@@ -72,7 +72,7 @@
 					<div class="control">
 
 						<f:link.action action="updateindex" controller="Backend" id="updateindex" class="{f:if(condition:'{indexingProgress.active}', then:'inactive')}"
-									   additionalAttributes="{data-refreshurl:'{f:uri.action(action:\"indexingstate\",noCacheHash:\"1\")}'}">
+									   additionalAttributes="{data-refreshurl:'{f:uri.action(action:\"indexingstate\")}'}">
 							<button><core:icon identifier="update-abavo_search" /> <f:translate key="module.action.updateindex"/></button>
 						</f:link.action>
 

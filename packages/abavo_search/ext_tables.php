@@ -63,9 +63,7 @@ $indexers = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['indexers'];
 if (!empty($indexers)) {
     $displayCond = '';
     foreach ($indexers as $indexer) {
-        $GLOBALS['TCA']['tx_abavosearch_domain_model_indexer']['columns']['type']['config']['items'][] = array(
-            current($indexer)['Label'],
-            key($indexer));
+        $GLOBALS['TCA']['tx_abavosearch_domain_model_indexer']['columns']['type']['config']['items'][] = [current($indexer)['Label'], key($indexer)];
 
         $GLOBALS['TCA']['tx_abavosearch_domain_model_indexer']['columns']['config']['config']['ds'][key($indexer)] = current($indexer)['FlexForm'];
 
@@ -78,7 +76,8 @@ if (!empty($indexers)) {
 }
 
 //from ext_conf_template
-$indexers = (explode("\n", unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['abavo_search'])['customIndexers']));
+$rawExtConf = $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['abavo_search'] ?? null;
+$indexers = $rawExtConf ? explode("\n", (string)(unserialize($rawExtConf)['customIndexers'] ?? '')) : [];
 if (!empty($indexers)) {
     foreach ($indexers as $indexer) {
         $displayCond = '';

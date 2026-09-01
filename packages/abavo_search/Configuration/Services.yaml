@@ -1,0 +1,39 @@
+# abavo_search — DI service definitions.
+#
+# We register ONLY the CLI command and its dependency chain. The rest of the
+# extension keeps its previous instantiation path (Extbase ObjectContainer for
+# controllers/repositories, GeneralUtility::makeInstance elsewhere) so this file
+# has no side effects on legacy classes with untyped injects, ViewHelpers, etc.
+#
+# The `console.command` tag is picked up by TYPO3's ConsoleCommandPass, which
+# makes the service public and registers it with the CommandRegistry, so both
+# `vendor/bin/typo3 abavo_search:update` and `vendor/bin/typo3cms
+# abavo_search:update` work, and the command appears in the Scheduler module.
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Abavo\AbavoSearch\Command\UpdateIndexCommand:
+    public: true
+    tags:
+      - name: 'console.command'
+        command: 'abavo_search:update'
+        description: 'Rebuild the abavo_search index for the given storage page id(s).'
+        schedulable: true
+
+  Abavo\AbavoSearch\Service\IndexUpdateService:
+    public: true
+
+  Abavo\AbavoSearch\Domain\Repository\IndexerRepository:
+    public: true
+
+  Abavo\AbavoSearch\Domain\Repository\IndexRepository:
+    public: true
+
+  Abavo\AbavoSearch\Controller\IndexController:
+    public: true
+    calls:
+      - injectIndexRepository: ['@Abavo\AbavoSearch\Domain\Repository\IndexRepository']
