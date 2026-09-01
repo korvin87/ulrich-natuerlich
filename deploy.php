@@ -29,6 +29,7 @@ add('shared_dirs', [
 ]);
 
 set('shared_files', array(
+    '.env',
     '{{typo3_webroot}}/.htaccess',
     '{{typo3_webroot}}/robots.txt',
     '{{typo3_webroot}}/typo3conf/AdditionalConfiguration.php',
