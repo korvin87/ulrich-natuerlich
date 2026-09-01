@@ -112,7 +112,9 @@ class BaseIndexer implements SingletonInterface
      */
     public function modifyIndexHook($typeKey = '', &$recordObj, &$title, &$content, &$abstract)
     {
-        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['modifyIndex'][$typeKey])) {
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['modifyIndex'][$typeKey])
+            && is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['modifyIndex'][$typeKey])
+        ) {
             foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['modifyIndex'][$typeKey] as $_classRef) {
                 $_procObj = GeneralUtility::makeInstance($_classRef);
                 if (!method_exists($_classRef, 'modifyIndex')) {

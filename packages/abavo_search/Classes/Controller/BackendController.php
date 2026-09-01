@@ -13,11 +13,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use Abavo\AbavoSearch\Domain\Repository\IndexerRepository;
 use Abavo\AbavoSearch\Domain\Repository\IndexRepository;
 use Abavo\AbavoSearch\Domain\Repository\StatRepository;
+use Abavo\AbavoSearch\Service\IndexUpdateService;
 use Abavo\AbavoSearch\User\AjaxResponse;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use Abavo\AbavoSearch\User\Diagnose;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Information\Typo3Version;
@@ -56,11 +59,11 @@ class BackendController extends ActionController
     protected $statRepository;
 
     /**
-     * indexCommandController
+     * indexUpdateService
      *
-     * @var IndexCommandController
+     * @var IndexUpdateService
      */
-    protected $indexCommandController;
+    protected $indexUpdateService;
 
     /**
      *  AJAX responseHelper
@@ -103,7 +106,12 @@ class BackendController extends ActionController
 
         $configurationManager      = GeneralUtility::makeInstance(BackendConfigurationManager::class);
         $this->settings            = $configurationManager->getConfiguration($this->request->getControllerExtensionName(), $this->request->getPluginName());
-        $this->settings['extConf'] = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get($this->request->getControllerExtensionKey());
+        try {
+            $this->settings['extConf'] = GeneralUtility::makeInstance(ExtensionConfiguration::class)
+                ->get($this->request->getControllerExtensionKey());
+        } catch (ExtensionConfigurationExtensionNotConfiguredException | ExtensionConfigurationPathDoesNotExistException $e) {
+           $this->settings['extConf'] = [];
+        }
     }
 
     /**
@@ -180,8 +188,8 @@ class BackendController extends ActionController
          * Last Errors from logfile
          */
         $errorLog = [];
-        $logFile  = GeneralUtility::getFileAbsFileName('uploads/tx_abavosearch/Log/IndexCommandController.log');
-        if (file_exists($logFile)) {
+        $logFile  = self::resolveIndexLogFile();
+        if ($logFile && file_exists($logFile)) {
             $handleLogFile = fopen($logFile, 'r');
             if (file_exists($logFile)) {
                 while (!feof($handleLogFile)) {
@@ -192,7 +200,7 @@ class BackendController extends ActionController
 
                         $tempDetail = '';
                         if (!empty($tempTime)) {
-                            $tempFullInfo    = explode('component="Abavo.AbavoSearch.Controller.IndexCommandController": ', $parseLine)[1];
+                            $tempFullInfo    = explode('component="Abavo.AbavoSearch.Service.IndexUpdateService": ', $parseLine)[1];
                             $arrTempFullInfo = explode(' - ', $tempFullInfo);
                             $tempMessage     = $arrTempFullInfo[0];
                             $tempTrace       = $arrTempFullInfo[1];
@@ -232,7 +240,7 @@ class BackendController extends ActionController
                 throw new IndexException('No page selected. Please choose a page from tree first');
             }
 
-            $indexResults = $this->indexCommandController->updateCommand($this->pageInfo['uid']);
+            $indexResults = $this->indexUpdateService->updateIndex((string)$this->pageInfo['uid']);
             if (empty($indexResults)) {
                 throw new IndexException('No index results.');
             }
@@ -270,11 +278,7 @@ class BackendController extends ActionController
     private function getIndexingProgressState($pid = 0)
     {
         // Get IndexingInfos
-        $lockFilePath = 'typo3temp/var/locks/';
-        if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getBranch(), '9.5', '>=') && Environment::isComposerMode()) {
-            $lockFilePath = Environment::getProjectPath().'/var/lock/';
-        }
-        $lockFile = GeneralUtility::getFileAbsFileName($lockFilePath.IndexCommandController::LOCK_FILENAME);
+        $lockFile = IndexUpdateService::getLockFile();
         if (file_exists($lockFile)) {
             $this->indexingProgress = [
                 'active' => true,
@@ -318,11 +322,7 @@ class BackendController extends ActionController
         }
 
         // Remove lockFile?
-        $lockFilePath = 'typo3temp/var/locks/';
-        if (version_compare(GeneralUtility::makeInstance(Typo3Version::class)->getBranch(), '9.5', '>=') && Environment::isComposerMode()) {
-            $lockFilePath = Environment::getProjectPath().'/var/lock/';
-        }
-        $lockFile = GeneralUtility::getFileAbsFileName($lockFilePath.IndexCommandController::LOCK_FILENAME);
+        $lockFile = IndexUpdateService::getLockFile();
         if ((boolean) $this->request->hasArgument('lockFile') && (boolean) $this->request->getArgument('lockFile')) {
             unlink($lockFile);
             $formcheck = true;
@@ -330,7 +330,7 @@ class BackendController extends ActionController
         $lockFileExist = file_exists($lockFile);
 
         // Remove logFile?
-        $logFile = GeneralUtility::getFileAbsFileName(current(current($GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Controller']['IndexCommandController']['writerConfiguration']))['logFile']);
+        $logFile = self::resolveIndexLogFile() ?? '';
         if ((boolean) $this->request->hasArgument('logFile') && (boolean) $this->request->getArgument('logFile')) {
             unlink($logFile);
             $formcheck = true;
@@ -478,9 +478,9 @@ class BackendController extends ActionController
         $this->statRepository = $statRepository;
     }
 
-    public function injectIndexCommandController(IndexCommandController $indexCommandController): void
+    public function injectIndexUpdateService(IndexUpdateService $indexUpdateService): void
     {
-        $this->indexCommandController = $indexCommandController;
+        $this->indexUpdateService = $indexUpdateService;
     }
 
     public function injectAjaxResponseHelper(AjaxResponse $ajaxResponseHelper): void
@@ -491,5 +491,24 @@ class BackendController extends ActionController
     public function injectConnectionPool(ConnectionPool $connectionPool): void
     {
         $this->connectionPool = $connectionPool;
+    }
+
+    /**
+     * Resolve the absolute path of the indexer log file from the LOG configuration.
+     * Returns null when the LOG config has not been registered (e.g. during tests).
+     */
+    private static function resolveIndexLogFile(): ?string
+    {
+        $config = $GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Service']['IndexUpdateService']['writerConfiguration'] ?? null;
+        if (!is_array($config) || $config === []) {
+            return null;
+        }
+        $level = current($config);
+        if (!is_array($level) || $level === []) {
+            return null;
+        }
+        $writer = current($level);
+        $logFile = is_array($writer) ? ($writer['logFile'] ?? null) : null;
+        return $logFile ? GeneralUtility::getFileAbsFileName($logFile) : null;
     }
 }

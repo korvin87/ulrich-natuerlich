@@ -61,10 +61,9 @@ class Index extends AbstractEntity
     /**
      * indexer
      *
-     * @var ObjectStorage<Indexer>
-     * @Extbase\ORM\Lazy
+     * @var int
      */
-    protected $indexer = null;
+    protected $indexer = 0;
 
     /**
      * refid
@@ -151,7 +150,6 @@ class Index extends AbstractEntity
      */
     protected function initStorageObjects()
     {
-        $this->indexer       = new ObjectStorage();
         $this->filereference = new ObjectStorage();
     }
 

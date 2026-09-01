@@ -42,8 +42,18 @@ if (!defined('TYPO3')) {
 // Configure PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:abavo_search/Configuration/TypoScript/pageTSConfig.ts">');
 
-// SCHEDULER COMMAND CONTROLLER
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = \Abavo\AbavoSearch\Controller\IndexCommandController::class;
+// SCHEDULER COMMAND
+// The legacy Extbase CommandController hook was removed in TYPO3 v10. The CLI
+// command is now registered in Configuration/Services.yaml as `abavo_search:update`
+// and shows up in the Scheduler via "Execute console commands (Scheduler)".
+//
+// The upgrade wizard below rewrites any legacy scheduler tasks that still
+// point at the removed IndexCommandController so they invoke the new command
+// instead. Run it once via the Install Tool ("Upgrade" → "Run wizards") or
+// `vendor/bin/typo3cms upgrade:run abavoSearchMigrateIndexCommandControllerTask`.
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']
+    [\Abavo\AbavoSearch\Updates\MigrateIndexCommandControllerTaskUpgrade::IDENTIFIER]
+    = \Abavo\AbavoSearch\Updates\MigrateIndexCommandControllerTaskUpgrade::class;
 
 // REGISTER SEARCH-SERVICES-CLASSES
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['abavo_search']['searchServiceClasses'][\Abavo\AbavoSearch\Domain\Service\IndexSearchService::class] = [
@@ -126,14 +136,14 @@ $logFilePath = 'typo3temp/logs/';
 if (version_compare(\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class)->getBranch(), '9.5', '>=') && \TYPO3\CMS\Core\Core\Environment::isComposerMode()) {
 	$logFilePath = \TYPO3\CMS\Core\Core\Environment::getProjectPath(). '/var/log/';
 }
-$GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Controller']['IndexCommandController']['writerConfiguration'] = [
+$GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Service']['IndexUpdateService']['writerConfiguration'] = [
     // configuration for NOTICE severity, including all
     // levels with higher severity (WARNING, ERROR, CRITICAL, EMERGENCY)
     \TYPO3\CMS\Core\Log\LogLevel::NOTICE => [
         // add a FileWriter
         \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
             // configuration for the writer
-            'logFile' => $logFilePath.'abavo_search'.'-IndexCommandController.log'
+            'logFile' => $logFilePath.'abavo_search'.'-IndexUpdateService.log'
         ]
     ]
 ];

@@ -146,7 +146,10 @@ class FalIndexer extends BaseIndexer
             }
 
             $fileContents = [];
-            $absFileName  = GeneralUtility::getFileAbsFileName(urldecode($file->getPublicUrl()));
+            // Strip a possible leading slash from getPublicUrl() (config.absRefPrefix = auto
+            // yields "/fileadmin/..." in CLI context, which getFileAbsFileName() would treat
+            // as an absolute path outside Environment::getPublicPath() and return '').
+            $absFileName  = GeneralUtility::getFileAbsFileName(ltrim(urldecode($file->getPublicUrl()), '/'));
 
             // Escape naw_securedl interceptor
             if (ExtensionManagementUtility::isLoaded('naw_securedl') === true) {
@@ -162,8 +165,8 @@ class FalIndexer extends BaseIndexer
             $validRefIds[] = $refid;
 
             // Is file modified or indexed in the past?
-            $fileMetaData = $file->_getMetaData();
-            if ($file->getModificationTime() < (int) $fileMetaData['tx_abavosearch_index_tstamp']) {
+            $fileMetaData = $file->getMetaData()->get();
+            if ($file->getModificationTime() < (int) ($fileMetaData['tx_abavosearch_index_tstamp'] ?? 0)) {
                 continue;
             }
 

@@ -57,7 +57,10 @@ class PageIndexer extends BaseIndexer
     public function getData(Indexer $indexer)
     {
         $timeStart = microtime(true);
-        $languages = explode(',', $this->settings['language']); // Get all Languages
+        // Cast to int so setSysLanguageUid() receives an integer; the DB
+        // column is INT NOT NULL and MySQL strict mode rejects empty strings.
+        // Don't strip zeros here — the default language uses uid 0.
+        $languages = array_map('intval', explode(',', (string)($this->settings['language'] ?? '')));
 
         if (!$indexer) {
             throw new IndexException('PageIndexer\getData: No indexer given.');
@@ -92,7 +95,7 @@ class PageIndexer extends BaseIndexer
             foreach ($resourcesPages['result'] as $pid => $page) {
 
                 // Remove excludePages
-                if (is_array($excludePages['result']) && array_key_exists($pid, $excludePages['result'])) {
+                if (isset($excludePages['result']) && is_array($excludePages['result']) && array_key_exists($pid, $excludePages['result'])) {
                     unset($resourcesPages['result'][$pid]);
                     continue;
                 }

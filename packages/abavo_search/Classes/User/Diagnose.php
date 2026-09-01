@@ -146,7 +146,7 @@ class Diagnose implements SingletonInterface
         $status    = null;
         $logFileOK = true;
         $logFiles  = [
-            basename(current(current($GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Controller']['IndexCommandController']['writerConfiguration']))['logFile']),
+            basename(current(current($GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Service']['IndexUpdateService']['writerConfiguration']))['logFile']),
             basename(current(current($GLOBALS['TYPO3_CONF_VARS']['LOG']['Abavo']['AbavoSearch']['Hooks']['ContentModifier']['writerConfiguration']))['logFile'])
         ];
 

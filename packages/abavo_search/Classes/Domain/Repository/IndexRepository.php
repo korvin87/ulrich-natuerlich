@@ -12,11 +12,12 @@ use Abavo\AbavoSearch\Domain\Model\Indexer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use Abavo\AbavoSearch\User\DatabaseUtility;
 
 /**
  * The repository for Indexes
- * 
+ *
  * @author mbruckmoser
  */
 class IndexRepository extends BaseRepository
@@ -127,7 +128,7 @@ class IndexRepository extends BaseRepository
             $this->setSearchBaseConditions($searchString, $sysLanguageUid, $this->createQuery()->getQuerySettings()->getStoragePageIds());
 
             // Make Query
-            $sql = 'SELECT ix.*,'.$this->searchConditions[$searchMethod]['ranking'].' AS ranking
+            $sql = 'SELECT ix.*, ixconf.type AS indexer_type,'.$this->searchConditions[$searchMethod]['ranking'].' AS ranking
 
                     FROM tx_abavosearch_domain_model_index AS ix
                     INNER JOIN tx_abavosearch_domain_model_indexer AS ixconf ON (ix.indexer = ixconf.uid)
@@ -177,8 +178,48 @@ class IndexRepository extends BaseRepository
             $queryResult = $this->connection->executeQuery($sqlString);
 
             $result = [];
+            $indexerTypeByUid = [];
+            $rowByUid         = [];
             if ($queryResult->rowCount()) {
-                $result = $this->objectManager->get(DataMapper::class)->map($this->objectType, $queryResult->fetchAll());
+                $rows = $queryResult->fetchAll();
+                // Preserve the indexer type per index UID before mapping,
+                // because the Index model's `indexer` ObjectStorage relation is
+                // not hydrated by the DataMapper (no TCA columns definition).
+                foreach ($rows as $row) {
+                    $indexerTypeByUid[$row['uid']] = $row['indexer_type'] ?? '';
+                    $rowByUid[$row['uid']]         = $row;
+                }
+                $result = $this->objectManager->get(DataMapper::class)->map($this->objectType, $rows);
+
+                // Fallback hydration: the Extbase DataMapper only maps columns
+                // that are described in TCA. This table has no TCA columns
+                // definition, so string/int properties would otherwise stay at
+                // their model defaults (empty). We copy the raw row values onto
+                // the entity via its setters so the Fluid template can render
+                // title, target, content, etc.
+                foreach ($result as $entity) {
+                    $row = $rowByUid[$entity->getUid()] ?? null;
+                    if ($row === null) {
+                        continue;
+                    }
+                    if (isset($row['title']))            { $entity->setTitle((string) $row['title']); }
+                    if (isset($row['content']))          { $entity->setContent((string) $row['content']); }
+                    if (isset($row['params']) && method_exists($entity, 'setParams'))
+                                                         { $entity->setParams((string) $row['params']); }
+                    if (isset($row['target']))           { $entity->setTarget((string) $row['target']); }
+                    if (isset($row['refid']) && method_exists($entity, 'setRefid'))
+                                                         { $entity->setRefid((string) $row['refid']); }
+                    if (isset($row['abstract']) && method_exists($entity, 'setAbstract'))
+                                                         { $entity->setAbstract((string) $row['abstract']); }
+                    if (isset($row['fegroup']) && method_exists($entity, 'setFegroup'))
+                                                         { $entity->setFegroup((string) $row['fegroup']); }
+                    if (isset($row['categories']) && method_exists($entity, 'setCategories'))
+                                                         { $entity->setCategories((string) $row['categories']); }
+                    if (isset($row['ranking']) && method_exists($entity, 'setRanking'))
+                                                         { $entity->setRanking((int) $row['ranking']); }
+                    if (isset($row['hits']) && method_exists($entity, 'setHits'))
+                                                         { $entity->setHits((int) $row['hits']); }
+                }
             }
 
             /*
@@ -187,12 +228,12 @@ class IndexRepository extends BaseRepository
             $return = array_combine(
                 $returnStructure,
                 [
-                $result,
-                count($result),
-                (microtime(true) - $timeStart),
-                $allCount,
-                null,
-                $searchMethod
+                    $result,
+                    count($result),
+                    (microtime(true) - $timeStart),
+                    $allCount,
+                    null,
+                    $searchMethod
                 ]
             );
 
@@ -204,7 +245,19 @@ class IndexRepository extends BaseRepository
                 $cleanResult = [];
                 foreach ($return['result'] as $resultItem) {
 
-                    $type = $resultItem->getIndexer()->toArray()[0]->getType();
+                    $type = $indexerTypeByUid[$resultItem->getUid()] ?? '';
+
+                    // Hydrate a minimal Indexer stub into the ObjectStorage relation.
+                    // The DataMapper leaves `Index::$indexer` at its default (null) because
+                    // the model has no TCA columns definition, but the Fluid template
+                    // iterates `{result.indexer}` and reads `{indexer.type}` to pick the
+                    // per-type partial (see Templates/Search/Search.html).
+                    $indexerStorage = new ObjectStorage();
+                    $indexerStub    = GeneralUtility::makeInstance(Indexer::class);
+                    $indexerStub->setType($type);
+                    $indexerStorage->attach($indexerStub);
+                    $resultItem->setIndexer($indexerStorage);
+
                     if ($type === 'Fal') {
                         if ($resultItem->getFilereference() !== null) {
                             array_push($cleanResult, $resultItem);
@@ -341,12 +394,29 @@ class IndexRepository extends BaseRepository
      */
     public function cleanUpByUnuesedIndex($pids = '0', $uids = [0])
     {
-        $string = null;
-        $this->queryBuilder
-            ->delete('tx_abavosearch_domain_model_index')
+        // Delete every row on any of the configured storage pids whose indexer
+        // uid is NOT in the still-active set. This sweeps rows left behind
+        // when an indexer configuration is removed, or when previous runs
+        // wrote broken rows with indexer=0 (before the persistence fix).
+        //
+        // The previous implementation issued `WHERE pid = '<csv>' AND indexer
+        // = '<csv>'` (scalar eq against a comma-joined string) which never
+        // matched anything and had inverted intent anyway.
+        $pidList = GeneralUtility::intExplode(',', (string)$pids, true);
+        if ($pidList === []) {
+            return;
+        }
+        $uidList = array_map('intval', (array)$uids);
+        if ($uidList === []) {
+            // No live indexers → sweep everything on these pids.
+            $uidList = [0];
+        }
+
+        $qb = $this->queryBuilder;
+        $qb->delete('tx_abavosearch_domain_model_index')
             ->where(
-                $this->queryBuilder->expr()->eq('pid', $this->queryBuilder->createNamedParameter(implode(',', GeneralUtility::intExplode($pids, $string, true)))),
-                $this->queryBuilder->expr()->eq('indexer', $this->queryBuilder->createNamedParameter(implode(',', array_map('intval', $uids))))
+                $qb->expr()->in('pid',      $qb->createNamedParameter($pidList, \TYPO3\CMS\Core\Database\Connection::PARAM_INT_ARRAY)),
+                $qb->expr()->notIn('indexer', $qb->createNamedParameter($uidList, \TYPO3\CMS\Core\Database\Connection::PARAM_INT_ARRAY))
             )
             ->execute();
 
@@ -366,7 +436,7 @@ class IndexRepository extends BaseRepository
                 ->delete('tx_abavosearch_domain_model_index')
                 ->where(
                     $this->queryBuilder->expr()->eq('indexer', $this->queryBuilder->createNamedParameter($indexerUid, \PDO::PARAM_INT))
-            );
+                );
 
             if (!empty($validRefIds)) {
                 $strValidRefIds = "'".implode("','", $validRefIds)."'";

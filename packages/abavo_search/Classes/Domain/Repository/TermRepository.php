@@ -101,36 +101,18 @@ class TermRepository extends BaseRepository
 
     public function cleanTermsFormPid($pid = 0)
     {
-        // Make Query
-        $query         = $this->createQuery();
-        $querySettings = $query->getQuerySettings();
-        $querySettings->setRespectStoragePage(true);
-        $querySettings->setStoragePageIds([(int) $pid]);
-        $querySettings->setRespectSysLanguage(false);
-        $query->setQuerySettings($querySettings);
-
-        // Index-Query-Statement
-        $indexQuery = $this->createQuery();
-        $sqlString  = 'SELECT * FROM tx_abavosearch_domain_model_index WHERE refid=? AND pid IN (?)';
-
-        // Query-Exectute
-        $terms = $query->execute();
-        foreach ($terms as $term) {
-
-            // Query-Statement
-            $sql         = $sqlString;
-            $constraints = [$term->getRefid(), (int) $pid];
-                
-            DatabaseUtility::replacePlaceholders($sql, $constraints);
-            $indexQuery->statement($sql);
-
-            $index = $indexQuery->execute();
-
-            // Remove term if no index reference exist
-            if (!(boolean) count($indexQuery->execute(true))) {
-                $this->remove($term);
-            }
-        }
+        // Single anti-join DELETE: remove every term row on this pid whose
+        // refid no longer has a matching index row. The previous PHP loop
+        // instantiated all Term entities into Extbase's identity map (~10 MB
+        // per iteration, OOM after a few hundred rows).
+        $pid = (int) $pid;
+        $this->connection->executeStatement(
+            'DELETE t FROM tx_abavosearch_domain_model_term t'
+            . ' LEFT JOIN tx_abavosearch_domain_model_index i'
+            . '   ON i.refid = t.refid AND i.pid = t.pid'
+            . ' WHERE t.pid = ? AND i.uid IS NULL',
+            [$pid]
+        );
 
         // Keep auto_increment low
         $this->connection->executeQuery('ALTER TABLE tx_abavosearch_domain_model_term AUTO_INCREMENT=1');
