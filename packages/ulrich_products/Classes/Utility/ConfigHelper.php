@@ -48,7 +48,7 @@ class ConfigHelper implements SingletonInterface
         $typoScriptService    = $objectManager->get(TypoScriptService::class);
         $config               = $typoScriptService->convertTypoScriptArrayToPlainArray($ts);
 
-        if ($config[$type][$plugInSignatur]) {
+        if (!empty($config[$type][$plugInSignatur])) {
             $this->setup = $config[$type][$plugInSignatur];
         } else {
             $this->setup = $config;

@@ -165,79 +165,93 @@ class SearchIndexer extends BaseIndexer
                         /*
                          * STEP 2: DEFINE INDEX DATA
                          */
-                        $uid      = $productRaw->uid;
-                        $title    = $productRaw->title;
-                        $content  = $productRaw->description;
+                        // Raw stdClass from the HTTP API — treat every property
+                        // as optional to avoid warning-to-exception fatals.
+                        $uid      = $productRaw->uid ?? null;
+                        $title    = $productRaw->title ?? '';
+                        $content  = $productRaw->description ?? '';
                         $abstract = '';
 
-                        $isoCodeLang = $languages[$sysLanguageUid]->getIsoCodeA2();
+                        // $languages[$sysLanguageUid] can be missing (no static_languages
+                        // row matching config.locale_all for uid 0, or a sys_language
+                        // row without a static_lang_isocode FK) — fall back to an
+                        // empty ISO code rather than fatal on null->getIsoCodeA2().
+                        $isoCodeLang = (isset($languages[$sysLanguageUid]) && is_object($languages[$sysLanguageUid]))
+                            ? $languages[$sysLanguageUid]->getIsoCodeA2()
+                            : '';
 
-                        if (trim($productRaw->appearance)) {
+                        if (trim((string)($productRaw->appearance ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.appearance', $isoCodeLang).': '.$productRaw->appearance.PHP_EOL;
                         }
-                        if (trim($productRaw->casNumber)) {
+                        if (trim((string)($productRaw->casNumber ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.cas_number', $isoCodeLang).': '.$productRaw->casNumber.PHP_EOL;
                         }
-                        if (trim($productRaw->egNumber)) {
+                        if (trim((string)($productRaw->egNumber ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.eg_number', $isoCodeLang).': '.$productRaw->egNumber.PHP_EOL;
                         }
-                        if (trim($productRaw->granulation)) {
+                        if (trim((string)($productRaw->granulation ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.granulation', $isoCodeLang).': '.$productRaw->granulation.PHP_EOL;
                         }
-                        if (trim($productRaw->bstbefo)) {
+                        if (trim((string)($productRaw->bstbefor ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.bestbefor', $isoCodeLang).': '.$productRaw->bstbefor.PHP_EOL;
                         }
-                        if (trim($productRaw->qualities)) {
+                        if (trim((string)($productRaw->qualities ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.qualities', $isoCodeLang).': '.$productRaw->qualities.PHP_EOL;
                         }
-                        if (trim($productRaw->spec)) {
+                        if (trim((string)($productRaw->spec ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.spec', $isoCodeLang).': '.$productRaw->spec.PHP_EOL;
                         }
-                        if (trim($productRaw->physicalState)) {
+                        if (trim((string)($productRaw->physicalState ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.physical_state', $isoCodeLang).': '.$productRaw->physicalState.PHP_EOL;
                         }
-                        if (trim($productRaw->chemicalProperties)) {
+                        if (trim((string)($productRaw->chemicalProperties ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.chemical_properties', $isoCodeLang).': '.$productRaw->chemicalProperties.PHP_EOL;
                         }
-                        if (trim($productRaw->molecularFormula)) {
+                        if (trim((string)($productRaw->molecularFormula ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.molecular_formula', $isoCodeLang).': '.$productRaw->molecularFormula.PHP_EOL;
                         }
-                        if (trim($productRaw->chemicalName)) {
+                        if (trim((string)($productRaw->chemicalName ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.chemical_name', $isoCodeLang).': '.$productRaw->chemicalName.PHP_EOL;
                         }
-                        if (trim($productRaw->registration)) {
+                        if (trim((string)($productRaw->registration ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.registration', $isoCodeLang).': '.$productRaw->registration.PHP_EOL;
                         }
-                        if (trim($productRaw->eNumber)) {
+                        if (trim((string)($productRaw->eNumber ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.e_number', $isoCodeLang).': '.$productRaw->eNumber.PHP_EOL;
                         }
-                        if (trim($productRaw->grassState)) {
+                        if (trim((string)($productRaw->grassState ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.grass_state', $isoCodeLang).': '.$productRaw->grassState.PHP_EOL;
                         }
-                        if (trim($productRaw->container)) {
+                        if (trim((string)($productRaw->container ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.container', $isoCodeLang).': '.$productRaw->container.PHP_EOL;
                         }
-                        if (trim($productRaw->inci)) {
+                        if (trim((string)($productRaw->inci ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.inci', $isoCodeLang).': '.$productRaw->inci.PHP_EOL;
                         }
-                        if (trim($productRaw->einecs)) {
+                        if (trim((string)($productRaw->einecs ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.einecs', $isoCodeLang).': '.$productRaw->einecs.PHP_EOL;
                         }
-                        if (trim($productRaw->meltingPoint)) {
+                        if (trim((string)($productRaw->meltingPoint ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.melting_point', $isoCodeLang).': '.$productRaw->meltingPoint.PHP_EOL;
                         }
-                        if (trim($productRaw->durability)) {
+                        if (trim((string)($productRaw->durability ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.durability', $isoCodeLang).': '.$productRaw->durability.PHP_EOL;
                         }
-                        if (trim($productRaw->storage)) {
+                        if (trim((string)($productRaw->storage ?? ''))) {
                             $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.qualities', $isoCodeLang).': '.$productRaw->storage.PHP_EOL;
                         }
-                        if ($productRaw->originCountry) {
-                            $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.origin_country', $isoCodeLang).': '.$productRaw->originCountry->nameLocalized;
+                        if (!empty($productRaw->originCountry)) {
+                            $abstract .= $this->languageUtility->translate('tx_ulrichproducts_domain_model_product.origin_country', $isoCodeLang).': '.($productRaw->originCountry->nameLocalized ?? '');
                         }
 
                         // Index-Modify-Hook
                         $this->modifyIndexHook($this->getTypeKey(), $result, $title, $content, $abstract);
+
+                        // Products with no title cannot be indexed — the index
+                        // table has a NOT NULL constraint on `title`. Skip.
+                        if (trim(strip_tags((string)$title)) === '') {
+                            return;
+                        }
 
                         // Make Index Object
                         $tempIndex = Index::getInstance();
@@ -245,7 +259,28 @@ class SearchIndexer extends BaseIndexer
                         $tempIndex->setContent(preg_replace('!\s+!', ' ', strip_tags($content)));
                         $tempIndex->setAbstract(preg_replace('!\s+!', ' ', strip_tags($abstract)));
                         $tempIndex->setTarget($indexer->getTarget());
-                        $tempIndex->setParams('&tx_ulrichproducts_pi[category]='.current($productRaw->categories)->localizedUid.'&tx_ulrichproducts_pi[product]='.$uid);
+                        // The API renders categories via Extbase JsonView's
+                        // _descendAll on an ObjectStorage — the JSON payload
+                        // is an *object* keyed by ObjectStorage hashes, not a
+                        // plain array. is_array() alone missed that shape and
+                        // left every product's params without a category, so
+                        // the route generator refused to build the URL
+                        // (category segment requires .+).
+                        $categoriesRaw = $productRaw->categories ?? null;
+                        if (is_object($categoriesRaw)) {
+                            $categoriesRaw = get_object_vars($categoriesRaw);
+                        }
+                        $firstCategory = is_array($categoriesRaw) && $categoriesRaw !== [] ? reset($categoriesRaw) : null;
+                        $categoryUid = is_object($firstCategory) ? ($firstCategory->localizedUid ?? '') : (is_array($firstCategory) ? ($firstCategory['localizedUid'] ?? '') : '');
+
+                        // Products without a resolvable category can't render
+                        // a valid detail URL — skip them rather than persist a
+                        // broken row that would blow up at link-build time.
+                        if ($categoryUid === '' || (int)$categoryUid <= 0) {
+                            return;
+                        }
+
+                        $tempIndex->setParams('&tx_ulrichproducts_pi[category]='.$categoryUid.'&tx_ulrichproducts_pi[product]='.$uid.'&tx_ulrichproducts_pi[action]=show&tx_ulrichproducts_pi[controller]=Product');
                         $tempIndex->setFegroup('0');
                         $tempIndex->setSysLanguageUid($sysLanguageUid);
 
